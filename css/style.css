@@ -4,4 +4,13 @@
 :root {
     --color-principal: #000;
     --color-secundario: #FFF;
+    
+}
+
+.bg-principal {
+    background-color: var(--color-principal);
+}
+
+.bg-secundario {
+    background-color: var(--color-secundario);
 }
