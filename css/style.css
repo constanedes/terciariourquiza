@@ -1,10 +1,10 @@
-
 /* --- Colores ---  */
 
 :root {
-    --color-principal: #000;
-    --color-secundario: #FFF;
-    
+    --color-principal: rgb(98, 98, 98);
+    --color-iti: rgb(255, 145, 0);
+    --color-ds: rgb(62, 219, 23);
+    --color-af: rgb(13, 54, 236);
 }
 
 .bg-principal {
@@ -13,4 +13,21 @@
 
 .bg-secundario {
     background-color: var(--color-secundario);
+}
+
+a img {
+    border-radius: 60%;
+}
+
+#iniciar-sesion2 {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #iniciar-sesion {
+        display: none;
+    }
+    #iniciar-sesion2 {
+        display: block;
+    }
 }

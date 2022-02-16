@@ -4,18 +4,17 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="../index.php">
-                    <img src="../img/DS.jpg" alt="Escuela Urquiza" width="200" height="50">
+                    <img src="../img/logo.jpg" alt="Escuela Urquiza" width="60" height="60">
                 </a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="menuNavegacion" class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-3">
-                        <li class="nav-item ms-3"><a class="nav-link" href="#">Inicio</a></li>
-                        <li class="nav-item ms-3"><a class="nav-link" href="#">Sobre nosotros</a></li>
+
+                        <li class="nav-item ms-3"><a class="nav-link" href="../index.php">Inicio</a></li>
+                        <li class="nav-item ms-3"><a class="nav-link" href="../nosotros.php">Sobre nosotros</a></li>
                         <li class="nav-item ms-3 "><a class="nav-link" href="#">Tramites</a></li>
-
-
 
                         <li class="nav-item dropdown ms-3">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -28,15 +27,12 @@
                                         Información</a></li>
                                 <li><a class="dropdown-item" href="#">Desarrollo de Software</a></li>
                             </ul>
+                            <a id="iniciar-sesion2" class="nav-link text-nowrap" href="#">Iniciar Sesión</a>
                         </li>
                     </ul>
-
+                    <!-- <div class="dropdown-divider"></div> -->
                 </div>
-                <!--  <ul class="navbar-nav ms-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-nowrap" href="#">Iniciar Sesión</a>
-                        </li>
-                </ul> -->
+                <button id="iniciar-sesion" class="nav-link text-nowrap" href="#">Iniciar Sesión</button>
             </div>
         </nav>
     </div>
