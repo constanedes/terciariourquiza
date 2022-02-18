@@ -3,6 +3,6 @@ include("includes/head.php");
 include("includes/nav.php"); 
 ?>
 
-<h1>Prueba nosotros</h1>
+<h1>Acerca de nosotros</h1>
 
 

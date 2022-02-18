@@ -1,8 +1,7 @@
 <header>
     <div>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-secondary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-secondary fixed-top">
             <div class="container-fluid">
-
                 <a class="navbar-brand" href="../index.php">
                     <img src="../img/logo.jpg" alt="Escuela Urquiza" width="60" height="60">
                 </a>
@@ -21,18 +20,17 @@
                                 Nuestras carreras
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Análisis Funcional de Sistemas Informáticos</a>
+                                <li><a class="dropdown-item" href="../analisis-funcional.php">Análisis Funcional de Sistemas Informáticos</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Infraestructura de Tecnología de la
+                                <li><a class="dropdown-item" href="../infraestructura-ti.php">Infraestructura de Tecnología de la
                                         Información</a></li>
-                                <li><a class="dropdown-item" href="#">Desarrollo de Software</a></li>
+                                <li><a class="dropdown-item" href="../desarrollo-software.php">Desarrollo de Software</a></li>
                             </ul>
                             <a id="iniciar-sesion2" class="nav-link text-nowrap" href="#">Iniciar Sesión</a>
                         </li>
                     </ul>
-                    <!-- <div class="dropdown-divider"></div> -->
                 </div>
-                <button id="iniciar-sesion" class="nav-link text-nowrap" href="#">Iniciar Sesión</button>
+                <button id="iniciar-sesion" class="nav-link text-nowrap btn btn-primary text-light" href="#">Iniciar Sesión</button>
             </div>
         </nav>
     </div>
