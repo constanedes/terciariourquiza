@@ -1,15 +1,21 @@
 <?php
 include('includes/head.php');
 include('includes/nav.php');
+
+require('db/db.php');
+$tabla = 'SELECT `id`, `unidad_curricular`, `regimen`, `horas`, `anio` FROM `desarrrollo_software` ORDER BY `regimen` DESC, `horas` ASC';
+$consulta = mysqli_query($conn,$tabla);
+
 ?>
+
 <p>
-  El Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que
+  Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que
   tienen por objeto producir artefactos de software (programas, módulos, objetos).
   Estos artefactos suelen integrarse en aplicaciones o subsistemas que interactúan entre sí, con otras aplicaciones ya
   existentes desarrolladas con la misma o distinta tecnología, con el sistema operativo
   del computador u otro software de base (motor de base de datos, navegador, monitor de comunicaciones) configurando
   distintas capas de software que pueden estar distribuidas en diversas máquinas situadas
-  en la misma o distintas ubicaciones. </p>
+  en la misma o distintas ubicaciones. </p>El
 
 <ul>Las funciones del Técnico Superior en Desarrollo de Software son:
   <li>Modelizar artefactos de software a partir de especificaciones, refinándolas en caso necesario,
@@ -36,7 +42,6 @@ include('includes/nav.php');
     carácter cooperativo, con capacidad para negociar, argumentar y articular propuestas, necesidades y expectativas.
   </li>
   <li>Generar propuestas innovadoras y/o emprendimientos productivos propios del ámbito del desarrollo de software.</li>
-
 </ul>
 
 <br><br><br><br><br>
@@ -47,169 +52,50 @@ include('includes/nav.php');
       <th colspan="5">1°AÑO</th>
     </tr>
   </thead>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Unidades Curriculares</th>
-      <th>Régimen</th>
-      <th>Horas</th>
-      <th>Correlativas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1.1.1</th>
-      <td>Comunicación</td>
-      <td>Cuatr. 1</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.2.1</th>
-      <td>Unidad de Definición Institucional I</td>
-      <td>Cuatr.2</td>
-      <td>3</td>
-      <td>1.1.1</td>
-    </tr>
-    <tr>
-      <th>1.0.1</th>
-      <td>Matemática</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.2</th>
-      <td>Inglés Técnico I</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.3</th>
-      <td>Administración</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.4</th>
-      <td>Tecnología de la Información</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.5</th>
-      <td>Lógica y Estructura de Datos</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.6</th>
-      <td>Ingeniería de Software I</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>1.0.7</th>
-      <td>Sistemas Operativos</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-  </tbody>
+  <?php echo("<thead class='table-dark'>
+            <tr>");
+    // encabezado
+    for($i = 0;$i < mysqli_num_fields($consulta); $i++):
+    $infoCampo = mysqli_fetch_field_direct($consulta, $i);
+    echo("<th> $infoCampo->name </th>");
+    endfor;
+    echo ("</tr>
+        </thead>");
+    ?>
+  <?php
+    // filas de datos
+    echo "<tbody>";
+    while($fila = mysqli_fetch_array($consulta)):  
+        echo "<tr>";
+        for($j = 0; $j < mysqli_num_fields($consulta); $j++){
+      
+          /* REGIMEN DE LAS DISTINTAS MATERIAS */
+          if($fila[$j] <= 0){
+            if($fila[$j] == 0) {
+              
+              echo "<td> Cuatr. 1 </td>"; 
+            }
+            elseif($fila[$j] == -1) {
+              echo "<td> Cuatr. 2 </td>"; 
+            }
+            else {
+              echo "<td> Anual </td>";
+            }
+            continue;
+          }
+          echo "<td>" . $fila[$j] . "</td>";  
+        }
+        echo ('</tr>');
+    endwhile;
+    echo "</tbody>
+    <div> </div>"
+    ?>
 </table>
+
 
 
 <br><br><br><br><br>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th colspan="5">2°AÑO</th>
-    </tr>
-  </thead>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Unidades Curriculares</th>
-      <th>Régimen</th>
-      <th>Horas</th>
-      <th>Correlativas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2.1.1</th>
-      <td>Problemáticas Socio Contemporáneas</td>
-      <td>Cuatr. 1</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.2.1</th>
-      <td>Unidad de Definición Institucional II</td>
-      <td>Cuatr.2</td>
-      <td>3</td>
-      <td>2.1.1</td>
-    </tr>
-    <tr>
-      <th>2.0.1</th>
-      <td>Inglés Técnico II</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.2</th>
-      <td>Innovación y Desarrollo Emprendedor</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.3</th>
-      <td>Estadística</td>
-      <td>Anual</td>
-      <td>3</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.4</th>
-      <td>Programación I</td>
-      <td>Anual</td>
-      <td>6</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.5</th>
-      <td>Ingenieria de Software II</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.6</th>
-      <td>Bases de Datos I</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>2.0.7</th>
-      <td>Practica Profesionalizante I</td>
-      <td>Anual</td>
-      <td>4</td>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<br><br><br><br><br>
 
 <table class="table table-bordered">
   <thead>
