@@ -19,6 +19,7 @@
 
 body {
     margin-top: 100px;
+    background-color: #666;
 }
 
 tr, th, td {
@@ -31,8 +32,21 @@ nav a img {
     border-radius: 60%;
 }
 
+#carreras{
+    background-color: #eee;
+}
+
 #novedades {
-    background-color: pink;
+    background-color: #eee;
+    padding: 15px;
+}
+
+#novedades h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    padding: 20px;
 }
 
 .espacio {
@@ -42,6 +56,10 @@ nav a img {
 section {
     padding: 50px 25px;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+#novedades section article{
+    padding: 20px;
 }
 
 
@@ -60,3 +78,13 @@ section {
     }
 }
 
+
+
+
+/* --------- FOOTER --------- */
+/* MAPA FOOTER */
+#map{
+    height: 180px;
+
+    width: 100%;
+}
