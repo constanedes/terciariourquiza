@@ -26,11 +26,11 @@
                                         Información</a></li>
                                 <li><a class="dropdown-item" href="../desarrollo-software.php">Desarrollo de Software</a></li>
                             </ul>
-                            <a id="iniciar-sesion2" class="nav-link text-nowrap" href="#">Iniciar Sesión</a>
+                            <a id="iniciar-sesion2" class="nav-link text-nowrap" href="../login.php">Iniciar Sesión</a>
                         </li>
                     </ul>
                 </div>
-                <button id="iniciar-sesion" class="nav-link text-nowrap btn btn-primary text-light" href="#">Iniciar Sesión</button>
+                <a href="../login.php"><button id="iniciar-sesion" class="nav-link text-nowrap btn btn-primary text-light">Iniciar Sesión</button></a>
             </div>
         </nav>
     </div>
