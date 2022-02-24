@@ -1,0 +1,97 @@
+/* --- Fuente ---  */
+/*@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500&display=swap');
+*/
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* --- Colores ---  */
+:root {
+    --color-principal: rgb(98, 98, 98);
+    --color-iti: rgb(255, 145, 0);
+    --color-ds: rgb(62, 219, 23);
+    --color-af: rgb(13, 54, 236);
+    --color-iti-sec: rgb(255, 145, 0);
+    --color-ds-sec: rgb(62, 219, 23);
+    --color-af-sec: rgb(13, 54, 236);
+}
+
+
+body {
+    margin-top: 100px;
+    background-color: #666;
+}
+
+tr,
+th,
+td {
+    text-align: center;
+}
+
+
+/* Borde logo nav */
+nav a img {
+    border-radius: 60%;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+#carreras {
+    background-color: #eee;
+}
+
+#carreras a {
+    text-decoration: none;
+}
+
+#novedades {
+    background-color: #eee;
+    padding: 25px;
+}
+
+#novedades h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    padding: 20px;
+}
+
+.espacio {
+    margin-top: 50px;
+}
+
+section {
+    padding: 50px 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#novedades section article {
+    padding: 20px;
+}
+
+
+#iniciar-sesion2 {
+    display: none;
+}
+
+/* --- Media queries ---  */
+@media (max-width: 768px) {
+    #iniciar-sesion {
+        display: none;
+    }
+
+    #iniciar-sesion2 {
+        display: block;
+    }
+}
+
+/* --------- FOOTER --------- */
+/* MAPA FOOTER */
+#map {
+    height: 180px;
+
+    width: 100%;
+}
