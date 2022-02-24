@@ -1,5 +1,7 @@
+@include('modals.login')
 @section('nav')
     <header>
+        @yield('login')
         <div>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-secondary fixed-top">
                 <div class="container-fluid">
@@ -31,9 +33,12 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="/login"><button id="iniciar-sesion" class="nav-link text-nowrap btn btn-primary text-light">Iniciar Sesión</button></a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Iniciar Sesión
+                    </button>
                 </div>
             </nav>
         </div>
+        
     </header>
 @stop

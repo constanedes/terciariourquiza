@@ -34,7 +34,7 @@
                             <p class="text-center mt-5">No tienes una cuenta?
                                 <span class="text-primary"><a href="registro.php">Registrarse</a></span>
                             </p>
-                            <p class="text-center text-primary">Olvidadaste tu contraseña?</p>
+                            <p class="text-center text-primary">Olvidaste tu contraseña?</p>
                         </div>
                     </form>
                 </div>
