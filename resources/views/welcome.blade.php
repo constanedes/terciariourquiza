@@ -1,48 +1,46 @@
 @extends('layouts.main')
 @section('content')
-    <main>
-        <div class="container espacio" id="carreras">
-            <div class="row bg-secondary text-white text-center rounded-top">
-                <h1>Nuestras carreras</h1>
-            </div>
-            <div class="row justify-content-evenly text-center">
-                <div class="col"></div>
-                <div class="col">
-                    <a href="/analisis-funcional.php">
-                        <div class="card" style="width: 14rem;">
-                            <img src="{{ asset('img/AF2.svg') }}" class="card-img-top" alt="Analista Funcional">
-                            <div class="card-body ">
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi,
-                                    laudantium ipsa harum modi suscipit veritatis</p>
-                            </div>
-                        </div>
-                    </a>
+    <div class="row bg-secondary text-white text-center rounded-top" style="padding-top: 60px;">
+        <h1>Nuestras carreras</h1>
+    </div>
+    <div class="row justify-content-evenly text-center">
+        <div class="col"></div>
+        <div class="col">
+            <a href="/analisis-funcional.php">
+                <div class="card" style="width: 14rem;">
+                    <img src="{{ asset('img/AF2.svg') }}" class="card-img-top" alt="Analista Funcional">
+                    <div class="card-body ">
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi,
+                            laudantium ipsa harum modi suscipit veritatis</p>
+                    </div>
                 </div>
-                <div class="col justify-content-center">
-                    <a href="/infraestructura-ti.php">
-                        <div class="card" style="width: 14rem;">
-                            <img src="{{ asset('img/ITI2.svg') }}" class="card-img-top" alt="Infraestructura TI">
-                            <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-                                    similique obcaecati nihil totam accusantium eos</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col justify-content-center">
-                    <a href="/desarrollo-software.php">
-                        <div class="card" style="width: 14rem;">
-                            <img src="{{ asset('img/DS2.svg') }}" class="card-img-top" alt="Desarrollo de software">
-                            <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae,
-                                    ducimus minus ipsam dicta, omnis accusamus</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col"></div>
-            </div>
+            </a>
         </div>
+        <div class="col justify-content-center">
+            <a href="/infraestructura-ti.php">
+                <div class="card" style="width: 14rem;">
+                    <img src="{{ asset('img/ITI2.svg') }}" class="card-img-top" alt="Infraestructura TI">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+                            similique obcaecati nihil totam accusantium eos</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col justify-content-center">
+            <a href="/desarrollo-software.php">
+                <div class="card" style="width: 14rem;">
+                    <img src="{{ asset('img/DS2.svg') }}" class="card-img-top" alt="Desarrollo de software">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae,
+                            ducimus minus ipsam dicta, omnis accusamus</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col"></div>
+        </div>
+    </div>
         <div class="container espacio rounded p50" id="novedades">
             <h2>Novedades</h2>
             <section id="finales">
@@ -91,5 +89,5 @@
                 </ul>
             </section>
         </div>
-    </main>
+    </div>
 @stop

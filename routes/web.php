@@ -19,4 +19,7 @@ Route::get('/', function () {
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
+Route::get('/registro', function () {
+    return view('pages.registro');
+});
 
