@@ -2,8 +2,6 @@
 <?php include("includes/nav.php") ?>
 
 
-
-
 <body class="body__login">
     <div class="container-fluid vh-100">
         <div class="">
@@ -42,6 +40,7 @@
         </div>
     </div>
 
-<?php include('includes/footer.php')?>
+    <?php include('includes/footer.php')?>
+
 </body>
 </html>

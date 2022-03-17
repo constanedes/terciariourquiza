@@ -1,12 +1,33 @@
 <?php
-
 require("db_data.php");
 
-$conn = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE, PORT);
+function abrirConexion()
+{
+    // global $conn;
+    $conn = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE, PORT);
+    if (!$conn) {
+        die('Connect Error (' . mysqli_connect_errno() . ') '
+            . mysqli_connect_error());
+    }
+}
 
-if ($conn->connect_error) {
-    die('Connect Error (' . $conn->connect_errno . ') '
-        . $conn->connect_error);
+function cerrar_conexion($conn)
+{
+    if (isset($conn)) {
+        mysqli_close($conn);
+        unset($conn);
+    }
+}
+
+function verificar_consulta($ultimaConsulta, $db)
+{
+    mysqli_query($db, $ultimaConsulta);
+    if(!$ultimaConsulta)
+    {
+        $salida = "No se ha podido realizar la consulta: " . mysqli_error($db) . "<br>";
+        $salida.= "Ultima consulta SQL: ". $ultimaConsulta;
+        die($salida);
+    }
 }
 
 ?>
