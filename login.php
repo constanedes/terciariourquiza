@@ -14,11 +14,11 @@
                         <div class="p-4">
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Usuario" required>
+                                <input id="userLogin" type="text" class="form-control" value="" placeholder="Usuario" required onkeyup="this.value=Numeros(this.value)" >
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
-                                <input type="password" class="form-control" placeholder="Contraseña" required>
+                                <input id="passLogin" type="password" class="form-control" placeholder="Contraseña" required >
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -30,7 +30,7 @@
                                 Ingresar
                             </button>
                             <p class="text-center mt-5">No tienes una cuenta?
-                                <span class="text-primary"><a href="registro.php">Registrarse</a></span>
+                                <span class="text-primary"><a href="signup.php">Registrarse</a></span>
                             </p>
                             <p class="text-center text-primary">Olvidadaste tu contraseña?</p>
                         </div>
@@ -39,8 +39,6 @@
             </div>
         </div>
     </div>
-
-    <?php include('includes/footer.php')?>
-
+    <?php include('includes/footer.php') ?> 
 </body>
 </html>
