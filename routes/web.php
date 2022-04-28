@@ -19,4 +19,8 @@ Route::get('/', function () {
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
-
+Route::get('/desarrollo-software', function () {
+    return view('pages.ds');
+});
+Route::view('/analisis-funcional','pages.af');
+Route::view('/infraestructura-ti', 'pages.iti');

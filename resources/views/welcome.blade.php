@@ -8,8 +8,8 @@
             <div class="row justify-content-evenly text-center">
                 <div class="col"></div>
                 <div class="col">
-                    <a href="/analisis-funcional.php">
-                        <div class="card" style="width: 14rem;">
+                    <a href="/analisis-funcional">
+                        <div class="card h-100" style="width: 14rem;">
                             <img src="{{ asset('img/AF2.svg') }}" class="card-img-top" alt="Analista Funcional">
                             <div class="card-body ">
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi,
@@ -19,9 +19,9 @@
                     </a>
                 </div>
                 <div class="col justify-content-center">
-                    <a href="/infraestructura-ti.php">
-                        <div class="card" style="width: 14rem;">
-                            <img src="{{ asset('img/ITI2.svg') }}" class="card-img-top" alt="Infraestructura TI">
+                    <a href="/infraestructura-ti">
+                        <div class="card h-100" style="width: 14rem;">
+                            <img src="{{ asset('img/ITI2.SVG') }}" class="card-img-top" alt="Infraestructura TI">
                             <div class="card-body">
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
                                     similique obcaecati nihil totam accusantium eos</p>
@@ -30,8 +30,8 @@
                     </a>
                 </div>
                 <div class="col justify-content-center">
-                    <a href="/desarrollo-software.php">
-                        <div class="card" style="width: 14rem;">
+                    <a href="/desarrollo-software">
+                        <div class="card h-100" style="width: 14rem;">
                             <img src="{{ asset('img/DS2.svg') }}" class="card-img-top" alt="Desarrollo de software">
                             <div class="card-body">
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae,

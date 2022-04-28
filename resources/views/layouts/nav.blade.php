@@ -23,11 +23,11 @@
                                     Nuestras carreras
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="carreras/analisis-funcional">Análisis Funcional de Sistemas Informáticos</a>
+                                    <li><a class="dropdown-item" href="/analisis-funcional">Análisis Funcional de Sistemas Informáticos</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="carreras/infraestructura-ti">Infraestructura de Tecnología de la
+                                    <li><a class="dropdown-item" href="/infraestructura-ti">Infraestructura de Tecnología de la
                                             Información</a></li>
-                                    <li><a class="dropdown-item" href="carreras/desarrollo-software">Desarrollo de Software</a></li>
+                                    <li><a class="dropdown-item" href="/desarrollo-software">Desarrollo de Software</a></li>
                                 </ul>
                                 <a id="iniciar-sesion2" class="nav-link text-nowrap" href="/login">Iniciar Sesión</a>
                             </li>
