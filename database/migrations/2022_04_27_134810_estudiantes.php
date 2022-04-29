@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('legajo');
             $table->string('anio');
-            $table->foreignId('persona_id')
+            $table->foreignId('user_id')
                 ->nullable()
                 ->references('id')
-                ->on('personas')
+                ->on('users')
                 ->onDelete('cascade');
             $table->timestamps();
         });

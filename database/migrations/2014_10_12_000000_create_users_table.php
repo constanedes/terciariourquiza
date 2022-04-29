@@ -15,11 +15,25 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('docpersonas');
+            $table->string('nombres');
+            $table->string('apellidos');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('nacionalidad');
+            $table->string('celular');
+            $table->string('calle');
+            $table->string('numero');
+            $table->string('piso');
+            $table->string('dpto');
+            $table->string('codpostal');
+            $table->foreignId('localidad_id')
+                ->nullable()
+                ->references('id')
+                ->on('localidades')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

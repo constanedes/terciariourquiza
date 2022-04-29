@@ -19,9 +19,23 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
         'password',
+        'nombres',
+        'apellidos',
+        'email',
+        'nacionalidad',
+        'celular',
+        'calle',
+        'numero',
+        'piso',
+        'dpto',
+        'codpostal'
+    ];
+
+    protected $guarded = [
+        'id',
+        'docpersonas',
+        'localidad_id'
     ];
 
     /**
@@ -42,4 +56,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function localidad()
+    {
+        return $this->belongsTo(Localidad::class);
+    }
+
+    public function estudiante()
+    {
+        return $this->hasOne(Estudiante::class);
+    }
 }
