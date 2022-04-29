@@ -5,7 +5,7 @@
     @yield('head')
     <body class="antialiased">
         @yield('nav')
-        @yield('content')
+        <div style="padding-top:60px">@yield('content')</div>
         <footer>
             <script src="{{ asset('js/app.js') }}" ></script>
         </footer>
