@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
-            $table->string('legajo');
             $table->string('anio');
             $table->foreignId('user_id')
                 ->nullable()

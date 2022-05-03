@@ -20,11 +20,15 @@ class DatabaseSeeder extends Seeder
         $super = Role::create(['name' => 'Super Admin']);
         $role = Role::create(['name' => 'bedelia']);
 
+        //Role::create(['name' => 'invitado']);
+        Role::create(['name' => 'estudiante']);
+
         Permission::create(['name' => 'editar alumnos']);
         
         $role->givePermissionTo('editar alumnos');
         
         $user = User::create([
+            'tipodoc' => 'DNI',
             'docpersonas' => 40404040,
             'email' => 'matiasgr3009@gmail.com',
             'password' => bcrypt('testing'),

@@ -29,7 +29,8 @@ class User extends Authenticatable
         'numero',
         'piso',
         'dpto',
-        'codpostal'
+        'codpostal',
+        'tipodoc'
     ];
 
     protected $guarded = [

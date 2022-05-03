@@ -19,9 +19,8 @@ class EstudianteFactory extends Factory
     public function definition()
     {
         return [
-            'anio' => $this->faker->randomNumber,
-            'legajo' => $this->faker->unique->randomNumber,
-            'persona_id' => rand(1,10)
+            'anio' => $this->faker->year(),
+            'user_id' => rand(1,10)
         ];
     }
 }

@@ -16,7 +16,6 @@ class Estudiante extends Model
     protected $guarded = [
         'id',
         'persona_id',
-        'legajo'
     ];
 
     public function persona()
