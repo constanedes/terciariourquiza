@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Escuela Urquiza</title>
     </head>
 @stop

@@ -1,5 +1,9 @@
 require('./bootstrap');
+import {$,jQuery} from 'jquery';
 
-$('#loginModal').on('shown.bs.modal', function () {
-    $('#loginInput').trigger('focus')
-})
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+window.$ = $;
+window.jQuery = jQuery;
+Alpine.start();

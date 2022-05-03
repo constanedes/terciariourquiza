@@ -16,11 +16,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/nosotros', function () {
+
+Route::get('/nosotros', function(){
     return view('pages.nosotros');
 });
-Route::get('/desarrollo-software', function () {
+
+Route::get('analisis-funcional', function(){
+    return view('pages.af');
+});
+
+Route::get('infraestructura-ti', function(){
+    return view('pages.iti');
+});
+
+Route::get('desarrollo-software', function(){
     return view('pages.ds');
 });
-Route::view('/analisis-funcional','pages.af');
-Route::view('/infraestructura-ti', 'pages.iti');
+
+Route::get('administracion', function(){
+    return view('pages.administracion.administracion');
+})->middleware(['auth'])->name('administracion');
+
+Route::controller('datatables', 'UserController', [
+    //'anyData'  => 'datatables.data',
+    'getUserData' => 'datatables',
+]);
+/*Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+*/
+require __DIR__.'/auth.php';

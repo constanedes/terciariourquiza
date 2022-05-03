@@ -31,11 +31,30 @@
                                 </ul>
                                 <a id="iniciar-sesion2" class="nav-link text-nowrap" href="/login">Iniciar Sesión</a>
                             </li>
+                            @hasanyrole('bedelia|Super Admin')
+                            <li class="nav-item ms-3"><a class="nav-link" href="../administracion">Administración</a></li>
+                            @endhasanyrole
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Iniciar Sesión
-                    </button>
+                    @hasanyrole('bedelia|Super Admin')
+                        <!--<a href="{{ route('logout') }}" >
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Cerrar Sesión
+                            </button>
+                        </a>-->
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <button type="button" class="btn btn-primary">
+                                Cerrar Sesión
+                            </button>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @else
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Iniciar Sesión
+                        </button>
+                    @endhasanyrole
                 </div>
             </nav>
         </div>
