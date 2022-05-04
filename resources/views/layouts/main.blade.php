@@ -7,7 +7,7 @@
         @yield('nav')
         <div style="padding-top:60px">@yield('content')</div>
         <footer>
-            <script src="{{ asset('js/app.js') }}" ></script>
+           
         </footer>
     </body>
 </html>

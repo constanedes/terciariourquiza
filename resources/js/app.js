@@ -1,9 +1,8 @@
 require('./bootstrap');
-import {$,jQuery} from 'jquery';
+import dt from 'datatables.net'
+//window.dt = require('./node_modules/datatables.net')();
+//window.$ = window.jQuery = $;
+window.$  = require( 'jquery' );
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-window.$ = $;
-window.jQuery = jQuery;
-Alpine.start();
+//window.dt = require( 'datatables.net' )();
+import 'jquery-ui/ui/widgets/datepicker.js';

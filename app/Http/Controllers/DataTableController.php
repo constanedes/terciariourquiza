@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Estudiante;
+use Yajra\Datatables\Datatables;
 
-class DataTableController extends Controller
+class DatatableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +18,9 @@ class DataTableController extends Controller
         return view('datatable.list');
     }
 
-    public function get()
+    public function getUsers()
     {
-        return datatables()->of(User::query())->make(true);
+        return datatables()->of(Estudiante::with('user','user.localidad')->get())->make(true);
     }
 
     /**

@@ -18,7 +18,7 @@ class Estudiante extends Model
         'persona_id',
     ];
 
-    public function persona()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

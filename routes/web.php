@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DatatableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,16 +34,17 @@ Route::get('desarrollo-software', function(){
     return view('pages.ds');
 });
 
-Route::get('administracion', function(){
-    return view('pages.administracion.administracion');
-})->middleware(['auth'])->name('administracion');
-
-Route::controller('datatables', 'UserController', [
-    //'anyData'  => 'datatables.data',
-    'getUserData' => 'datatables',
-]);
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-*/
+//RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
+Route::middleware(['auth'])->group(function (){
+    //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
+    Route::middleware(['role:bedelia|Super Admin'])->group(function (){
+        Route::get('administracion', function(){
+            return view('pages.administracion.administracion');
+        });
+        //RUTAS DE TABLAS
+        Route::controller(DatatableController::class)->group(function(){
+            Route::get('/datatables/users','getUsers');
+        });
+    });
+});
 require __DIR__.'/auth.php';
