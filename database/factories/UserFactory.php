@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'nombres' => $this->faker->firstName,
             'apellidos' => $this->faker->lastName,
             'tipodoc' => $this->faker->randomElement(['DNI','LC','LE','PASAPORTE']),
-            'docpersonas'=> $this->faker->randomNumber,
+            'documento'=> $this->faker->randomNumber,
             'nacionalidad' => $this->faker->country,
             'celular' => $this->faker->phoneNumber,
             'calle' => $this->faker->streetName,

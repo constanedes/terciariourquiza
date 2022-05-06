@@ -36,12 +36,7 @@
                             @endhasanyrole
                         </ul>
                     </div>
-                    @hasanyrole('bedelia|Super Admin')
-                        <!--<a href="{{ route('logout') }}" >
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Cerrar Sesión
-                            </button>
-                        </a>-->
+                    @hasanyrole('bedelia|Super Admin|estudiante')
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <button type="button" class="btn btn-primary">
                                 Cerrar Sesión

@@ -28,7 +28,12 @@
     },
     "dependencies": {
         "datatables.net": "^1.11.5",
+        "datatables.net-bs4": "^1.11.5",
+        "datatables.net-bs5": "^1.11.5",
+        "datatables.net-buttons-bs4": "^2.2.2",
+        "datatables.net-buttons-bs5": "^2.2.2",
         "datatables.net-dt": "^1.11.5",
-        "jquery": "^3.6.0"
+        "jquery": "^3.6.0",
+        "jquery-min": "^0.0.2"
     }
 }

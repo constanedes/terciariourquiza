@@ -14,8 +14,7 @@
         <!-- ICON  -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/app.js') }}" ></script>
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
  
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
