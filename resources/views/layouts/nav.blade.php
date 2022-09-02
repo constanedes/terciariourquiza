@@ -46,6 +46,9 @@
                             {{ csrf_field() }}
                         </form>
                     @else
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Preinscripcion
+                        </button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Iniciar Sesión
                         </button>
@@ -53,6 +56,5 @@
                 </div>
             </nav>
         </div>
-        
     </header>
 @stop
