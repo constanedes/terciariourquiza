@@ -46,19 +46,11 @@
                             {{ csrf_field() }}
                         </form>
                     @else
-<<<<<<< HEAD
                     <a href="/preinscripcion">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" >
                             Preinscripcion
                         </button>
                     </a>
-=======
-                        <a href="/carreras">
-	                        <button type="button" class="btn btn-danger" data-bs-toggle="modal">
-	                            Preinscripcion
-	                        </button>
-                        </a>
->>>>>>> 818a1582c7b3fe395af6c096201e0bf8108a9a27
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Iniciar Sesión
                         </button>
