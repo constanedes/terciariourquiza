@@ -16,7 +16,7 @@ use App\Http\Controllers\EstudiantesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/nosotros', function(){
