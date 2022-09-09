@@ -35,6 +35,10 @@ Route::get('desarrollo-software', function(){
     return view('pages.ds');
 });
 
+Route::get('preinscripcion', function(){
+    return view('pages.preinscripcion');
+});
+
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
 Route::middleware(['auth'])->group(function (){
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
