@@ -46,7 +46,7 @@
                             {{ csrf_field() }}
                         </form>
                     @else
-                        <a href="/preinscripcion">
+                        <a href="/carreras">
 	                        <button type="button" class="btn btn-danger" data-bs-toggle="modal">
 	                            Preinscripcion
 	                        </button>
