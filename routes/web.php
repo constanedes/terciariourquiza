@@ -39,13 +39,6 @@ Route::get('preinscripcion', function(){
     return view('pages.preinscripcion');
 });
 
-<<<<<<< HEAD
-=======
-Route::get('carreras', function(){
-    return view('pages.carreras');
-});
-
->>>>>>> 818a1582c7b3fe395af6c096201e0bf8108a9a27
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
 Route::middleware(['auth'])->group(function (){
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
