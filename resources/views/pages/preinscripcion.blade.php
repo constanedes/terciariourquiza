@@ -6,7 +6,7 @@
             <h5>Preinscripcion a Desarrollo de Software</h5>
         </div>
         <!-- Tipo de Doc -->
-        <div class="col-md-3">
+        <div class="col-md-5">
             <label for="validationCustom04" class="form-label"
                 >Tipo de documento</label
             >
@@ -19,7 +19,7 @@
             <div class="invalid-feedback">Please select a valid state.</div>
         </div>
         <!-- DNI -->
-        <div class="col-md-7">
+        <div class="col-md-5">
             <label for="validationCustom03" class="form-label">Documento</label>
             <input
                 type="number"
@@ -71,7 +71,7 @@
             </div>
         </div>
         <!-- Celular -->
-        <div class="col-md-5">
+        <div class="col-md-5 ">
             <label for="validationCustom03" class="form-label"
                 >Tel / Celular</label
             >
@@ -84,18 +84,9 @@
             <div class="invalid-feedback">Please provide a valid city.</div>
         </div>
         <!-- Fecha Nac -->
-        <div class="col-auto">
-            <div class="form-label">
-                <label for="”fechaNacimiento”" class="”form-label”"
-                    >Fecha de nacimiento</label
-                >
-                <input type="date" name=”fechaNacimiento” class=”form-control”
-                id=”fechaNacimiento” min="1970-01-01" max="2005-12-31"
-                placeholder=”dd/mm/aaaa”>
-            </div>
-
-            
-
+        <div class="form-label form-date ">
+            <label class="form-label form-date__label" for="input-date">Fecha Nacimiento</label>
+            <input class="form-control form-date__input" type="date" id="input-date" name="input-date-start"/>
         </div>
         <!-- Domicilio -->
         <div>
@@ -206,8 +197,8 @@
 
         <!-- Fecha turno -->
         <div class="form-date">
-            <label class="form-date__label" for="input-date">Turno:</label>
-            <input class="form-date__input" type="date" id="input-date" name="input-date-start" >
+            <label class="form-date__label" for="input-date">Turno</label>
+            <input class="form-date__input" type="date" id="input-date" name="input-date-start"/>
         </div>
         
 
