@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
+    <img src=" {{ asset('img/AF.svg') }}" alt="Analisis Sistemas">
     <section>
     <p>El Técnico Superior en Análisis Funcional de Sistemas Informáticos estará capacitado para comprender e interpretar
     fines, negocios o actividades de una organización, analizar los procesos que se llevan a cabo, averiguar las
