@@ -90,6 +90,44 @@ section {
     }
 }
 
+/* --------- Calendario ---------*/
+
+.form-date {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-date__label {
+    font-family: “Helvetica”, arial, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 8px;
+}
+
+.form-date__input[type=”date”] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    color: #1D1D1D;
+    font-family: “Helvetica”, arial, sans-serif;
+    font-size: 18px;
+    border: 1px solid #ECF0F1;
+    background: #ECF0F1;
+    padding: 4px;
+    display: inline-block;
+    visibility: visible;
+    width: 140px;
+}
+
+.form-date__input[type=”date”]:focus {
+    color: #495057;
+    background-color: #FFFFFF;
+    border-color: #80BDFF;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
 /* --------- FOOTER --------- */
 /* MAPA FOOTER */
 #map {

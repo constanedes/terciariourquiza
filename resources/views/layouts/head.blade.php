@@ -14,6 +14,10 @@
         <!-- ICON  -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
+        <!-- Libreria Calendario -->
+        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
+
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
  
 

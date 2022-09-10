@@ -93,6 +93,9 @@
                 id=”fechaNacimiento” min="1970-01-01" max="2005-12-31"
                 placeholder=”dd/mm/aaaa”>
             </div>
+
+            
+
         </div>
         <!-- Domicilio -->
         <div>
@@ -200,6 +203,14 @@
             </select>
             <div class="invalid-feedback">Please select a valid state.</div>
         </div>
+
+        <!-- Fecha turno -->
+        <div class="form-date">
+            <label class="form-date__label" for="input-date">Turno:</label>
+            <input class="form-date__input" type="date" id="input-date" name="input-date-start" >
+        </div>
+        
+
         <!-- Enviar -->
         <div class="container text-center">
           <div class="row align-items-end">          

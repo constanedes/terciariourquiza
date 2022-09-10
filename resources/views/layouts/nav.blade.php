@@ -6,7 +6,7 @@
             <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-secondary fixed-top">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="../index.php">
-                        <img src="{{ asset('img/logo.jpg') }}" alt="Escuela Urquiza" width="60" height="60">
+                        <img src="{{ asset('img/Logo_Terciario_Urquiza.png') }}" alt="Escuela Urquiza" width="60" height="60">
                     </a>
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
                         <span class="navbar-toggler-icon"></span>
