@@ -12,11 +12,3 @@ function iniciarMap() {
     map: map
   });
 }
-
-$(function() {
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{!! route('datatables.data') !!}',
-    });
-});

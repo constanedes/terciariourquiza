@@ -36,12 +36,7 @@
                             @endhasanyrole
                         </ul>
                     </div>
-                    @hasanyrole('bedelia|Super Admin')
-                        <!--<a href="{{ route('logout') }}" >
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Cerrar Sesión
-                            </button>
-                        </a>-->
+                    @hasanyrole('bedelia|Super Admin|estudiante')
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <button type="button" class="btn btn-primary">
                                 Cerrar Sesión
@@ -51,6 +46,9 @@
                             {{ csrf_field() }}
                         </form>
                     @else
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Preinscripcion
+                        </button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Iniciar Sesión
                         </button>
@@ -58,6 +56,5 @@
                 </div>
             </nav>
         </div>
-        
     </header>
 @stop

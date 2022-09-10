@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('tipodoc');
-            $table->string('docpersonas');
+            $table->string('documento')->unique();;
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('email')->unique();

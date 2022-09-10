@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DatatableController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EstudiantesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,13 +39,15 @@ Route::get('desarrollo-software', function(){
 Route::middleware(['auth'])->group(function (){
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
     Route::middleware(['role:bedelia|Super Admin'])->group(function (){
-        Route::get('administracion', function(){
+        /*Route::get('administracion', function(){
             return view('pages.administracion.administracion');
-        });
+        });*/
         //RUTAS DE TABLAS
-        Route::controller(DatatableController::class)->group(function(){
+        /*Route::controller(DatatableController::class)->group(function(){
             Route::get('/datatables/users','getUsers');
-        });
+        });*/
+        Route::get('/administracion/users', [UsersController::class, 'index'])->name('pages.administracion.users.index');
+        Route::get('/administracion/estudiantes', [EstudiantesController::class, 'index'])->name('pages.administracion.estudiantes.index');
     });
 });
 require __DIR__.'/auth.php';

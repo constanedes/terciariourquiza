@@ -29,11 +29,11 @@ class DatabaseSeeder extends Seeder
         
         $user = User::create([
             'tipodoc' => 'DNI',
-            'docpersonas' => 40404040,
-            'email' => 'matiasgr3009@gmail.com',
+            'documento' => 40404040,
+            'email' => 'prueba@gmail.com',
             'password' => bcrypt('testing'),
             'nombres' => 'Matias',
-            'apellidos' => 'Ramirez',
+            'apellidos' => 'Gomez',
             'nacionalidad' => 'Argentina',
             'celular' => '3413333333',
             'calle' => 'Montevideo',
@@ -43,5 +43,21 @@ class DatabaseSeeder extends Seeder
             'codpostal' => 2000
         ]);
         $user->assignRole('Super Admin');
+        $estudiante = User::create([
+            'tipodoc' => 'DNI',
+            'documento' => 50404040,
+            'email' => 'estudiante@gmail.com',
+            'password' => bcrypt('testing'),
+            'nombres' => 'Mauro',
+            'apellidos' => 'Fernandez',
+            'nacionalidad' => 'Argentina',
+            'celular' => '3413333332',
+            'calle' => 'Montevideo',
+            'numero' => 150,
+            'piso' => 2,
+            'dpto' => 'B',
+            'codpostal' => 2000
+        ]);
+        $estudiante->assignRole('estudiante');
     }
 }

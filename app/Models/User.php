@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     protected $guarded = [
         'id',
-        'docpersonas',
+        'documento',
         'localidad_id'
     ];
 
