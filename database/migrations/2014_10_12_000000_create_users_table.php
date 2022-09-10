@@ -15,26 +15,26 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('tipodoc');
-            $table->string('documento')->unique();;
-            $table->string('nombres');
-            $table->string('apellidos');
+            $table->string('typedoc');
+            $table->string('numdoc')->unique();
+            $table->string('name');
+            $table->string('surname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('nacionalidad');
-            $table->string('celular');
-            $table->string('calle');
-            $table->string('numero');
-            $table->string('piso');
-            $table->string('dpto');
-            $table->string('codpostal');
-            $table->foreignId('localidad_id')
-                ->nullable()
-                ->references('id')
-                ->on('localidades')
-                ->onDelete('cascade');
+            $table->string('nationality');
+            $table->string('phone');
+            $table->string('street');
+            $table->string('number');
+            $table->string('floor');
+            $table->string('department');
+            $table->string('postalcode');
+            $table->string('locality');
+            $table->string('birthday');
+            $table->string('title');
+            $table->integer('yearofgraduation');
+            $table->string('institution');
             $table->timestamps();
         });
     }
