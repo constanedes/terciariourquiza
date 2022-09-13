@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\EstudiantesController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ use App\Http\Controllers\EstudiantesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/nosotros', function(){
@@ -38,6 +38,8 @@ Route::get('desarrollo-software', function(){
 Route::get('preinscripcion', function(){
     return view('pages.preinscripcion');
 });
+
+Route::post('/preinscripcion/enviar',[StudentsController::class,'store']);
 
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
 Route::middleware(['auth'])->group(function (){

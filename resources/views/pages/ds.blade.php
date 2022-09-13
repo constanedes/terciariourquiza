@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div class="container">
+    <img src=" {{ asset('img/DS.svg') }}" alt="Desarrollo Software">
     <section>
         <p>
         Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que
@@ -43,5 +44,24 @@
         </li>
         </ul>
     </section>
-    </div>
+</div>
+
+<h4>Tecnologias utilizadas</h4>
+
+<!--
+    PHP
+    HTML 5
+    CSS 3
+    JAVASCRIPT
+    APACHE
+    MYSQL
+    PYTHON
+-->
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original-wordmark.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" />
 @stop
