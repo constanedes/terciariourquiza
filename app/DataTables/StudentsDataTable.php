@@ -43,7 +43,7 @@ class EstudiantesDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('estudiantes-table')
+                    ->setTableId('students-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -65,12 +65,12 @@ class EstudiantesDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('user.nombres')->title('Nombres'),
-            Column::make('user.apellidos')->title('Apellidos'),
-            Column::make('user.tipodoc')->title('Tipo documento'),
-            Column::make('user.documento')->title('Documento'),
+            Column::make('user.name')->title('Nombres'),
+            Column::make('user.surname')->title('Apellidos'),
+            Column::make('user.typedoc')->title('Tipo documento'),
+            Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
-            Column::make('anio')->title('Año'),
+            Column::make('year')->title('Año'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
