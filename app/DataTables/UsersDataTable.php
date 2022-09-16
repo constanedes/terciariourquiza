@@ -43,18 +43,18 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('users-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('users-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     /**
@@ -65,17 +65,17 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('nombres'),
-            Column::make('apellidos'),
-            Column::make('tipodoc')->title('Tipo documento'),
-            Column::make('documento')->title('Documento'),
+            Column::make('name'),
+            Column::make('surname'),
+            Column::make('typedoc')->title('Tipo documento'),
+            Column::make('numdoc')->title('Documento'),
             //Column::make('created_at'),
             //Column::make('updated_at'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 

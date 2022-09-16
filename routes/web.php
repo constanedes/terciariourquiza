@@ -19,32 +19,35 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/nosotros', function(){
+Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
 
-Route::get('analisis-funcional', function(){
+Route::get('analisis-funcional', function () {
     return view('pages.af');
 });
 
-Route::get('infraestructura-ti', function(){
+Route::get('infraestructura-ti', function () {
     return view('pages.iti');
 });
 
-Route::get('desarrollo-software', function(){
+Route::get('desarrollo-software', function () {
     return view('pages.ds');
 });
 
-Route::get('preinscripcion', function(){
+Route::get('preinscripcion', function () {
     return view('pages.preinscripcion');
 });
 
-Route::post('/preinscripcion/enviar',[StudentsController::class,'store']);
+Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
+Route::get('carreras', function () {
+    return view('pages.carreras');
+});
 
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth'])->group(function () {
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
-    Route::middleware(['role:bedelia|Super Admin'])->group(function (){
+    Route::middleware(['role:bedelia|Super Admin'])->group(function () {
         /*Route::get('administracion', function(){
             return view('pages.administracion.administracion');
         });*/
@@ -56,4 +59,4 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/administracion/estudiantes', [EstudiantesController::class, 'index'])->name('pages.administracion.estudiantes.index');
     });
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

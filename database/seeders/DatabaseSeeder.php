@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => 'student']);
 
         Permission::create(['name' => 'editar alumnos']);
-        
+
         $role->givePermissionTo('editar alumnos');
-        
+
         $user = User::create([
             'typedoc' => 'DNI',
             'numdoc' => 40404040,
@@ -40,7 +40,12 @@ class DatabaseSeeder extends Seeder
             'number' => 100,
             'floor' => 2,
             'department' => 'B',
-            'postalcode' => 2000
+            'postalcode' => 2000,
+            'locality' => 'Rosario',
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
         ]);
         $user->assignRole('Super Admin');
         $estudiante = User::create([
@@ -55,8 +60,13 @@ class DatabaseSeeder extends Seeder
             'street' => 'Montevideo',
             'number' => 150,
             'floor' => 2,
-            'deparment' => 'B',
-            'postalcode' => 2000
+            'department' => 'B',
+            'postalcode' => 2000,
+            'locality' => 'Rosario',
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
         ]);
         $estudiante->assignRole('student');
     }
