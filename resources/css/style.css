@@ -39,6 +39,8 @@ nav a {
     text-decoration: none;
 }
 
+
+
 #carreras {
     background-color: #eee;
 }
@@ -173,6 +175,14 @@ position: fixed;
 padding: 16px;
 border: 1px solid black;
 }
+
+/* Carousel */
+
+.carousel-item a {
+    text-decoration: none;    
+}
+
+
 /* --------- FOOTER --------- */
 /* MAPA FOOTER */
 #map {

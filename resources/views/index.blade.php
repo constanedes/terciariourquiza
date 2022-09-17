@@ -1,6 +1,79 @@
 @extends('layouts.main')
 @section('content')
 <main>
+    <!-- Esc. Superior Nº 49  "Cap. Gral. J.J. Urquiza" - Nivel Terciario -->
+    <div class="container text-center mt-5">
+        <div class="row align-items-center">
+            <div class="col-4">
+                <img src="{{ asset('img/Logo_Terciario_Urquiza_Full.png') }} "
+                    class="img-fluid"
+                    width="200rem"
+                    alt="logo urquiza"> 
+            </div>
+            <div class="col-8 text-start">
+                <h1> Escuela Superior Nº 49</h1>
+                <h2>Capitan General. Justo José de Urquiza</h2>
+                <h3>Nivel Terciario</h3>
+            </div>
+        </div>
+    </div>
+    <!-- carrusel -->
+    <div class="m-5">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- image DS -->
+              <div class="carousel-item active">
+                <a href="/desarrollo-software">
+                    <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-10" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tecnico Superior en Desarrollo Software</h5>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatibus beatae id, quasi possimus quae perspiciatis minus sit reprehenderit dolorem in reiciendis ab! Quia iure assumenda magnam repellendus natus ullam.</p>
+                    </div> 
+                </a>         
+              </div>
+                <!-- image AF -->
+              <div class="carousel-item">
+                <a href="/analisis-funcional">
+                    <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-10" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Analista Funcional de Sistemas Informaticos</h5>                                      
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolore voluptates velit maxime culpa. Autem recusandae dolore laboriosam reiciendis itaque expedita, iusto labore excepturi officiis explicabo fugiat repellat, temporibus ab.</p>
+                    </div>
+                </a>
+                
+              </div>
+                <!-- image ITI -->
+              <div class="carousel-item">
+                <a href="/infraestructura-ti">
+                    <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-10" alt="...">
+                    <div class="carousel-caption d-none d-md-block">                     
+                        <h5 class="text-color-dark">Soporte de Infraestructura de Tecnologia de la Informacion</h5>                 
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </a>
+                
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+
+    <!-- end carrusel -->
+
+
     <div class="container espacio" id="carreras">
         <div class="row bg-secondary text-white text-center rounded-top">
             <h1>Nuestras carreras</h1>
