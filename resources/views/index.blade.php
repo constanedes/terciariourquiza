@@ -26,7 +26,7 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <!-- image DS -->
+                <!-- image DS  -->
               <div class="carousel-item active">
                 <a href="/desarrollo-software">
                     <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-10" alt="...">
