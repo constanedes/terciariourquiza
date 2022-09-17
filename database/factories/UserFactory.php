@@ -24,16 +24,21 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'name' => $this->faker->firstName,
             'surname' => $this->faker->lastName,
-            'typedoc' => $this->faker->randomElement(['DNI','LC','LE','PASAPORTE']),
-            'numdoc'=> $this->faker->randomNumber,
+            'typedoc' => $this->faker->randomElement(['DNI', 'LC', 'LE', 'PASAPORTE']),
+            'numdoc' => $this->faker->unique->randomNumber,
             'nationality' => $this->faker->country,
             'phone' => $this->faker->phoneNumber,
             'street' => $this->faker->streetName,
             'number' => $this->faker->buildingNumber,
             'floor' => $this->faker->randomNumber,
             'department' => $this->faker->realText($maxNbChars = 200),
-            'portalcode' => $this->faker->postcode,
-            'locality' => rand(1,10)
+            'postalcode' => $this->faker->postcode,
+            'locality' => $this->faker->country,
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
+
         ];
     }
 
