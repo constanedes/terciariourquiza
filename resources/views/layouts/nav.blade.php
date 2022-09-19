@@ -48,7 +48,7 @@
                     @else
                         <a href="/carreras">
 	                        <button type="button" class="btn btn-danger" data-bs-toggle="modal">
-	                            Preinscripcion
+	                            Preinscripcion 2023
 	                        </button>
                         </a>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

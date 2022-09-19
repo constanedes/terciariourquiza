@@ -2,46 +2,45 @@
 @section('content')
 <main>
     <div class="container espacio" id="carreras">
-        <div class="row bg-secondary text-white text-center rounded-top">
-            <h1>Nuestras carreras</h1>
+
+    <div class="row bg-secondary text-white text-center rounded-top">
+            <h1>Nuestras Carreras</h1>
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Analista Funcional"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Insfraestructura en Tecnología de la Informacion"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Desarrollo de Software"></button>
         </div>
-        <div class="row justify-content-evenly text-center">
-            <div class="col"></div>
-            <div class="col">
-                <a href="/analisis-funcional">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/AF2.svg') }}" class="card-img-top" alt="Analista Funcional">
-                        <div class="card-body ">
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi,
-                                laudantium ipsa harum modi suscipit veritatis</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col justify-content-center">
-                <a href="/infraestructura-ti">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/ITI2.SVG') }}" class="card-img-top" alt="Infraestructura TI">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-                                similique obcaecati nihil totam accusantium eos</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col justify-content-center">
-                <a href="/desarrollo-software">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/DS2.svg') }}" class="card-img-top" alt="Desarrollo de software">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae,
-                                ducimus minus ipsam dicta, omnis accusamus</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col"></div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="/analisis-funcional">
+                <img src="{{ asset('img/AF2.svg') }}" class="d-block w-100" alt="...">
+            </a>
         </div>
+        <div class="carousel-item">
+            <a href="/infraestructura-ti">
+                <img src="{{ asset('img/ITI2.SVG') }}" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="/desarrollo-software">
+                <img src="{{ asset('img/DS2.svg') }}" class="d-block w-100" alt="...">
+            </a>
+        </div>
+    
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
     </div>
     <div class="container espacio rounded p50" id="novedades">
         <h2>Novedades</h2>
