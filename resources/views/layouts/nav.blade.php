@@ -1,5 +1,6 @@
 @include('modals.login')
 @section('nav')
+
     <header>
         @yield('login')
         <div>
@@ -50,8 +51,8 @@
                 </form>
                 @else
                 <a href="/carreras">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal">
-                        Preinscripcion
+                    <button type="button" class="btn btn-danger m-3" data-bs-toggle="modal">
+                        Inscripcion @php echo(date("Y")+1) @endphp
                     </button>
                 </a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

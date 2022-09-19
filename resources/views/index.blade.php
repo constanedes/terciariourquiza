@@ -29,7 +29,7 @@
                 <!-- image DS  -->
               <div class="carousel-item active">
                 <a href="/desarrollo-software">
-                    <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-10" alt="...">
+                    <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Tecnico Superior en Desarrollo Software</h5>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatibus beatae id, quasi possimus quae perspiciatis minus sit reprehenderit dolorem in reiciendis ab! Quia iure assumenda magnam repellendus natus ullam.</p>
@@ -39,7 +39,7 @@
                 <!-- image AF -->
               <div class="carousel-item">
                 <a href="/analisis-funcional">
-                    <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-10" alt="...">
+                    <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Analista Funcional de Sistemas Informaticos</h5>                                      
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolore voluptates velit maxime culpa. Autem recusandae dolore laboriosam reiciendis itaque expedita, iusto labore excepturi officiis explicabo fugiat repellat, temporibus ab.</p>
@@ -50,7 +50,7 @@
                 <!-- image ITI -->
               <div class="carousel-item">
                 <a href="/infraestructura-ti">
-                    <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-10" alt="...">
+                    <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">                     
                         <h5 class="text-color-dark">Soporte de Infraestructura de Tecnologia de la Informacion</h5>                 
                         <p>Some representative placeholder content for the third slide.</p>
