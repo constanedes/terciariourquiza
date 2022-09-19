@@ -27,6 +27,7 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "bootstrap-icons": "^1.9.1",
         "datatables.net": "^1.11.5",
         "datatables.net-bs4": "^1.11.5",
         "datatables.net-bs5": "^1.11.5",

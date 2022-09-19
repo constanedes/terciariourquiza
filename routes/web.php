@@ -39,10 +39,19 @@ Route::get('preinscripcion', function () {
     return view('pages.preinscripcion');
 });
 
+
+Route::post('/preinscripcion/enviar',[StudentsController::class,'store']);
+
+Route::get('carreras', function(){
+    return view('pages.carreras');
+});
+
+
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 Route::get('carreras', function () {
     return view('pages.carreras');
 });
+
 
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
 Route::middleware(['auth'])->group(function () {
