@@ -15,6 +15,29 @@
         y cumpliendo con los criterios de realización establecidos para las mismas, para lo cual coordinará o
         complementará
         su trabajo con especialistas de la misma organización o externos.</p>
+<<<<<<< HEAD
+=======
+
+    <ul>Las funciones del Técnico Superior en Infraestructura de Tecnología de la Información son:
+        <li>Administrar servidores, software de base, comunicaciones y demás subsistemas, maximizando el
+            aprovechamiento de los recursos y anticipando posibles problemas.</li>
+        <li>Administrar redes de comunicación de datos, cableadas o no, asegurando la accesibilidad de los
+            servicios y optimizando los recursos.</li>
+        <li>Atender incidentes que afecten al Soporte de Infraestructura de TI, diagnosticar las causas que los
+            originan y resolverlos o coordinar su solución.</li>
+        <li>Instalar o reemplazar componentes de Soporte de Infraestructura de TI o adaptarla a nuevas
+            condiciones de servicios externos minimizando riesgos para la seguridad y continuidad del servicio.</li>
+        <li>Migrar o convertir sistemas, aplicaciones o datos tratando de minimizar riesgos para la seguridad y
+            continuidad del servicio.</li>
+        <li>Entender en temas de contingencias y riesgos que puedan afectar al Soporte de Infraestructura de TI.
+        </li>
+        <li>Generar propuestas innovadoras y/o emprendimientos productivos propios del ámbito de la gestión de
+            Soporte de Infraestructura de TI.
+        </li>
+    </ul>
+
+</section>
+>>>>>>> 0e2cd4962c93853f021703056135fa5a83022c41
 
     <ul>Las funciones del Técnico Superior en Infraestructura de Tecnología de la Información son:
         <li>Administrar servidores, software de base, comunicaciones y demás subsistemas, maximizando el

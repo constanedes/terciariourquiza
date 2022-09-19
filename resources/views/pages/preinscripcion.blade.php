@@ -1,8 +1,12 @@
 @extends('layouts.main') @section('content')
 <div class="container">
     <div class="container-fluid mt-5 mb-5 p-5 border border-primary rounded">
+<<<<<<< HEAD
         <form class="row g-3 needs-validation m-3 " novalidate action="/preinscripcion/enviar" method="POST">
             @csrf
+=======
+        <form class="row g-3 needs-validation m-3 " novalidate>
+>>>>>>> 0e2cd4962c93853f021703056135fa5a83022c41
             <div class="col-md-10">
                 <h5>Preinscripcion a Desarrollo de Software</h5>
             </div>
@@ -40,8 +44,12 @@
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="validationCustomUsername"
                         aria-describedby="inputGroupPrepend" required />
+=======
+                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required />
+>>>>>>> 0e2cd4962c93853f021703056135fa5a83022c41
                     <div class="invalid-feedback">Nompre completo</div>
                 </div>
             </div>
@@ -55,8 +63,12 @@
             <div class="col-auto">
                 <div class="form-label">
                     <label for="”fechaNacimiento”" class="”form-label”">Fecha de nacimiento</label>
+<<<<<<< HEAD
                     <input type="date" name=”fechaNacimiento” class=”form-control” id=”fechaNacimiento” min="1970-01-01"
                         max="2005-12-31" placeholder=”dd/mm/aaaa”>
+=======
+                    <input type="date" name=”fechaNacimiento” class=”form-control” id=”fechaNacimiento” min="1970-01-01" max="2005-12-31" placeholder=”dd/mm/aaaa”>
+>>>>>>> 0e2cd4962c93853f021703056135fa5a83022c41
                 </div>
             </div>
             <!-- Domicilio -->
