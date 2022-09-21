@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
-<div class="container">
+    <div class="container">
+    <img src=" {{ asset('img/DS.svg') }}" alt="Desarrollo Software">
     <section>
         <p>
             Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que

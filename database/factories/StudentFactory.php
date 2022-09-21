@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class EstudianteFactory extends Factory
 {
-    protected $model = Estudiante::class;
+    protected $model = Students::class;
     /**
      * Define the model's default state.
      *
@@ -19,8 +19,8 @@ class EstudianteFactory extends Factory
     public function definition()
     {
         return [
-            'anio' => $this->faker->year(),
-            'user_id' => rand(1,10)
+            'year' => $this->faker->year(),
+            'user_id' => $this->faker->city
         ];
     }
 }

@@ -21,43 +21,53 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'bedelia']);
 
         //Role::create(['name' => 'invitado']);
-        Role::create(['name' => 'estudiante']);
+        Role::create(['name' => 'student']);
 
         Permission::create(['name' => 'editar alumnos']);
-        
+
         $role->givePermissionTo('editar alumnos');
-        
+
         $user = User::create([
-            'tipodoc' => 'DNI',
-            'documento' => 40404040,
+            'typedoc' => 'DNI',
+            'numdoc' => 40404040,
             'email' => 'prueba@gmail.com',
             'password' => bcrypt('testing'),
-            'nombres' => 'Matias',
-            'apellidos' => 'Gomez',
-            'nacionalidad' => 'Argentina',
-            'celular' => '3413333333',
-            'calle' => 'Montevideo',
-            'numero' => 100,
-            'piso' => 2,
-            'dpto' => 'B',
-            'codpostal' => 2000
+            'name' => 'Matias',
+            'surname' => 'Gomez',
+            'nationality' => 'Argentina',
+            'phone' => '3413333333',
+            'street' => 'Montevideo',
+            'number' => 100,
+            'floor' => 2,
+            'department' => 'B',
+            'postalcode' => 2000,
+            'locality' => 'Rosario',
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
         ]);
         $user->assignRole('Super Admin');
         $estudiante = User::create([
-            'tipodoc' => 'DNI',
-            'documento' => 50404040,
+            'typedoc' => 'DNI',
+            'numdoc' => 50404040,
             'email' => 'estudiante@gmail.com',
             'password' => bcrypt('testing'),
-            'nombres' => 'Mauro',
-            'apellidos' => 'Fernandez',
-            'nacionalidad' => 'Argentina',
-            'celular' => '3413333332',
-            'calle' => 'Montevideo',
-            'numero' => 150,
-            'piso' => 2,
-            'dpto' => 'B',
-            'codpostal' => 2000
+            'name' => 'Mauro',
+            'surname' => 'Fernandez',
+            'nationality' => 'Argentina',
+            'phone' => '3413333332',
+            'street' => 'Montevideo',
+            'number' => 150,
+            'floor' => 2,
+            'department' => 'B',
+            'postalcode' => 2000,
+            'locality' => 'Rosario',
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
         ]);
-        $estudiante->assignRole('estudiante');
+        $estudiante->assignRole('student');
     }
 }

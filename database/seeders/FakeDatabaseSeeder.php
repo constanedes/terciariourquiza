@@ -14,8 +14,7 @@ class FakeDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Localidad::factory(10)->create();
         \App\Models\User::factory(10)->create();
-        \App\Models\Estudiante::factory(10)->create();
+        //\App\Models\Student::factory(10)->create();
     }
 }

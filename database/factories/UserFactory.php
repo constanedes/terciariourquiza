@@ -22,18 +22,23 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'nombres' => $this->faker->firstName,
-            'apellidos' => $this->faker->lastName,
-            'tipodoc' => $this->faker->randomElement(['DNI','LC','LE','PASAPORTE']),
-            'documento'=> $this->faker->randomNumber,
-            'nacionalidad' => $this->faker->country,
-            'celular' => $this->faker->phoneNumber,
-            'calle' => $this->faker->streetName,
-            'numero' => $this->faker->buildingNumber,
-            'piso' => $this->faker->randomNumber,
-            'dpto' => $this->faker->realText($maxNbChars = 200),
-            'codpostal' => $this->faker->postcode,
-            'localidad_id' => rand(1,10)
+            'name' => $this->faker->firstName,
+            'surname' => $this->faker->lastName,
+            'typedoc' => $this->faker->randomElement(['DNI', 'LC', 'LE', 'PASAPORTE']),
+            'numdoc' => $this->faker->unique->randomNumber,
+            'nationality' => $this->faker->country,
+            'phone' => $this->faker->phoneNumber,
+            'street' => $this->faker->streetName,
+            'number' => $this->faker->buildingNumber,
+            'floor' => $this->faker->randomNumber,
+            'department' => $this->faker->realText($maxNbChars = 200),
+            'postalcode' => $this->faker->postcode,
+            'locality' => $this->faker->country,
+            'birthday' => '1997-09-30',
+            'title' => 'Titulo secundario',
+            'yearofgraduation' => '1997',
+            'institution' => 'Urquiza',
+
         ];
     }
 

@@ -1,13 +1,19 @@
 @extends('layouts.main')
 @section('content')
+<img src=" {{ asset('img/ITI.svg') }}" alt="Tecnico en ITI">
 <section>
-
-    <p>El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar, mantener,
-        actualizar, analizar inconvenientes y resolver problemas derivados de la operación de productos de tecnología de la
-        información que cumplen funciones de sistema operativo, administración de almacenamiento, comunicaciones y redes,
-        seguridad, bases de datos, y otros subsistemas, para garantizar la máxima disponibilidad del ambiente operativo de
-        las aplicaciones informáticas de las organizaciones desarrollando las funciones descriptas en el perfil profesional
-        y cumpliendo con los criterios de realización establecidos para las mismas, para lo cual coordinará o complementará
+    <p>El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar,
+        mantener,
+        actualizar, analizar inconvenientes y resolver problemas derivados de la operación de productos de
+        tecnología de la
+        información que cumplen funciones de sistema operativo, administración de almacenamiento, comunicaciones y
+        redes,
+        seguridad, bases de datos, y otros subsistemas, para garantizar la máxima disponibilidad del ambiente
+        operativo de
+        las aplicaciones informáticas de las organizaciones desarrollando las funciones descriptas en el perfil
+        profesional
+        y cumpliendo con los criterios de realización establecidos para las mismas, para lo cual coordinará o
+        complementará
         su trabajo con especialistas de la misma organización o externos.</p>
 
     <ul>Las funciones del Técnico Superior en Infraestructura de Tecnología de la Información son:
@@ -27,9 +33,8 @@
             Soporte de Infraestructura de TI.
         </li>
     </ul>
-
 </section>
-
+</div>
 <section>
     <!-- TABLA 1 AÑO -->
     <table class="table table-bordered">
@@ -204,80 +209,80 @@
 
 <section>
 
-    <!-- TABLA 3 AÑO -->
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th colspan="5">3°AÑO</th>
-            </tr>
-        </thead>
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Unidades Curriculares</th>
-                <th>Régimen</th>
-                <th>Horas</th>
-                <th>Correlativas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Ética y Responsabilidad Social</td>
-                <td>Cuatr. 1</td>
-                <td>3</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Derecho y Legislación Laboral</td>
-                <td>Cuatr. 2</td>
-                <td>3</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Administracion de Base de Datos</td>
-                <td>Anual</td>
-                <td>4</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Integridad y Migración de Satos</td>
-                <td>Anual</td>
-                <td>4</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Sistema Operativos</td>
-                <td>Anual</td>
-                <td>4</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Seguridad de los Sistemas</td>
-                <td>Anual</td>
-                <td>5</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>Administracion de Sistemas Operativos y Redes</td>
-                <td>Anual</td>
-                <td>4</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <th scope="row">8</th>
-                <td>Practica Profesionalizante 2</td>
-                <td>Anual</td>
-                <td>8</td>
-                <td>-</td>
-            </tr>
-        </tbody>
-    </table>
+<!-- TABLA 3 AÑO -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="5">3°AÑO</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Unidades Curriculares</th>
+            <th>Régimen</th>
+            <th>Horas</th>
+            <th>Correlativas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Ética y Responsabilidad Social</td>
+            <td>Cuatr. 1</td>
+            <td>3</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Derecho y Legislación Laboral</td>
+            <td>Cuatr. 2</td>
+            <td>3</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Administracion de Base de Datos</td>
+            <td>Anual</td>
+            <td>4</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Integridad y Migración de Satos</td>
+            <td>Anual</td>
+            <td>4</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Sistema Operativos</td>
+            <td>Anual</td>
+            <td>4</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Seguridad de los Sistemas</td>
+            <td>Anual</td>
+            <td>5</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>Administracion de Sistemas Operativos y Redes</td>
+            <td>Anual</td>
+            <td>4</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td>Practica Profesionalizante 2</td>
+            <td>Anual</td>
+            <td>8</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
 </section>
 @stop

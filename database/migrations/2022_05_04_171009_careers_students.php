@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('localidades', function (Blueprint $table) {
-            //$table->id('id_localidades');
-            $table->id();
-            $table->string('codlocalidad');
-            $table->string('localidad');
-            $table->timestamps();
+        Schema::create('careers_students', function (Blueprint $table) {
+            $table->foreignId('career_id')->constrained();
+            $table->foreignId('student_id')->constrained();
+            $table->primary(['career_id', 'student_id'],'careers_students');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('localidades');
+        Schema::dropIfExists('careers_students');
     }
 };
