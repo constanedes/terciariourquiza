@@ -36,13 +36,13 @@ Route::get('desarrollo-software', function () {
 });
 
 Route::get('preinscripcion', function () {
-    return view('pages.preinscripcion');
+    return view('pages.preinscripcion.index');
 });
 
 
-Route::post('/preinscripcion/enviar',[StudentsController::class,'store']);
+Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 
-Route::get('carreras', function(){
+Route::get('carreras', function () {
     return view('pages.carreras');
 });
 
@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/datatables/users','getUsers');
         });*/
         Route::get('/administracion/users', [UsersController::class, 'index'])->name('pages.administracion.users.index');
-        Route::get('/administracion/estudiantes', [EstudiantesController::class, 'index'])->name('pages.administracion.estudiantes.index');
+        Route::get('/administracion/estudiantes', [StudentsController::class, 'index'])->name('pages.administracion.estudiantes.index');
     });
 });
 require __DIR__ . '/auth.php';
