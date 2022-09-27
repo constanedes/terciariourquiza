@@ -14,7 +14,7 @@
         "@tailwindcss/forms": "^0.4.0",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
-        "axios": "^0.25",
+        "axios": "^0.25.0",
         "bootstrap": "^5.1.3",
         "jquery-ui": "^1.13.1",
         "laravel-mix": "^6.0.6",

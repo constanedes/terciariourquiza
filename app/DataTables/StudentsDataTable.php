@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Estudiante;
+use App\Models\Student;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class EstudiantesDataTable extends DataTable
+class StudentsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -27,10 +27,10 @@ class EstudiantesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Estudiante $model
+     * @param \App\Models\Student $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Estudiante $model)
+    public function query(Student $model)
     {
         return $model->with('user')->newQuery();
     }
@@ -43,18 +43,18 @@ class EstudiantesDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('students-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('students-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     /**
@@ -74,10 +74,10 @@ class EstudiantesDataTable extends DataTable
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')
         ];
     }
 
@@ -88,6 +88,6 @@ class EstudiantesDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Estudiantes_' . date('YmdHis');
+        return 'Students_' . date('YmdHis');
     }
 }
