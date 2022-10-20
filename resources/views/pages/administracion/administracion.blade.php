@@ -9,8 +9,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="hola" class="nav-link text-white">
-                    pep
+                <a href="/administracion/ingresantes" class="nav-link text-white">
+                    Ingresantes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/administracion/turnos" class="nav-link text-white">
+                    Turnos
                 </a>
             </li>
         </ul>

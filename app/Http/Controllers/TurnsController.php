@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class TurnsController extends Controller
 {
-    public function generateTurns()
+    public function generateTurns(Request $request)
     {
+        return $request;
         $begin = date_create('2022-09-10');
         $end = date_create('2022-09-20');
         $interval = date_interval_create_from_date_string('1 day');

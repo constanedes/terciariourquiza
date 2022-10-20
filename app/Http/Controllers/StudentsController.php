@@ -8,6 +8,7 @@ use DatePeriod;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
+use App\DataTables\EntrantsDataTable;
 use App\Models\Student;
 use App\Models\User;
 
@@ -18,9 +19,14 @@ class StudentsController extends Controller
         return $dataTable->render('pages.administracion.estudiantes.index');
     }
 
+    public function ingresantesIndex(EntrantsDataTable $dataTable)
+    {
+        return $dataTable->render('pages.administracion.ingresantes.index');
+    }
+
     public function store(Request $request)
     {
-        return $request;
+        //return $request;
         $validate = $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',
@@ -31,12 +37,11 @@ class StudentsController extends Controller
             'nationality' => 'required|string',
             'phone' => 'required',
             'address' => 'required'
-
         ]);
+
         if ($validate->fails()) {
             return back()->withErrors($validate->errors())->withInput();
         }
-
 
         DB::Transaction(function ($request) {
             $id = User::create([
@@ -57,8 +62,9 @@ class StudentsController extends Controller
                 'institution' => $request['institution']
             ])->id;
             Student::create([
+                'user_id' => $id,
                 'year' => $request->year,
-                'inscription' => $request->inscription,
+                'inscription' => $request->inscription
             ]);
         });
     }
