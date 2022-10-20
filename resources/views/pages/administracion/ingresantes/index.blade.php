@@ -1,0 +1,9 @@
+@include('pages.administracion.estudiantes.jscripts')
+@extends('pages.administracion.administracion')
+@section('page')
+{{$dataTable->table()}}
+@stop
+@push('scripts')
+{{$dataTable->scripts()}}
+@endpush
+@yield('jscripts')

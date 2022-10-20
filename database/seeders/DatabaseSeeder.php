@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $super = Role::create(['name' => 'Super Admin']);
         $role = Role::create(['name' => 'bedelia']);
 
-        //Role::create(['name' => 'invitado']);
         Role::create(['name' => 'student']);
 
         Permission::create(['name' => 'editar alumnos']);
@@ -36,10 +35,7 @@ class DatabaseSeeder extends Seeder
             'surname' => 'Gomez',
             'nationality' => 'Argentina',
             'phone' => '3413333333',
-            'street' => 'Montevideo',
-            'number' => 100,
-            'floor' => 2,
-            'department' => 'B',
+            'address' => 'Montevideo',
             'postalcode' => 2000,
             'locality' => 'Rosario',
             'birthday' => '1997-09-30',
@@ -57,10 +53,7 @@ class DatabaseSeeder extends Seeder
             'surname' => 'Fernandez',
             'nationality' => 'Argentina',
             'phone' => '3413333332',
-            'street' => 'Montevideo',
-            'number' => 150,
-            'floor' => 2,
-            'department' => 'B',
+            'address' => 'Montevideo',
             'postalcode' => 2000,
             'locality' => 'Rosario',
             'birthday' => '1997-09-30',

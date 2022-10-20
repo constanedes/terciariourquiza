@@ -21,8 +21,8 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->boolean('inscription')->default(false);
-            
+            $table->boolean('completePreinscription')->default(false);
+
             $table->timestamps();
         });
     }
