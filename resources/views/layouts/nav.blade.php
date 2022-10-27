@@ -17,7 +17,7 @@
 
                         <li class="nav-item ms-3"><a class="nav-link" href="../index.php">Inicio</a></li>
                         <li class="nav-item ms-3"><a class="nav-link" href="/nosotros">Sobre nosotros</a></li>
-                        <li class="nav-item ms-3 "><a class="nav-link" href="#">Tramites</a></li>
+                        <!-- <li class="nav-item ms-3 "><a class="nav-link" href="#">Tramites</a></li> -->
 
                         <li class="nav-item dropdown ms-3">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">

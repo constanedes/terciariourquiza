@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<main>
+<main class="bg-secondary">
     <!-- Esc. Superior Nº 49  "Cap. Gral. J.J. Urquiza" - Nivel Terciario -->
     <div class="container text-center mt-5">
         <div class="row align-items-center">
@@ -11,8 +11,8 @@
                     alt="logo urquiza"> 
             </div>
             <div class="col-8 text-start">
-                <h1> Escuela Superior Nº 49</h1>
-                <h2>Capitan General. Justo José de Urquiza</h2>
+                <h1>Escuela Superior Nº 49</h1>
+                <h2>Capitan General Justo José de Urquiza</h2>
                 <h3>Nivel Terciario</h3>
             </div>
         </div>
@@ -68,18 +68,60 @@
               <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
-    
-
+    </div> 
     <!-- end carrusel -->
 
-
-    <div class="container espacio" id="carreras">
-        <div class="row bg-secondary text-white text-center rounded-top">
+    <!-- cards -->
+    <div class="container mt-5 ">
+        <div class="row text-light text-center rounded">
             <h1>Nuestras carreras</h1>
         </div>
-        <div class="row justify-content-evenly text-center">
-            <div class="col"></div>
+        <div class="bg-secondary">
+            <!-- card ds -->
+            <div class="row border border-secondary rounded  bg-light mb-3 shadow">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/ds_card.png') }}" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
+                    </p>
+                    <button class="btn btn-secondary  mb-3 shadow">Más Informacion</button>
+                </div>
+            </div>
+            <!-- card iti -->
+            <div class="row border border-secondary rounded  bg-light mb-3 shadow">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/iti_card.png') }}" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
+                    </p>
+                    <button class="btn btn-secondary mb-3 shadow">Más Informacion</button>
+                </div>
+            </div>
+            <!-- card af -->
+            <div class="row border border-secondary rounded  bg-light mb-3 shadow">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/af_card.png') }}" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
+                    </p>
+                    <button class="btn btn-secondary mb-3 shadow">Más Informacion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end card -->
+    <div class="container espacio" id="carreras">
+        <div class="row bg-secondary text-white text-center rounded-top d-flex justify-content-around">
+            <h1>Nuestras carreras</h1>
+        </div>
+        <div class="row d-flex justify-content-around">
+            
             <div class="col">
                 <a href="/analisis-funcional">
                     <div class="card h-100" style="width: 14rem;">
@@ -116,7 +158,9 @@
             <div class="col"></div>
         </div>
     </div>
-    <div class="container espacio rounded p50" id="novedades">
+
+    <!-- NOVEDADES -->
+    <!-- <div class="container espacio rounded p50" id="novedades">
         <h2>Novedades</h2>
         <section id="finales">
             <h3>INSCRIPCIÓN AL 1º LLAMADO DE FINALES FEB/MAR 2022</h3>
@@ -163,6 +207,6 @@
                 <li><strong>11/04</strong>: Inicio de clases.</li>
             </ul>
         </section>
-    </div>
+    </div> -->
 </main>
 @stop
