@@ -19,23 +19,25 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'password',
-        'nombres',
-        'apellidos',
+        'typedoc',
+        'name',
+        'surname',
         'email',
-        'nacionalidad',
-        'celular',
-        'calle',
-        'numero',
-        'piso',
-        'dpto',
-        'codpostal',
-        'tipodoc'
+        'password',
+        'nationality',
+        'phone',
+        'address',
+        'postalcode',
+        'locality',
+        'birthday',
+        'title',
+        'yearofgraduation',
+        'institution'
     ];
 
     protected $guarded = [
         'id',
-        'documento',
+        'numdoc',
         'localidad_id'
     ];
 

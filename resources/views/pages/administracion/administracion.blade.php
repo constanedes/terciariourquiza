@@ -1,20 +1,21 @@
 @extends('layouts.main')
 @section('content')
-    <div class="row">
+<div class="row">
     <div class="col-2 bg-dark">
-        <ul class="nav nav-pills flex-column text-white">
+        <ul class="nav nav-pills flex-column text-white" style="padding-top: 30px;">
             <li class="nav-item">
                 <a href="/administracion/estudiantes" class="nav-link text-white">
                     Estudiantes
                 </a>
+            </li>
             <li class="nav-item">
-                <a href="hola" class="nav-link text-white">
-                    pep
+                <a href="/administracion/ingresantes" class="nav-link text-white">
+                    Ingresantes
                 </a>
             </li>
             <li class="nav-item">
-                <a href="hola" class="nav-link text-white">
-                    pep
+                <a href="/administracion/turnos" class="nav-link text-white">
+                    Turnos
                 </a>
             </li>
         </ul>

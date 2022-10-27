@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Estudiante;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class EstudianteFactory extends Factory
+class StudentFactory extends Factory
 {
-    protected $model = Students::class;
+    protected $model = Student::class;
     /**
      * Define the model's default state.
      *
@@ -20,7 +20,8 @@ class EstudianteFactory extends Factory
     {
         return [
             'year' => $this->faker->year(),
-            'user_id' => $this->faker->city
+            'user_id' => $this->faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+            'completePreinscription' => $this->faker->randomElement([true, false])
         ];
     }
 }

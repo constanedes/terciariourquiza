@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use DateTime;
 use DateInterval;
 use DatePeriod;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
+use App\DataTables\EntrantsDataTable;
 use App\Models\Student;
+use App\Models\User;
 
 class StudentsController extends Controller
 {
@@ -17,31 +19,58 @@ class StudentsController extends Controller
         return $dataTable->render('pages.administracion.estudiantes.index');
     }
 
+    public function ingresantesIndex(EntrantsDataTable $dataTable)
+    {
+        return $dataTable->render('pages.administracion.ingresantes.index');
+    }
+
     public function store(Request $request)
     {
-        $begin = date_create('2022-09-10');
-        $end = date_create('2022-09-20');
-        $interval = date_interval_create_from_date_string('1 day');
-        $period = new DatePeriod($begin, $interval, $end);
-        $resultado = [];
-        foreach ($period as $dt) {
-            array_push($resultado, $dt->format('m-d-Y'));
-            $horariosTurnos = date('H:i:s', mktime(19, 20, 0));
-            $arrayHorariosTurnos = [];
-            // incrementar $horariosTurnos en 20 minutos hasta llegar a las 23:00:00
-            while ($horariosTurnos < '23:00:00') {
-                $horariosTurnos = date('H:i:s', strtotime($horariosTurnos) + 20 * 60);
-                array_push($arrayHorariosTurnos, $horariosTurnos);
-            }
-        }
-        return response()->json($resultado);
+        //return $request;
+        $validate = $request->validate([
+            'typedoc' => 'required',
+            'numdoc' => 'required|numeric',
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|min:8|string',
+            'nationality' => 'required|string',
+            'phone' => 'required',
+            'address' => 'required'
+        ]);
 
-        return $arrayHorariosTurnos;
-        \DB::Transaction(function ($request) {
+        if ($validate->fails()) {
+            return back()->withErrors($validate->errors())->withInput();
+        }
+
+        DB::Transaction(function ($request) {
+            $id = User::create([
+                'typedoc' => $request['typedoc'],
+                'numdoc' => $request['numdoc'],
+                'name' => $request['name'],
+                'surname' => $request['surname'],
+                'email' => $request['email'],
+                'password' => $request['password'],
+                'nationality' => $request['nationality'],
+                'phone' => $request['phone'],
+                'address' => $request['address'],
+                'postalcode' => $request['postalcode'],
+                'locality' => $request['locality'],
+                'birthday' => $request['birthday'],
+                'title' => $request['title'],
+                'yearofgraduation' => $request['yearofgraduation'],
+                'institution' => $request['institution']
+            ])->id;
             Student::create([
-                'nombre' => $request->nombre,
-                'apellido' => $request->apellido,
+                'user_id' => $id,
+                'year' => $request->year,
+                'inscription' => $request->inscription
             ]);
         });
+    }
+
+    public function getStudentById($id)
+    {
+        return Student::first()->where('id', '=', $id);
     }
 }

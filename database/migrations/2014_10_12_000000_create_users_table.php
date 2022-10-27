@@ -25,10 +25,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->string('nationality');
             $table->string('phone');
-            $table->string('street');
-            $table->string('number');
-            $table->string('floor');
-            $table->string('department');
+            $table->string('address');
             $table->string('postalcode');
             $table->string('locality');
             $table->string('birthday');
