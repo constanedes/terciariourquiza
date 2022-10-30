@@ -1,7 +1,8 @@
 @extends('layouts.main')
 @section('content')
-<img src=" {{ asset('img/ITI.svg') }}" alt="Tecnico en ITI">
-<section>
+<div class="container mt-5 bg-secondary">
+    <img src=" {{ asset('img/ITI2.png') }}" class="img-fluid mx-auto d-block bg-secondary" style="width: 30% ;" alt="Tecnico en ITI">
+<section class="bg-secondary">
     <p>El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar,
         mantener,
         actualizar, analizar inconvenientes y resolver problemas derivados de la operación de productos de
@@ -34,8 +35,7 @@
         </li>
     </ul>
 </section>
-</div>
-<section>
+<section class="bg-secondary">
     <!-- TABLA 1 AÑO -->
     <table class="table table-bordered">
         <thead>
@@ -120,8 +120,7 @@
         </tbody>
     </table>
 </section>
-
-<section>
+<section class="bg-secondary">
     <!-- TABLA 2 AÑO -->
     <table class="table table-bordered">
         <thead>
@@ -207,7 +206,7 @@
     </table>
 </section>
 
-<section>
+<section class="bg-secondary">
 
     <!-- TABLA 3 AÑO -->
     <table class="table table-bordered">
@@ -285,4 +284,13 @@
         </tbody>
     </table>
 </section>
+
+</div>
+
+
+
+
+
+
+
 @stop

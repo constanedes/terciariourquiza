@@ -1,8 +1,8 @@
 @extends('layouts.main')
 @section('content')
-<div class="container">
-    <img src=" {{ asset('img/AF.svg') }}" alt="Analisis Sistemas">
-    <section>
+<div class="container mt-5 bg-secondary">
+    <img src=" {{ asset('img/AF2.png') }}" class="img-fluid mx-auto d-block" style="width: 30% ;" alt="Analisis Sistemas">
+    <section class="bg-secondary">
     <p>El Técnico Superior en Análisis Funcional de Sistemas Informáticos estará capacitado para comprender e interpretar
     fines, negocios o actividades de una organización, analizar los procesos que se llevan a cabo, averiguar las
     necesidades de información, proponer mejoras, especificar requisitos de software, redactar manuales y
@@ -33,9 +33,8 @@
     </ul>
     </section>
 
-        <section>
-    <!-- TABLA 1 AÑO -->
-    <br><br><br><br><br>
+<section class="bg-secondary">
+    <!-- TABLA 1 AÑO -->   
 
     <table class="table table-bordered">
     <thead class="table-dark">
@@ -122,7 +121,7 @@
 
     <br><br><br><br><br><br>
 </section>
-<section>
+<section class="bg-secondary">
     <!-- TABLA 2 AÑO -->
     <table class="table table-bordered">
     <thead class="table-dark">
@@ -200,7 +199,7 @@
     </tbody>
     </table>
 </section>
-<section>
+<section class="bg-secondary">
     <!-- TABLA 3 AÑO -->
     <br><br><br><br><br>
 

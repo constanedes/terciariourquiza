@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
-<main class="bg-secondary">
+<main class="bg-secondary pt-5">
     <!-- Esc. Superior Nº 49  "Cap. Gral. J.J. Urquiza" - Nivel Terciario -->
-    <div class="container text-center mt-5">
-        <div class="row align-items-center">
+    <div class="container text-center">
+        <div class="row align-items-center ">
             <div class="col-4">
                 <img src="{{ asset('img/Logo_Terciario_Urquiza_Full.png') }} "
                     class="img-fluid"
@@ -12,7 +12,7 @@
             </div>
             <div class="col-8 text-start">
                 <h1>Escuela Superior Nº 49</h1>
-                <h2>Capitan General Justo José de Urquiza</h2>
+                <h2>Capitán General Justo José de Urquiza</h2>
                 <h3>Nivel Terciario</h3>
             </div>
         </div>
@@ -31,8 +31,8 @@
                 <a href="/desarrollo-software">
                     <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Tecnico Superior en Desarrollo Software</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatibus beatae id, quasi possimus quae perspiciatis minus sit reprehenderit dolorem in reiciendis ab! Quia iure assumenda magnam repellendus natus ullam.</p>
+                        <h5 class="text-white bg-secondary rounded shadow">Tecnico Superior en Desarrollo Software</h5>
+                      <p class="text-warning bg-secondary rounded shadow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatibus beatae id, quasi possimus quae perspiciatis minus sit reprehenderit dolorem in reiciendis ab! Quia iure assumenda magnam repellendus natus ullam.</p>
                     </div> 
                 </a>         
               </div>
@@ -40,9 +40,9 @@
               <div class="carousel-item">
                 <a href="/analisis-funcional">
                     <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Analista Funcional de Sistemas Informaticos</h5>                                      
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolore voluptates velit maxime culpa. Autem recusandae dolore laboriosam reiciendis itaque expedita, iusto labore excepturi officiis explicabo fugiat repellat, temporibus ab.</p>
+                    <div class="carousel-caption d-none d-md-block ">
+                        <h5 class="text-white bg-secondary rounded shadow">Analista Funcional de Sistemas Informaticos</h5>                                      
+                        <p class="text-warning bg-secondary rounded shadow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolore voluptates velit maxime culpa. Autem recusandae dolore laboriosam reiciendis itaque expedita, iusto labore excepturi officiis explicabo fugiat repellat, temporibus ab.</p>
                     </div>
                 </a>
                 
@@ -52,8 +52,8 @@
                 <a href="/infraestructura-ti">
                     <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">                     
-                        <h5 class="text-color-dark">Soporte de Infraestructura de Tecnologia de la Informacion</h5>                 
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h5 class="text-white bg-secondary rounded shadow">Soporte de Infraestructura de Tecnologia de la Informacion</h5>                 
+                        <p class="text-warning bg-secondary rounded shadow">Some representative placeholder content for the third slide.</p>
                     </div>
                 </a>
                 
@@ -83,10 +83,10 @@
                     <img src="{{ asset('img/ds_card.png') }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <h2 class="card-title mt-3 text-success fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-secondary  mb-3 shadow">Más Informacion</button>
+                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
                 </div>
             </div>
             <!-- card iti -->
@@ -95,10 +95,10 @@
                     <img src="{{ asset('img/iti_card.png') }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <h2 class="card-title mt-3 text-danger fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-secondary mb-3 shadow">Más Informacion</button>
+                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
                 </div>
             </div>
             <!-- card af -->
@@ -107,57 +107,16 @@
                     <img src="{{ asset('img/af_card.png') }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                    <h2 class="card-title mt-3">Tecnico Superio en Desarrollo de Software</h2>
+                    <h2 class="card-title mt-3 text-primary fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-secondary mb-3 shadow">Más Informacion</button>
+                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- end card -->
-    <div class="container espacio" id="carreras">
-        <div class="row bg-secondary text-white text-center rounded-top d-flex justify-content-around">
-            <h1>Nuestras carreras</h1>
-        </div>
-        <div class="row d-flex justify-content-around">
-            
-            <div class="col">
-                <a href="/analisis-funcional">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/AF2.svg') }}" class="card-img-top" alt="Analista Funcional">
-                        <div class="card-body ">
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quasi,
-                                laudantium ipsa harum modi suscipit veritatis</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col justify-content-center">
-                <a href="/infraestructura-ti">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/ITI2.SVG') }}" class="card-img-top" alt="Infraestructura TI">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-                                similique obcaecati nihil totam accusantium eos</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col justify-content-center">
-                <a href="/desarrollo-software">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{ asset('img/DS2.svg') }}" class="card-img-top" alt="Desarrollo de software">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae,
-                                ducimus minus ipsam dicta, omnis accusamus</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col"></div>
-        </div>
-    </div>
+    
 
     <!-- NOVEDADES -->
     <!-- <div class="container espacio rounded p50" id="novedades">
