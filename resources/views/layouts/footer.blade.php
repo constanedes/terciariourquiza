@@ -50,14 +50,11 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <h6 class="text-uppercase fw-bold">Tramites</h6>
               
               <p>
-                <a href="#!" class="text-white">Tramites</a>
-              </p>
-              <p>
-                <a href="/carreras" class="text-white">Inscripción</a>
-              </p>
+                <a href="#!" class="text-white">Inscripción</a>
+              </p>              
               <p>
                 <a href="#!" class="text-white">Tramite 1</a>
               </p>
