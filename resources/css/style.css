@@ -179,7 +179,20 @@ border: 1px solid black;
 /* Carousel */
 
 .carousel-item a {
-    text-decoration: none;    
+    
+    
+    
+}
+
+.carousel-caption p {
+    color: orange !important;
+}
+
+
+/* botones */
+
+#btn_color{
+    background-color: #ffa600;
 }
 
 
