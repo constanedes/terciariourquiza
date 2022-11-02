@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('comisions', function (Blueprint $table) {
             $table->id();
             $table->string('comision');
-            $table->integer('anio');
+            $table->integer('year');
             $table->timestamps();
         });
     }

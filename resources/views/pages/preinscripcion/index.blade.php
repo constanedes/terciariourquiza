@@ -3,11 +3,17 @@
 @section('content')
 <div class="container">
     <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
-        <form class="row g-3 needs-validation m-3 p-5" novalidate method="POST" action="/preinscripcion/enviar">
+        <form class="row g-3 needs-validation m-3 p-5" method="POST" action="/preinscripcion/enviar">
             @csrf
-            @foreach($errors->all() as $error)
-            <span class="text-danger">{{$error}}</span>
-            @endforeach
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="col-md-12 text-center">
                 <h2>Preinscripcion a Desarrollo de Software</h2>
             </div>
@@ -25,19 +31,19 @@
             <!-- DNI -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Documento</label>
-                <input type="number" class="form-control" name="numdoc" required />
+                <input type="number" class="form-control" name="numdoc" value="{{old('numdoc')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
             <!-- Nombre -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom01" class="form-label">Nombres</label>
-                <input type="text" class="form-control" name="name" required />
+                <input type="text" class="form-control" name="name" required value="{{old('name')}}" />
                 <div class="valid-feedback">Looks good!</div>
             </div>
             <!-- Apellido -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="surname" required />
+                <input type="text" class="form-control" name="surname" value="{{old('surname')}}" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
             <!-- Email -->
@@ -46,7 +52,7 @@
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                     <input type="text" class="form-control" name="email" aria-describedby="inputGroupPrepend"
-                        required />
+                        value="{{old('email')}}" required />
                     <div class="invalid-feedback">Nompre completo</div>
                 </div>
             </div>
@@ -60,7 +66,7 @@
             <!-- Celular -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Tel / Celular</label>
-                <input type="number" class="form-control" name="phone" required />
+                <input type="number" class="form-control" name="phone" value="{{old('phone')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
             <!-- Fecha Nac -->
@@ -72,7 +78,17 @@
 
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Domicilio</label>
-                <input type="text" class="form-control" id="validationCustom02" value="Domicilio" required />
+                <input type="text" class="form-control" id="validationCustom02" name="address"
+                    value="{{old('address')}}" required />
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <!-- CP -->
+
+            <div class="col-md-6 pl-5 pr-5">
+                <label for="validationCustom02" class="form-label">Código Postal</label>
+                <input type="number" class="form-control" id="validationCustom02" name="postalcode"
+                    value="{{old('postalcode')}}" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
@@ -91,29 +107,25 @@
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
-            <!-- Pais -->
+            <!-- Nacionalidad -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Nacionalidad</label>
-                <input class="form-control" name="nationality" required />
+                <input class="form-control" name="nationality" value="{{old('nationality')}}" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
 
             <!-- Titulo Secundario -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Titulo secundario</label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value="">Seleccionar</option>
-                    <option>...</option>
-                    <option>...</option>
-                    <option>...</option>
-                </select>
+                <input class="form-select" id="validationCustom04" name="title" value="{{old('title')}}" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
-            
+
             <!-- Año egreso -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Año de Egreso</label>
-                <input type="number" class="form-control" id="validationCustom03" required />
+                <input type="number" class="form-control" id="validationCustom03" name="yearofgraduation"
+                    value="{{old('yearofgraduation')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
             <!-- Institucion -->
