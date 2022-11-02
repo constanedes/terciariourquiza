@@ -11,6 +11,7 @@ use App\DataTables\StudentsDataTable;
 use App\DataTables\EntrantsDataTable;
 use App\Models\Student;
 use App\Models\User;
+use Illuminate\Support\Facades\View;
 
 class StudentsController extends Controller
 {
@@ -27,7 +28,7 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
         //return $request;
-        $validate = $request->validate([
+        $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',
             'name' => 'required|string',
@@ -39,18 +40,14 @@ class StudentsController extends Controller
             'address' => 'required'
         ]);
 
-        if ($validate->fails()) {
-            return back()->withErrors($validate->errors())->withInput();
-        }
-
-        DB::Transaction(function ($request) {
+        DB::transaction(function () use ($request) {
             $id = User::create([
                 'typedoc' => $request['typedoc'],
                 'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
                 'surname' => $request['surname'],
                 'email' => $request['email'],
-                'password' => $request['password'],
+                'password' => bcrypt($request['password']),
                 'nationality' => $request['nationality'],
                 'phone' => $request['phone'],
                 'address' => $request['address'],
@@ -61,12 +58,13 @@ class StudentsController extends Controller
                 'yearofgraduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
             ])->id;
-            Student::create([
+            $studentId = Student::create([
                 'user_id' => $id,
-                'year' => $request->year,
                 'inscription' => $request->inscription
-            ]);
+            ])->id;
         });
+
+        return View::make('pages.preinscripcion.index')->with('success', 'Data saved!');
     }
 
     public function getStudentById($id)
