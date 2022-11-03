@@ -11,6 +11,9 @@ class Career extends Model
 
     protected $table = 'careers';
     protected $fillable = [
-        'name'
+        'career'
+    ];
+    protected $guarded = [
+        'id'
     ];
 }

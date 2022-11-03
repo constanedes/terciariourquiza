@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->string('career');
+            $table->text('desc')->nullable();
+            $table->integer('cupo')->nullable();
             $table->timestamps();
         });
     }

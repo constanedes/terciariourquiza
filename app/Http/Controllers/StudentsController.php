@@ -27,7 +27,6 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
-        //return $request;
         $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',

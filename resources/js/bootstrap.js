@@ -1,8 +1,10 @@
 window._ = require('lodash');
-
+window.$ = window.jQuery = require('jquery')
+console.log(window.$)
+console.log('hola')
 try {
     require('bootstrap');
-    require('datatables.net-bs4');
+    require('datatables.net-bs5');
     require('datatables.net-buttons-bs5');
 } catch (e) { }
 /**
