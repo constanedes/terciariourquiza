@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
-        <form class="row g-3 needs-validation m-3 p-5" novalidate method="POST" action="/preinscripcion/enviar">
+        <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST" action="/preinscripcion/enviar">
             @csrf
             @foreach($errors->all() as $error)
             <span class="text-danger">{{$error}}</span>
@@ -11,6 +11,7 @@
             <div class="col-md-12 text-center">
                 <h2>Preinscripcion a Desarrollo de Software</h2>
             </div>
+            
             <!-- Tipo de Doc -->
             <div class="col-md-6">
                 <label for="validationCustom04" class="form-label">Tipo de documento</label>
@@ -22,54 +23,60 @@
                 </select>
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
+
             <!-- DNI -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Documento</label>
-                <input type="number" class="form-control" name="numdoc" required />
+                <input id="dni" type="number" class="form-control" maxlength="9" name="numdoc" pattern="/^\d{8}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
+
             <!-- Nombre -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom01" class="form-label">Nombres</label>
-                <input type="text" class="form-control" name="name" required />
+                <input id="nombre" type="text" class="form-control" name="name" required pattern="^[a-zA-z ]+$" />
                 <div class="valid-feedback">Looks good!</div>
             </div>
+
             <!-- Apellido -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="surname" required />
+                <input id="apellido" type="text" class="form-control" name="surname" required pattern="\b[a-zA-Z]+\b" />
                 <div class="valid-feedback">Looks good!</div>
             </div>
+
             <!-- Email -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" name="email" aria-describedby="inputGroupPrepend"
-                        required />
+                    <input type="email" class="form-control" minlength="1" name="email" aria-describedby="inputGroupPrepend" required />
                     <div class="invalid-feedback">Nompre completo</div>
                 </div>
             </div>
+
             <!--Password-->
             <div class="col-md-6 pl-5 pr-5">
                 <label class="form-label" for="password">
                     Password
                 </label>
-                <input class="form-control" type="password" name="password" id="password" required />
+                <input id="password" class="form-control" type="password" minlength="8" name="password" id="password" required />
             </div>
+
             <!-- Celular -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Tel / Celular</label>
                 <input type="number" class="form-control" name="phone" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
+
             <!-- Fecha Nac -->
             <div class="col-md-db form-label form-date">
                 <label class="form-label form-date__label" for="input-date">Fecha Nacimiento</label>
                 <input class="form-control form-date__input" type="date" id="input-date" name="birthday" required />
             </div>
+            
             <!-- Domicilio -->
-
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Domicilio</label>
                 <input type="text" class="form-control" id="validationCustom02" value="Domicilio" required />
@@ -116,6 +123,7 @@
                 <input type="number" class="form-control" id="validationCustom03" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
+            
             <!-- Institucion -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Institucion</label>
@@ -127,6 +135,7 @@
                 </select>
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
+
             <!-- Curso opcional -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Curso opcional</label>
