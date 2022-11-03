@@ -40,7 +40,7 @@
 
     function validateInputs() {
         window.addEventListener('load', () => {
-            
+
             const dni = document.getElementById('dni');
             const nombre = document.getElementById('nombre');
             const password = document.getElementById('password')
@@ -57,9 +57,9 @@
     function handleFormSubmit() {
         const form = document.getElementById('preinscription-form');
     }
-    
+
 
     validateInputs();
-    
+
 </script>
 @endsection
