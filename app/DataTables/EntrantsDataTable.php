@@ -70,12 +70,12 @@ class EntrantsDataTable extends DataTable
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
-            Column::make('year')->title('Año'),
+            //Column::make('user.year')->title('Año'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
-                ->addClass('text-center'),            
+                ->addClass('text-center'),           
         ];
     }
 

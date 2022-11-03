@@ -2,7 +2,6 @@
 <script>
     (function (window, document, undefined) {
         window.onload = init;
-
         function init() {
             fetch('https://apis.datos.gob.ar/georef/api/provincias?', { headers: { 'Content-Type': 'applitacion/json' } })
                 .then(res => res.json())
@@ -17,13 +16,13 @@
                     });
                 })
                 .catch(err => {
-                    console.log(('error:'.err))
+                    console.log('error:', err)
                 })
         }
 
     })(window, document, undefined);
+
     function loadCities(el) {
-        console.log(el)
         fetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${el}&max=500`)
             .then(res => res.json())
             .then(response => {
@@ -38,5 +37,29 @@
                 });
             })
     }
+
+    function validateInputs() {
+        window.addEventListener('load', () => {
+
+            const dni = document.getElementById('dni');
+            const nombre = document.getElementById('nombre');
+            const password = document.getElementById('password')
+            nombre.setAttribute("pattern", "^[a-zA-z ,.'-]+$");
+            dni.setAttribute("pattern", "/^\d{8}");
+            password.minLength = 8;
+            password.required = "true";
+            nombre.required = "true";
+            dni.required = "true";
+            dni.maxLenght = 9;
+        });
+    }
+
+    function handleFormSubmit() {
+        const form = document.getElementById('preinscription-form');
+    }
+
+
+    validateInputs();
+
 </script>
 @endsection
