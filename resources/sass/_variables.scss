@@ -5,3 +5,30 @@ $body-bg: #aaacad;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$warning: #ffa600;
+$dark: #020202;
+$success : #2A7E29;
+$primary : #3323A8;
+$danger : #F31414;
+$secondary: #8f8e8e;
+
+
+
+$theme-colors: (
+    "warning": $warning,    
+    "dark" : $dark,
+    "success" : $success,
+    "primary" : $primary,
+    "danger" : $danger,
+    "secondary" : $secondary,
+    
+);
+
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+  }
+
+
+

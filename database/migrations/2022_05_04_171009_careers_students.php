@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('careers_students', function (Blueprint $table) {
             $table->foreignId('career_id')->constrained();
             $table->foreignId('student_id')->constrained();
-            $table->primary(['career_id', 'student_id'],'careers_students');
+            $table->integer('year');
+            $table->primary(['career_id', 'student_id'], 'careers_students');
         });
     }
 

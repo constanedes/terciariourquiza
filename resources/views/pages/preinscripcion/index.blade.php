@@ -5,9 +5,15 @@
     <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
         <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST" action="/preinscripcion/enviar">
             @csrf
-            @foreach($errors->all() as $error)
-            <span class="text-danger">{{$error}}</span>
-            @endforeach
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="col-md-12 text-center">
                 <h2>Preinscripcion a Desarrollo de Software</h2>
             </div>
@@ -27,21 +33,21 @@
             <!-- DNI -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Documento</label>
-                <input id="dni" type="number" class="form-control" maxlength="9" name="numdoc" pattern="/^\d{8}" required />
+                <input type="number" class="form-control" name="numdoc" pattern="/^\d{8}"   maxlength="9" value="{{old('numdoc')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
             <!-- Nombre -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom01" class="form-label">Nombres</label>
-                <input id="nombre" type="text" class="form-control" name="name" required pattern="^[a-zA-z ]+$" />
+                <input type="text" class="form-control" name="name" required  pattern="^[a-zA-z ]+$" value="{{old('name')}}" />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
             <!-- Apellido -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Apellido</label>
-                <input id="apellido" type="text" class="form-control" name="surname" required pattern="\b[a-zA-Z]+\b" />
+                <input type="text" class="form-control" name="surname" value="{{old('surname')}}" pattern="\b[a-zA-Z]+\b" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
@@ -50,7 +56,8 @@
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="email" class="form-control" minlength="1" name="email" aria-describedby="inputGroupPrepend" required />
+                    <input type="text" class="form-control" name="email" aria-describedby="inputGroupPrepend"
+                        value="{{old('email')}}" required />
                     <div class="invalid-feedback">Nompre completo</div>
                 </div>
             </div>
@@ -66,7 +73,7 @@
             <!-- Celular -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Tel / Celular</label>
-                <input type="number" class="form-control" name="phone" required />
+                <input type="number" class="form-control" name="phone" value="{{old('phone')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
@@ -79,7 +86,17 @@
             <!-- Domicilio -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Domicilio</label>
-                <input type="text" class="form-control" id="validationCustom02" value="Domicilio" required />
+                <input type="text" class="form-control" id="validationCustom02" name="address"
+                    value="{{old('address')}}" required />
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <!-- CP -->
+
+            <div class="col-md-6 pl-5 pr-5">
+                <label for="validationCustom02" class="form-label">Código Postal</label>
+                <input type="number" class="form-control" id="validationCustom02" name="postalcode"
+                    value="{{old('postalcode')}}" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
@@ -98,29 +115,25 @@
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
-            <!-- Pais -->
+            <!-- Nacionalidad -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Nacionalidad</label>
-                <input class="form-control" name="nationality" required />
+                <input class="form-control" name="nationality" value="{{old('nationality')}}" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
 
             <!-- Titulo Secundario -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Titulo secundario</label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value="">Seleccionar</option>
-                    <option>...</option>
-                    <option>...</option>
-                    <option>...</option>
-                </select>
+                <input class="form-select" id="validationCustom04" name="title" value="{{old('title')}}" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
-            
+
             <!-- Año egreso -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Año de Egreso</label>
-                <input type="number" class="form-control" id="validationCustom03" required />
+                <input type="number" class="form-control" id="validationCustom03" name="yearofgraduation"
+                    value="{{old('yearofgraduation')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
             

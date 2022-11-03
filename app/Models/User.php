@@ -20,6 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'typedoc',
+        'numdoc',
         'name',
         'surname',
         'email',
@@ -37,7 +38,6 @@ class User extends Authenticatable
 
     protected $guarded = [
         'id',
-        'numdoc',
         'localidad_id'
     ];
 
