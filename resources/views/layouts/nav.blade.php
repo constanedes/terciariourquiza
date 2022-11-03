@@ -1,4 +1,5 @@
 @include('modals.login')
+@include('layouts.navScript')
 @section('nav')
 
 <header>
@@ -24,14 +25,17 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Nuestras carreras
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/analisis-funcional">Análisis Funcional de Sistemas
+                            <ul id="carreras" class="dropdown-menu">
+                                <!-- <li><a class="dropdown-item" href="/analisis-funcional">Análisis Funcional de Sistemas
                                         Informáticos</a>
                                 </li>
                                 <li><a class="dropdown-item" href="/infraestructura-ti">Infraestructura de Tecnología de
                                         la
                                         Información</a></li>
-                                <li><a class="dropdown-item" href="/desarrollo-software">Desarrollo de Software</a></li>
+                                <li><a class="dropdown-item" href="/desarrollo-software">Desarrollo de Software</a></li> -->
+
+
+
                             </ul>
                             <a id="iniciar-sesion2" class="nav-link text-nowrap" href="/login">Iniciar Sesión</a>
                         </li>
@@ -44,7 +48,7 @@
                 @hasanyrole('bedelia|Super Admin|student')
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-warning">
                         Cerrar Sesión
                     </button>
                 </a>
@@ -65,4 +69,6 @@
         </nav>
     </div>
 </header>
+
 @stop
+@yield('navScript')

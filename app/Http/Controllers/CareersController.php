@@ -21,6 +21,12 @@ class CareersController extends Controller
         return view('pages.carreras')->with('carreras', $carreras);
     }
 
+    public function getCareers(Request $request)
+    {
+        $carreras = Career::select('id','career') -> get()  ;
+        return $carreras;
+    }
+
     public function preinscriptionView(Request $request)
     {
         $carrera = Career::find($request->route('id'));
