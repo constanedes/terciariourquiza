@@ -16,6 +16,12 @@
                 <h2>Capitan General. Justo José de Urquiza</h2>
                 <h3>Nivel Terciario</h3>
             </div>
+            <img
+                    src="{{ asset('img/front_school_2.jpg') }} "
+                    class="img-fluid"
+                    width="1000rem"
+                    alt="logo urquiza"
+                />
         </div>
         <!-- Foto y Descripcion -->
         <div class="row align-items-start bg-secundary mt-5">

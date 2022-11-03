@@ -75,9 +75,7 @@ class EntrantsDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
-                ->addClass('text-center'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+                ->addClass('text-center'),            
         ];
     }
 

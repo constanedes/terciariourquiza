@@ -18,6 +18,11 @@
                     Turnos
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="/administracion/users" class="nav-link text-white">
+                    Users
+                </a>
+            </li>
         </ul>
     </div>
     <div class="col-10">
