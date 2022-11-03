@@ -16,19 +16,16 @@ $secondary: #8f8e8e;
 
 
 $theme-colors: (
-    "warning": $warning,    
+    "warning": $warning,
     "dark" : $dark,
     "success" : $success,
     "primary" : $primary,
     "danger" : $danger,
     "secondary" : $secondary,
-    
+
 );
 
 .text-secondary {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
-  }
-
-
-
+}

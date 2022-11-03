@@ -15,7 +15,14 @@
             </div>
             @endif
             <div class="col-md-12 text-center">
-                <h2>Preinscripcion a Desarrollo de Software</h2>
+                <h2>
+                    @if($carrera->cupo >0)
+                    Preinscripcion a
+                    @else
+                    Inscripcion a lista de espera de
+                    @endif
+                    {{$carrera->career}}
+                </h2>
             </div>
             
             <!-- Tipo de Doc -->
@@ -185,6 +192,9 @@
             <div class="container text-center">
                 <div class="row align-items-end">
                     <div class="col">
+                        @if(0 == $carrera->cupo)
+                        <input type="hidden" name="onOld" value="true" />
+                        @endif
                         <button class="btn btn-outline-secondary  btn-lg" type="submit">
                             Enviar
                         </button>
