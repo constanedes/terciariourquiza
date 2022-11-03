@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('career');
             $table->text('desc')->nullable();
-            $table->integer('cupo')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('quota')->nullable();
             $table->timestamps();
         });
     }

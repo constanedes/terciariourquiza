@@ -37,22 +37,14 @@ Route::get('desarrollo-software', function () {
     return view('pages.ds');
 });
 
-Route::get('preinscripcion', function () {
-    return view('pages.preinscripcion.index');
-});
-
+Route::get('preinscripcion/{id}', [CareersController::class, 'preinscriptionView']);
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 
-Route::get('carreras', function () {
-    return view('pages.carreras');
-});
+Route::get('carreras', [CareersController::class, 'careersSelect']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
-Route::get('carreras', function () {
-    return view('pages.carreras');
-});
 
 
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
@@ -60,13 +52,6 @@ Route::middleware(['auth'])->group(function () {
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
     Route::middleware(['role:bedelia|Super Admin'])->group(function () {
         Route::post('/administracion/turnos/crear', [TurnsController::class, 'generateTurns']);
-        /*Route::get('administracion', function(){
-            return view('pages.administracion.administracion');
-        });*/
-        //RUTAS DE TABLAS
-        /*Route::controller(DatatableController::class)->group(function(){
-            Route::get('/datatables/users','getUsers');
-        });*/
         Route::get('/administracion/users', [UsersController::class, 'index'])
             ->name('pages.administracion.users.index');
         Route::get('/administracion/estudiantes', [StudentsController::class, 'index'])
