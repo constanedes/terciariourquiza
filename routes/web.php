@@ -75,6 +75,9 @@ Route::middleware(['auth'])->group(function () {
             ->name('pages.administracion.ingresantes.index');
         Route::get('/administracion/carreras', [CareersController::class, 'index'])
             ->name('pages.administracion.carreras.index');
+        Route::get('administracion/carreras/create', function () {
+            return view('pages.administracion.carreras.create.create');
+        });
         Route::post('/administracion/carreras/nuevo', [CareersController::class, 'store']);
         Route::get('/administracion/turnos', function () {
             return view('pages.administracion.turnos.index');

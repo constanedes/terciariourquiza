@@ -18,12 +18,14 @@ class CareersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'career' => 'required|string'
+            'career' => 'required|string',
+            'desc' => 'required|string'
         ]);
 
         DB::transaction(function () use ($request) {
             Career::create([
-                'career' => $request['career']
+                'career' => $request['career'],
+                'desc' => $request['desc']
             ]);
         });
 

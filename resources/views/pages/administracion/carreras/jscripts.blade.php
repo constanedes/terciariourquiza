@@ -1,6 +1,6 @@
 @section('jscripts')
 <style>
-    form {
+    #entrants-table_wrapper {
         padding-top: 5%;
     }
 </style>

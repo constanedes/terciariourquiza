@@ -67,6 +67,7 @@ class CareersDataTable extends DataTable
     {
         return [
             Column::make('career')->title('Carrera'),
+            Column::make('desc')->title('Descripcion'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -1,3 +1,3 @@
 
 require('./bootstrap');
-import 'laravel-datatables-vite';
+import 'laravel-datatables-vite/js/dataTables.buttons';
