@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
-        <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST" action="/preinscripcion/enviar">
+        <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST"
+            action="/preinscripcion/enviar">
             @csrf
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -24,7 +25,7 @@
                     {{$carrera->career}}
                 </h2>
             </div>
-            
+
             <!-- Tipo de Doc -->
             <div class="col-md-6">
                 <label for="validationCustom04" class="form-label">Tipo de documento</label>
@@ -40,21 +41,24 @@
             <!-- DNI -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom03" class="form-label">Documento</label>
-                <input type="number" class="form-control" name="numdoc" pattern="/^\d{8}"   maxlength="9" value="{{old('numdoc')}}" required />
+                <input type="number" class="form-control" name="numdoc" pattern="/^\d{8}" maxlength="9"
+                    value="{{old('numdoc')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
             <!-- Nombre -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom01" class="form-label">Nombres</label>
-                <input type="text" class="form-control" name="name" required  pattern="^[a-zA-z ]+$" value="{{old('name')}}" />
+                <input type="text" class="form-control" name="name" required pattern="^[a-zA-z ]+$"
+                    value="{{old('name')}}" />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
             <!-- Apellido -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="surname" value="{{old('surname')}}" pattern="\b[a-zA-Z]+\b" required />
+                <input type="text" class="form-control" name="surname" value="{{old('surname')}}"
+                    pattern="\b[a-zA-Z]+\b" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
 
@@ -74,7 +78,8 @@
                 <label class="form-label" for="password">
                     Password
                 </label>
-                <input id="password" class="form-control" type="password" minlength="8" name="password" id="password" required />
+                <input id="password" class="form-control" type="password" minlength="8" name="password" id="password"
+                    required />
             </div>
 
             <!-- Celular -->
@@ -89,7 +94,7 @@
                 <label class="form-label form-date__label" for="input-date">Fecha Nacimiento</label>
                 <input class="form-control form-date__input" type="date" id="input-date" name="birthday" required />
             </div>
-            
+
             <!-- Domicilio -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom02" class="form-label">Domicilio</label>
@@ -143,47 +148,29 @@
                     value="{{old('yearofgraduation')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
-            
+
             <!-- Institucion -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Institucion</label>
-                <select class="form-select" id="institution" name="institution" required>
+                <!--<select class="form-select" id="institution" name="institution" required>
                     <option selected disabled value="">Seleccionar</option>
                     <option>...</option>
                     <option>...</option>
                     <option>...</option>
-                </select>
-                <div class="invalid-feedback">Please select a valid state.</div>
-            </div>
-
-            <!-- Curso opcional -->
-            <div class="col-md-6 pl-5 pr-5">
-                <label for="validationCustom04" class="form-label">Curso opcional</label>
-                <select class="form-select" id="opcional" name="opcional" required>
-                    <option selected disabled value="">Tecnico Superior</option>
-                    <option>Desarrollo de Software</option>
-                    <option>
-                        Infraestructura de Tecnologia de la Informacion
-                    </option>
-                    <option>Analista Funcional</option>
-                </select>
+                </select>-->
+                <input class="form-control" type="text" id="institution" name="institution" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
 
             <!-- Fecha turno -->
             <div class="form-date col-md-6 pl-5 pr-5">
-                <label class="form-date__label" for="input-date">Turno</label>
-                <input class="form-date__input" type="date" id="turn" name="turn" />
+                <label class="form-label" for="input-date">Turno</label>
+                <input class="form-control" id="datepicker" name="turn" onchange="loadHours(this.value)" />
             </div>
 
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Horarios</label>
                 <select class="form-select" id="time" name="time" required>
-                    <option selected disabled value="">19:20</option>
-                    <option>19:20</option>
-                    <option>19:30</option>
-                    <option>19:40</option>
-                    <option>19:50</option>
                 </select>
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
@@ -195,6 +182,7 @@
                         @if(0 == $carrera->cupo)
                         <input type="hidden" name="onOld" value="true" />
                         @endif
+                        <input type="hidden" name="career" value="{{$carrera->id}}" />
                         <button class="btn btn-outline-secondary  btn-lg" type="submit">
                             Enviar
                         </button>
