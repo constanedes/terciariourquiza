@@ -41,6 +41,9 @@ Route::get('preinscripcion', function () {
     return view('pages.preinscripcion.index');
 });
 
+Route::get('getcarreras',[CareersController::class, 'getCareers']);
+
+
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 
 Route::post('carreras', [CareersController::class, 'careersSelect']);

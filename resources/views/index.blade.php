@@ -86,7 +86,7 @@
                     <h2 class="card-title mt-3 text-success fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
+                    <a href="#" class="btn btn-warning">Más Informacion</a>                    
                 </div>
             </div>
             <!-- card iti -->
@@ -98,7 +98,7 @@
                     <h2 class="card-title mt-3 text-danger fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
+                    <a href="#" class="btn btn-warning">Más Informacion</a>
                 </div>
             </div>
             <!-- card af -->
@@ -110,7 +110,7 @@
                     <h2 class="card-title mt-3 text-primary fw-bolder">Tecnico Superio en Desarrollo de Software</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis deleniti quam sint cum magni ea enim nostrum eligendi neque, incidunt doloremque excepturi recusandae vel accusantium, atque, soluta beatae illo impedit!
                     </p>
-                    <button class="btn btn-warning mb-3 shadow">Más Informacion</button>
+                    <a href="#" class="btn btn-warning">Más Informacion</a>
                 </div>
             </div>
         </div>

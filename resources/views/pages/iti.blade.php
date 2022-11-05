@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="container mt-5 bg-secondary">
-    <img src=" {{ asset('img/ITI2.png') }}" class="img-fluid mx-auto d-block bg-secondary" style="width: 30% ;" alt="Tecnico en ITI">
+    <img src=" {{ asset('img/ITI2.png') }}" alt="isologotipo Infraestructura" class="img-fluid mx-auto d-block bg-secondary" style="width: 30% ;" alt="Tecnico en ITI">
 <section class="bg-secondary">
     <p>El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar,
         mantener,

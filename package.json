@@ -37,6 +37,7 @@
         "datatables.net-dt": "^1.11.5",
         "datatables.net-select-bs5": "^1.4.0",
         "jquery": "^3.6.0",
-        "jquery-min": "^0.0.2"
+        "jquery-min": "^0.0.2",
+        "picker": "^0.1.4"
     }
 }
