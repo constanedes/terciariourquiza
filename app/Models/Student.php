@@ -11,15 +11,25 @@ class Student extends Model
 
     protected $table = 'students';
     protected $fillable = [
-        'year'
+        'year',
+        'user_id'
     ];
     protected $guarded = [
-        'id',
-        'users_id',
+        'id'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function careers()
+    {
+        return $this->belongsToMany(Career::class);
+    }
+
+    public function turns()
+    {
+        return $this->hasMany(Turn::class);
     }
 }

@@ -18,11 +18,6 @@ class DatatableController extends Controller
         return view('datatable.list');
     }
 
-    public function getUsers()
-    {
-        return datatables()->of(Estudiante::with('user','user.localidad')->get())->make(true);
-    }
-
     /**
      * Show the form for creating a new resource.
      *

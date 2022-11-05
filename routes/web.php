@@ -47,27 +47,30 @@ Route::get('carreras', [CareersController::class, 'careersSelect']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
-
-
+Route::get('/turnos/getdays', [TurnsController::class, 'getDays']);
+Route::get('/turnos/gethours/{date}', [TurnsController::class, 'getHours']);
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
 Route::middleware(['auth'])->group(function () {
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
     Route::middleware(['role:bedelia|Super Admin'])->group(function () {
-        Route::post('/administracion/turnos/crear', [TurnsController::class, 'generateTurns']);
-        Route::get('/administracion/users', [UsersController::class, 'index'])
-            ->name('pages.administracion.users.index');
-        Route::get('/administracion/estudiantes', [StudentsController::class, 'index'])
-            ->name('pages.administracion.estudiantes.index');
-        Route::get('/administracion/ingresantes', [StudentsController::class, 'ingresantesIndex'])
-            ->name('pages.administracion.ingresantes.index');
-        Route::get('/administracion/carreras', [CareersController::class, 'index'])
-            ->name('pages.administracion.carreras.index');
-        Route::get('administracion/carreras/create', function () {
-            return view('pages.administracion.carreras.create.create');
-        });
-        Route::post('/administracion/carreras/nuevo', [CareersController::class, 'store']);
-        Route::get('/administracion/turnos', function () {
-            return view('pages.administracion.turnos.index');
+        Route::prefix('administracion')->group(function () {
+            Route::post('/turnos/crear', [TurnsController::class, 'generateTurns']);
+            Route::get('/users', [UsersController::class, 'index'])
+                ->name('pages.administracion.users.index');
+            Route::get('/estudiantes', [StudentsController::class, 'index'])
+                ->name('pages.administracion.estudiantes.index');
+            Route::get('/ingresantes', [StudentsController::class, 'ingresantesIndex'])
+                ->name('pages.administracion.ingresantes.index');
+            Route::get('/carreras', [CareersController::class, 'index'])
+                ->name('pages.administracion.carreras.index');
+            Route::get('/carreras/create', function () {
+                return view('pages.administracion.carreras.create.create');
+            });
+            Route::post('/carreras/nuevo', [CareersController::class, 'store']);
+            Route::get('/turnos', [TurnsController::class, 'index']);
+            Route::get('/turnos/create', function () {
+                return view('pages.administracion.turnos.create.create');
+            });
         });
     });
 });
