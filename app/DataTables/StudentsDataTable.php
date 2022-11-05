@@ -32,7 +32,7 @@ class StudentsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with('user')->where('completePreinscription', '=', true)->newQuery();
+        return $model->with('users')->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**

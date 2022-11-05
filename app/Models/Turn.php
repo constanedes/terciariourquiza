@@ -19,7 +19,7 @@ class Turn extends Model
         'student_id',
     ];
 
-    public function user()
+    public function student()
     {
         return $this->belongsTo(Student::class);
     }

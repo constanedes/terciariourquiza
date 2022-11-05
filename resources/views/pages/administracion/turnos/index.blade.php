@@ -1,15 +1,11 @@
-@include('pages.administracion.estudiantes.jscripts')
+@include('pages.administracion.turnos.jscripts')
 @extends('pages.administracion.administracion')
 @section('page')
-
-<!--
-    INICIO DE INSCRIPCION
-    FIN DE INSCRIPCION
-    HORARiO INICIO
-    HORARIO FIN
-    INTERVALO EN MINUTOS
-    POST a /administracion/turnos/crear
--->
-
+<div class="row py-5">
+    {{$dataTable->table()}}
+</div>
 @stop
+@push('scripts')
+{{$dataTable->scripts()}}
+@endpush
 @yield('jscripts')

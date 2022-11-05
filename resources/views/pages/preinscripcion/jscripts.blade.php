@@ -2,6 +2,7 @@
 <script>
     (function (window, document, undefined) {
         window.onload = init;
+
         function init() {
             fetch('https://apis.datos.gob.ar/georef/api/provincias?', { headers: { 'Content-Type': 'applitacion/json' } })
                 .then(res => res.json())
@@ -18,6 +19,27 @@
                 .catch(err => {
                     console.log('error:', err)
                 })
+            fetch('/turnos/getdays', { headers: { 'Content-Type': 'applitacion/json' } })
+                .then(res => res.json())
+                .then(response => {
+                    const res = []
+                    response.forEach(el => {
+                        date = new Date(el.date + ' EDT')
+                        res.push(date)
+                    })
+                    $('#datepicker').pickadate({
+                        editable: false,
+                        disable: [
+                            true,
+                            ...res
+                        ],
+                        formatSubmit: 'yyyy-mm-dd'
+                    });
+                })
+                .catch(err => {
+                    console.log('error:', err)
+                })
+
         }
 
     })(window, document, undefined);
@@ -38,9 +60,25 @@
             })
     }
 
+    function loadHours(el) {
+        let date = new Date(el)
+        date = date.toISOString().split('T')[0]
+        fetch('/turnos/gethours/' + date)
+            .then(res => res.json())
+            .then(response => {
+                let select = document.getElementById('time')
+                select.innerHTML = ''
+                response.forEach(el => {
+                    let op = document.createElement('OPTION');
+                    op.innerHTML = el.time;
+                    op.value = el.id;
+                    select.options.add(op)
+                });
+            })
+    }
+
     function validateInputs() {
         window.addEventListener('load', () => {
-
             const dni = document.getElementById('dni');
             const nombre = document.getElementById('nombre');
             const password = document.getElementById('password')
@@ -57,7 +95,6 @@
     function handleFormSubmit() {
         const form = document.getElementById('preinscription-form');
     }
-
 
     validateInputs();
 

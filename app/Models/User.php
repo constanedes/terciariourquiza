@@ -60,13 +60,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function localidad()
+    public function student()
     {
-        return $this->belongsTo(Localidad::class);
-    }
-
-    public function estudiante()
-    {
-        return $this->hasOne(Estudiante::class);
+        return $this->hasOne(Student::class);
     }
 }

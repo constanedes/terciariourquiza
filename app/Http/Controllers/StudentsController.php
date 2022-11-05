@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
 use App\DataTables\EntrantsDataTable;
+use App\Models\Career;
 use App\Models\Student;
+use App\Models\Turn;
 use App\Models\User;
 use Illuminate\Support\Facades\View;
 
@@ -40,7 +42,7 @@ class StudentsController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
-            $id = User::create([
+            $user = User::create([
                 'typedoc' => $request['typedoc'],
                 'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
@@ -56,14 +58,22 @@ class StudentsController extends Controller
                 'title' => $request['title'],
                 'yearofgraduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
-            ])->id;
-            $studentId = Student::create([
-                'user_id' => $id,
+            ]);
+            $student = Student::create([
+                'user_id' => $user->id,
                 'inscription' => $request->inscription
-            ])->id;
+            ]);
+            $student->careers()->attach(
+                Career::find($request['career']),
+                [
+                    'year' => date("Y"),
+                    'onOld' => $request['onOld'] ? 1 : 0
+                ]
+            );
+            Turn::where('id', '=', $request->time)
+                ->update(['student_id' => $student->id]);
         });
-
-        return View::make('pages.preinscripcion.index')->with('success', 'Data saved!');
+        return View::make('index')->with('success', 'Data saved!');
     }
 
     public function getStudentById($id)
