@@ -37,6 +37,11 @@ Route::get('desarrollo-software', function () {
     return view('pages.ds');
 });
 
+Route::get('preinscripcion', function () {
+    return view('pages.preinscripcion.index');
+});
+
+Route::get('getcarreras',[CareersController::class, 'getCareers']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
