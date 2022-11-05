@@ -37,16 +37,12 @@ Route::get('desarrollo-software', function () {
     return view('pages.ds');
 });
 
-Route::get('getcarreras', [CareersController::class, 'getCareers']);
-
-Route::get('preinscripcion/{id}', [CareersController::class, 'preinscriptionView']);
-
-Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
-
-Route::get('carreras', [CareersController::class, 'careersSelect']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
+
+Route::post('carreras', [CareersController::class, 'careersSelect']);
+
 Route::get('/turnos/getdays', [TurnsController::class, 'getDays']);
 Route::get('/turnos/gethours/{date}', [TurnsController::class, 'getHours']);
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO

@@ -22,8 +22,15 @@ class TurnsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('student', function ($row) {
-                if ($row->student) {
-                    return $row->student->id;
+                if ($row->student && $row->student->user) {
+                    return $row->student->user->name . ' ' . $row->student->user->surname;
+                } else {
+                    return '';
+                }
+            })
+            ->addColumn('doc', function ($row) {
+                if ($row->student && $row->student->user) {
+                    return $row->student->user->numdoc;
                 } else {
                     return '';
                 }
@@ -42,6 +49,7 @@ class TurnsDataTable extends DataTable
      * @param \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
+
     public function query(Turn $model)
     {
         return $model->with('student')->where('student_id', '<>', null)->newQuery();
@@ -78,6 +86,7 @@ class TurnsDataTable extends DataTable
     {
         return [
             Column::make('student')->title('Estudiante'),
+            Column::make('doc')->title('Documento'),
             Column::make('date'),
             Column::make('time'),
             Column::make('action')

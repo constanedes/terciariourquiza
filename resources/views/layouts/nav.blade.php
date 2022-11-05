@@ -56,7 +56,7 @@
                     {{ csrf_field() }}
                 </form>
                 @else
-                <a href="/carreras">
+                <a href="/preinscripcion">
                     <button type="button" class="btn btn-warning m-3" data-bs-toggle="modal">
                         Inscripcion @php echo(date("Y")+1) @endphp
                     </button>

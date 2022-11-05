@@ -29,6 +29,7 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',
@@ -42,6 +43,13 @@ class StudentsController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
+            $onOld = 0;
+            if (Career::select('quota')->where('id', '=', intVal($request->career))->first()->quota == 0) {
+                $onOld = 1;
+            } else {
+                Career::where('id', '=', $request->career)->decrement('quota', 1);
+            }
+
             $user = User::create([
                 'typedoc' => $request['typedoc'],
                 'numdoc' => $request['numdoc'],
@@ -63,11 +71,12 @@ class StudentsController extends Controller
                 'user_id' => $user->id,
                 'inscription' => $request->inscription
             ]);
+
             $student->careers()->attach(
                 Career::find($request['career']),
                 [
                     'year' => date("Y"),
-                    'onOld' => $request['onOld'] ? 1 : 0
+                    'onOld' => $onOld
                 ]
             );
             Turn::where('id', '=', $request->time)

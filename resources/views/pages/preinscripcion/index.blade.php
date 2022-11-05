@@ -3,8 +3,7 @@
 @section('content')
 <div class="container">
     <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
-        <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST"
-            action="/preinscripcion/enviar">
+        <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST" action="/carreras">
             @csrf
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -17,12 +16,7 @@
             @endif
             <div class="col-md-12 text-center">
                 <h2>
-                    @if($carrera->cupo >0)
-                    Preinscripcion a
-                    @else
-                    Inscripcion a lista de espera de
-                    @endif
-                    {{$carrera->career}}
+                    Formulario de inscripcion
                 </h2>
             </div>
 
@@ -152,12 +146,6 @@
             <!-- Institucion -->
             <div class="col-md-6 pl-5 pr-5">
                 <label for="validationCustom04" class="form-label">Institucion</label>
-                <!--<select class="form-select" id="institution" name="institution" required>
-                    <option selected disabled value="">Seleccionar</option>
-                    <option>...</option>
-                    <option>...</option>
-                    <option>...</option>
-                </select>-->
                 <input class="form-control" type="text" id="institution" name="institution" required />
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
@@ -179,12 +167,8 @@
             <div class="container text-center">
                 <div class="row align-items-end">
                     <div class="col">
-                        @if(0 == $carrera->cupo)
-                        <input type="hidden" name="onOld" value="true" />
-                        @endif
-                        <input type="hidden" name="career" value="{{$carrera->id}}" />
                         <button class="btn btn-outline-secondary  btn-lg" type="submit">
-                            Enviar
+                            Siguiente
                         </button>
                     </div>
                 </div>
