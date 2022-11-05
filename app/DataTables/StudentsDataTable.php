@@ -71,8 +71,6 @@ class StudentsDataTable extends DataTable
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
             Column::make('year')->title('Año'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

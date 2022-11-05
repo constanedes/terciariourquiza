@@ -37,14 +37,14 @@ Route::get('desarrollo-software', function () {
     return view('pages.ds');
 });
 
-Route::get('preinscripcion/{id}', [CareersController::class, 'preinscriptionView']);
+Route::get('preinscripcion', function () {
+    return view('pages.preinscripcion.index');
+});
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 
-Route::get('carreras', [CareersController::class, 'careersSelect']);
+Route::post('carreras', [CareersController::class, 'careersSelect']);
 
-
-Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 Route::get('/turnos/getdays', [TurnsController::class, 'getDays']);
 Route::get('/turnos/gethours/{date}', [TurnsController::class, 'getHours']);
 //RUTAS PRIVADAS - INGRESO UNICAMENTE LOGUEADO
