@@ -43,7 +43,7 @@ Route::get('preinscripcion', function () {
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
 
-Route::get('carreras', [CareersController::class, 'careersSelect']);
+Route::post('carreras', [CareersController::class, 'careersSelect']);
 
 Route::get('/turnos/getdays', [TurnsController::class, 'getDays']);
 Route::get('/turnos/gethours/{date}', [TurnsController::class, 'getHours']);

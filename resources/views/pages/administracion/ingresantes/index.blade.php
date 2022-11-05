@@ -1,4 +1,4 @@
-@include('pages.administracion.estudiantes.jscripts')
+@include('pages.administracion.ingresantes.jscripts')
 @extends('pages.administracion.administracion')
 @section('page')
 {{$dataTable->table()}}

@@ -17,8 +17,32 @@ class CareersController extends Controller
 
     public function careersSelect(Request $request)
     {
+        $entrant = [
+            'typedoc' => $request->typedoc,
+            'numdoc' => $request->numdoc,
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'email' => $request->email,
+            'password' => $request->password,
+            'phone' => $request->phone,
+            'birthday' => $request->birthday,
+            'address' => $request->address,
+            'postalcode' => $request->postalcode,
+            'province' => $request->province,
+            'locality' => $request->locality,
+            'nationality' => $request->nationality,
+            'title' => $request->title,
+            'yearofgraduation' => $request->yearofgraduation,
+            'institution' => $request->institution,
+            'turn' => $request->turn_submit,
+            'time' => $request->time
+        ];
         $carreras = Career::all();
-        return view('pages.carreras')->with('carreras', $carreras);
+        return view('pages.carreras')
+            ->with('vars', [
+                'carreras' => $carreras,
+                'entrant' => $entrant
+            ]);
     }
 
     public function preinscriptionView(Request $request)

@@ -21,7 +21,15 @@ class EntrantsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'entrants.action');
+            ->addColumn('action', 'entrants.action')
+            ->addColumn('action', function ($row) {
+                return '<button class="btn btn-primary" onclick="complete(\'' .
+                    $row->id . '\',\'' .
+                    $row->user->name . '\',\'' .
+                    $row->user->surname . '\',\'' .
+                    $row->user->numdoc .
+                    '\')"><i class="bi bi-check-circle-fill"></i></button>';
+            });
     }
 
     /**
@@ -70,12 +78,7 @@ class EntrantsDataTable extends DataTable
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
-            //Column::make('user.year')->title('Año'),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(60)
-                ->addClass('text-center'),
+            Column::make('action')->title('Insc. completa')
         ];
     }
 
