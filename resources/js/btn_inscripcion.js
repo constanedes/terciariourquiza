@@ -1,19 +1,19 @@
 var clic = 1;
 
-function divLogin(){ 
+function divLogin() {
 
-   if(clic==1){
+    if (clic == 1) {
 
-   document.getElementById("caja").style.height = "100px";
+        document.getElementById("caja").style.height = "100px";
 
-   clic = clic + 1;
+        clic = clic + 1;
 
-   } else{
+    } else {
 
-       document.getElementById("caja").style.height = "0px";      
+        document.getElementById("caja").style.height = "0px";
 
-    clic = 1;
+        clic = 1;
 
-   }   
+    }
 
 }

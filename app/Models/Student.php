@@ -12,7 +12,8 @@ class Student extends Model
     protected $table = 'students';
     protected $fillable = [
         'year',
-        'user_id'
+        'user_id',
+        'completePreinscription'
     ];
     protected $guarded = [
         'id'

@@ -21,20 +21,20 @@ class TurnsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('student', function ($row) {
-                if ($row->student && $row->student->user) {
-                    return $row->student->user->name . ' ' . $row->student->user->surname;
-                } else {
-                    return '';
+            ->addColumn('name', function ($row) {
+                if ($row->student) {
+                    return $row->student->user ? $row->student->user->name : '';
                 }
-            })
+                return '';
+            }, true)
+            /*
             ->addColumn('doc', function ($row) {
                 if ($row->student && $row->student->user) {
                     return $row->student->user->numdoc;
                 } else {
-                    return '';
+                    return null;
                 }
-            })
+            })*/
             ->addColumn('action', function ($row) {
                 return '<a class="btn btn-warning" href="/administracion/turnos/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
@@ -52,7 +52,7 @@ class TurnsDataTable extends DataTable
 
     public function query(Turn $model)
     {
-        return $model->with('student')->where('student_id', '<>', null)->newQuery();
+        return $model->with(['student', 'student.user'])->select('turns.*')->newQuery();
     }
 
     /**
@@ -85,8 +85,8 @@ class TurnsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('student')->title('Estudiante'),
-            Column::make('doc')->title('Documento'),
+            Column::make('student', 'name'),
+            //Column::make('doc')->title('Documento'),
             Column::make('date'),
             Column::make('time'),
             Column::make('action')

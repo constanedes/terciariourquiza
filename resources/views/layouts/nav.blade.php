@@ -7,7 +7,7 @@
     <div>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-secondary fixed-top ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('img/Logo_Terciario_Urquiza.png') }}" alt="Escuela Urquiza" width="60"
                         height="60">
                 </a>
@@ -17,7 +17,7 @@
                 <div id="menuNavegacion" class="collapse navbar-collapse ">
                     <ul class="navbar-nav ms-3">
 
-                        <li class="nav-item ms-3"><a class="nav-link" href="../index.php">Inicio</a></li>
+                        <li class="nav-item ms-3"><a class="nav-link" href="/">Inicio</a></li>
                         <li class="nav-item ms-3"><a class="nav-link" href="/nosotros">Sobre nosotros</a></li>
                         <!-- <li class="nav-item ms-3 "><a class="nav-link" href="#">Tramites</a></li> -->
 
@@ -25,18 +25,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Nuestras carreras
                             </a>
-                            <ul id="carreras" class="dropdown-menu">
-                                <!-- <li><a class="dropdown-item" href="/analisis-funcional">Análisis Funcional de Sistemas
-                                        Informáticos</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/infraestructura-ti">Infraestructura de Tecnología de
-                                        la
-                                        Información</a></li>
-                                <li><a class="dropdown-item" href="/desarrollo-software">Desarrollo de Software</a></li> -->
-
-
-
-                            </ul>
+                            <ul id="carrerasUl" class="dropdown-menu"></ul>
                             <a id="iniciar-sesion2" class="nav-link text-nowrap" href="/login">Iniciar Sesión</a>
                         </li>
                         @hasanyrole('bedelia|Super Admin')
@@ -59,11 +48,13 @@
                     {{ csrf_field() }}
                 </form>
                 @else
+                @if($inscription)
                 <a href="/preinscripcion">
                     <button type="button" class="btn btn-warning m-3" data-bs-toggle="modal">
                         Inscripcion @php echo(date("Y")+1) @endphp
                     </button>
                 </a>
+                @endif
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Iniciar Sesión
                 </button>

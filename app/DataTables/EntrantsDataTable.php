@@ -40,7 +40,7 @@ class EntrantsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with('user')->where('completePreinscription', '=', false)->newQuery();
+        return $model->with(['user'])->select('students.*')->where('completePreinscription', '=', 0)->newQuery();
     }
 
     /**

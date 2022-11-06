@@ -11,7 +11,7 @@
                 <div class="col justify-content-center">
                     <div class="card h-100" style="width: 14rem;">
                         <img src="{{asset('public/image/'.  $carrera->image) }}" class="card-img-top"
-                            alt="Infraestructura TI">
+                            alt="{{$carrera->career}} ">
                         <div class="card-body">
                             <div class="row">
                                 <input id="{{$carrera->id}}" type="radio" class="btn-check" name="career"
@@ -50,7 +50,7 @@
             @csrf
         </div>
         <div class="row justify-content-center">
-            <input class="btn btn-warning" type="submit" name="Enviar!" />            
+            <input class="btn btn-warning" type="submit" name="Enviar!" />
         </div>
     </form>
 </main>

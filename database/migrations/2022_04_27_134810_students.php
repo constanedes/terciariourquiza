@@ -20,7 +20,6 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->boolean('completePreinscription')->default(false);
-
             $table->timestamps();
         });
     }
