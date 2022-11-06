@@ -50,8 +50,7 @@
             @csrf
         </div>
         <div class="row justify-content-center">
-            <input class="btn btn-warning" type="submit" name="Enviar!" />
-            <input class="btn btn-success" type="submit" name="Enviar!" />
+            <input class="btn btn-warning" type="submit" name="Enviar!" />            
         </div>
     </form>
 </main>

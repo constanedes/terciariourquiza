@@ -157,7 +157,7 @@
                 <input class="form-control" id="datepicker" name="turn" onchange="loadHours(this.value)" />
             </div>
 
-            <div class="col-md-6 pl-5 pr-5">
+            <div class="col-md-6 pl-5 pr-5 pt-3">
                 <label for="validationCustom04" class="form-label">Horarios</label>
                 <select class="form-select" id="time" name="time" required>
                 </select>
