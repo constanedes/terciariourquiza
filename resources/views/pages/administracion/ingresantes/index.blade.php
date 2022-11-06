@@ -1,4 +1,5 @@
 @include('pages.administracion.ingresantes.jscripts')
+@include('pages.administracion.ingresantes.confirmModal')
 @extends('pages.administracion.administracion')
 @section('page')
 {{$dataTable->table()}}
@@ -6,4 +7,5 @@
 @push('scripts')
 {{$dataTable->scripts()}}
 @endpush
+@yield('confirmModal')
 @yield('jscripts')

@@ -151,12 +151,13 @@
             </div>
 
             <!-- Fecha turno -->
-            <div class="form-date col-md-6 pl-5 pr-5">
+            
+            <div class="form-date col-md-6 pl-5 pr-5 ">
                 <label class="form-label" for="input-date">Turno</label>
                 <input class="form-control" id="datepicker" name="turn" onchange="loadHours(this.value)" />
             </div>
 
-            <div class="col-md-6 pl-5 pr-5">
+            <div class="col-md-6 pl-5 pr-5 pt-3">
                 <label for="validationCustom04" class="form-label">Horarios</label>
                 <select class="form-select" id="time" name="time" required>
                 </select>
@@ -167,7 +168,7 @@
             <div class="container text-center">
                 <div class="row align-items-end">
                     <div class="col">
-                        <button class="btn btn-outline-secondary  btn-lg" type="submit">
+                        <button class="btn btn-outline-warning  btn-lg" type="submit">
                             Siguiente
                         </button>
                     </div>

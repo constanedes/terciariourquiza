@@ -12,7 +12,7 @@
                     let carreras = ["ds","af","iti"];
                     carreras.forEach(item => {
                         let li = document.createElement('li');
-                        console.log("llego hasta acá")
+                        /* console.log("llego hasta acá") */
                         li.textContent = item;
                         ul.appendChild(li);
                         
