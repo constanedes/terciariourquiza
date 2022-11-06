@@ -23,7 +23,7 @@ class EntrantsDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', 'entrants.action')
             ->addColumn('action', function ($row) {
-                return '<button class="btn btn-primary" onclick="complete(\'' .
+                return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
                     $row->id . '\',\'' .
                     $row->user->name . '\',\'' .
                     $row->user->surname . '\',\'' .

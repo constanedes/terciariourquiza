@@ -36,7 +36,7 @@ class TurnsDataTable extends DataTable
                 }
             })
             ->addColumn('action', function ($row) {
-                return '<a class="btn btn-primary" href="/administracion/turnos/editar/' . $row->id . '">
+                return '<a class="btn btn-warning" href="/administracion/turnos/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
                         </a><a class="btn btn-danger" href="/administracion/turnos/eliminar/' . $row->id . '">
                             <i class="bi bi-trash-fill"></i></a>';
@@ -96,7 +96,7 @@ class TurnsDataTable extends DataTable
                 ->addClass('text-center'),
         ];
     }
-    //'<button class="btn btn-primary"><i class="bi bi-pencil-fill"></i></button>'
+    //'<button class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button>'
     /**
      * Get filename for export.
      *

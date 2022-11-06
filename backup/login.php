@@ -28,7 +28,7 @@
                                     Recordar mi usuario
                                 </label>
                             </div>
-                            <button class="btn btn-primary text-center mt-2" type="submit">
+                            <button class="btn btn-warning text-center mt-2" type="submit">
                                 Ingresar
                             </button>
                             <p class="text-center mt-5">No tienes una cuenta?
