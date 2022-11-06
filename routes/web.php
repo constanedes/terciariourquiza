@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TurnsController;
 use App\Http\Controllers\CareersController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::get('preinscripcion', function () {
     return view('pages.preinscripcion.index');
 });
 
-Route::get('getcarreras',[CareersController::class, 'getCareers']);
+Route::get('getcarreras', [CareersController::class, 'getCareers']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
@@ -72,6 +73,11 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/turnos/create', function () {
                 return view('pages.administracion.turnos.create.create');
             });
+            Route::get('/configuraciones', [SettingsController::class, 'index']);
+            Route::get('/configuraciones/create', function () {
+                return view('pages.administracion.configuraciones.create.create');
+            });
+            Route::post('/configuraciones/nuevo', [SettingsController::class, 'store']);
         });
     });
 });

@@ -45,6 +45,9 @@
                         @endhasanyrole
                     </ul>
                 </div>
+                @php
+                echo $inscription
+                @endphp
                 @hasanyrole('bedelia|Super Admin|student')
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

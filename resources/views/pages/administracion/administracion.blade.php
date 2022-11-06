@@ -24,6 +24,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="/administracion/configuraciones" class="nav-link text-white">
+                    Configuraciones
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="/administracion/users" class="nav-link text-white">
                     Users
                 </a>
