@@ -22,7 +22,7 @@ class CareersDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($row) {
-                return '<a class="btn btn-primary" href="/administracion/carreras/editar/' . $row->id . '">
+                return '<a class="btn btn-warning" href="/administracion/carreras/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
                         </a><a class="btn btn-danger" href="/administracion/carreras/eliminar/' . $row->id . '">
                             <i class="bi bi-trash-fill"></i></a>';
