@@ -60,8 +60,7 @@ class EntrantsDataTable extends DataTable
             ->dom('Bfrtip')
             ->orderBy(1)
             ->buttons(
-                Button::make('create'),
-                Button::make('export'),
+                Button::make(['extend' => 'export', 'text' => 'Exportar']),
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
