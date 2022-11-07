@@ -1,9 +1,7 @@
 @section('jscripts')
 <script>
     (function (window, document, undefined) {
-        window.onload = init;
-
-        function init() {
+        window.addEventListener('DOMContentLoaded', () => {
             fetch('https://apis.datos.gob.ar/georef/api/provincias?', { headers: { 'Content-Type': 'applitacion/json' } })
                 .then(res => res.json())
                 .then(response => {
@@ -39,9 +37,7 @@
                 .catch(err => {
                     console.log('error:', err)
                 })
-
-        }
-
+        })
     })(window, document, undefined);
 
     function loadCities(el) {

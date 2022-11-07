@@ -32,7 +32,7 @@ class StudentsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with('users')->where('completePreinscription', '=', true)->newQuery();
+        return $model->with(['user'])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**
@@ -70,7 +70,6 @@ class StudentsDataTable extends DataTable
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
-            Column::make('year')->title('Año'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

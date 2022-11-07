@@ -1,7 +1,5 @@
 window._ = require('lodash');
 window.$ = window.jQuery = require('jquery')
-console.log(window.$)
-console.log('hola')
 try {
     require('bootstrap');
     require('datatables.net-bs5');

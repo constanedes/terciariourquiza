@@ -15,6 +15,12 @@ class CareersController extends Controller
         return $dataTable->render('pages.administracion.carreras.index');
     }
 
+    public function careerPage(Request $request)
+    {
+        $career = Career::select('career', 'desc', 'image')->where('id', '=', $request->route('id'))->first();
+        return view('pages.nuestrascarreras.nuestrascarreras')->with('carrera', $career);
+    }
+
     public function careersSelect(Request $request)
     {
         $entrant = [
@@ -47,8 +53,8 @@ class CareersController extends Controller
 
     public function getCareers(Request $request)
     {
-        $carreras = Career::select('id','career') -> get()  ;
-        return $carreras;
+
+        return Career::select('id', 'career')->get();
     }
 
     public function preinscriptionView(Request $request)

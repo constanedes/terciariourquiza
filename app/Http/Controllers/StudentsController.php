@@ -27,6 +27,13 @@ class StudentsController extends Controller
         return $dataTable->render('pages.administracion.ingresantes.index');
     }
 
+    public function confirm(Request $request)
+    {
+        Student::where('id', '=', $request['id'])
+            ->update(['completePreinscription' => 1]);
+        return $request['id'];
+    }
+
     public function store(Request $request)
     {
 
