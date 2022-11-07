@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TurnsController;
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\SettingsController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,19 +26,7 @@ Route::get('/', function () {
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
-/*
-Route::get('analisis-funcional', function () {
-    return view('pages.af');
-});
 
-Route::get('infraestructura-ti', function () {
-    return view('pages.iti');
-});
-
-Route::get('desarrollo-software', function () {
-    return view('pages.ds');
-});
-*/
 Route::get('nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
 Route::get('preinscripcion', function () {
     return view('pages.preinscripcion.index');
@@ -57,29 +46,47 @@ Route::middleware(['auth'])->group(function () {
     //INGRESO UNICAMENTE CON ROL BEDELIA O SUPER ADMIN
     Route::middleware(['role:bedelia|Super Admin'])->group(function () {
         Route::prefix('administracion')->group(function () {
-            Route::post('/turnos/crear', [TurnsController::class, 'generateTurns']);
-            Route::get('/users', [UsersController::class, 'index'])
-                ->name('pages.administracion.users.index');
-            Route::get('/estudiantes', [StudentsController::class, 'index'])
-                ->name('pages.administracion.estudiantes.index');
-            Route::get('/ingresantes', [StudentsController::class, 'ingresantesIndex'])
-                ->name('pages.administracion.ingresantes.index');
-            Route::post('/ingresantes/confirmar', [StudentsController::class, 'confirm']);
+            /* CARRERAS */
             Route::get('/carreras', [CareersController::class, 'index'])
                 ->name('pages.administracion.carreras.index');
             Route::get('/carreras/create', function () {
                 return view('pages.administracion.carreras.create.create');
             });
             Route::post('/carreras/nuevo', [CareersController::class, 'store']);
+
+            /* CONFIGURACIONES */
+            Route::get('/configuraciones', [SettingsController::class, 'index'])
+                ->name('administracion.configuraciones');
+            Route::get('/configuraciones/create', function () {
+                return view('pages.administracion.configuraciones.create.create');
+            });
+            Route::get('/configuraciones/editar/{id}', [SettingsController::class, 'editView']);
+            Route::post('/configuraciones/edit', [SettingsController::class, 'edit']);
+            Route::post('/configuraciones/nuevo', [SettingsController::class, 'store']);
+
+            /* ESTUDIANTES */
+            Route::get('/estudiantes', [StudentsController::class, 'index'])
+                ->name('pages.administracion.estudiantes.index');
+
+            /* INGRESANTES */
+            Route::get('/ingresantes', [StudentsController::class, 'ingresantesIndex'])
+                ->name('pages.administracion.ingresantes.index');
+            Route::post('/ingresantes/confirmar', [StudentsController::class, 'confirm']);
+
+            /* TURNOS */
+            Route::post('/turnos/crear', [TurnsController::class, 'generateTurns']);
             Route::get('/turnos', [TurnsController::class, 'index']);
             Route::get('/turnos/create', function () {
                 return view('pages.administracion.turnos.create.create');
             });
-            Route::get('/configuraciones', [SettingsController::class, 'index']);
-            Route::get('/configuraciones/create', function () {
-                return view('pages.administracion.configuraciones.create.create');
-            });
-            Route::post('/configuraciones/nuevo', [SettingsController::class, 'store']);
+
+            /* USERS */
+            Route::get('/users', [UsersController::class, 'index'])
+                ->name('pages.administracion.users.index');
+            Route::get('/users/create', [UsersController::class, 'newUserView']);
+            Route::post('/users/nuevo', [UsersController::class, 'store']);
+            Route::get('/users/editar/{id}', [UsersController::class, 'editUserView']);
+            Route::post('/users/edit', [UsersController::class, 'edit']);
         });
     });
 });

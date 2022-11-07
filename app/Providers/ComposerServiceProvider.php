@@ -27,7 +27,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
 
         View::composer('*', function ($view) {
-            $inscription = Setting::select('value')->where('name', '=', 'inscripcion')->first()->value;
+            $inscription = Setting::select('value', 'obs')->where('name', '=', 'inscripcion')->first();
             $view->with('inscription', $inscription);
         });
     }

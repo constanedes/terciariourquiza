@@ -2,9 +2,7 @@
 <script>
     (function (window, document, undefined) {
         window.addEventListener('DOMContentLoaded', function () {
-            console.log('work')
             fetch('/getcarreras', { headers: { 'Content-Type': 'applitacion/json' } })
-
                 .then(res => res.json())
                 .then(response => {
                     console.log(response)
@@ -15,9 +13,7 @@
                         let a = document.createElement('a');
                         a.textContent = item.career;
                         a.className = 'dropdown-item';
-                        a.href = '/nuestrascarreras/' + item.id
-                            ;
-                        /* console.log("llego hasta acá") */
+                        a.href = '/nuestrascarreras/' + item.id;
                         ul.appendChild(li.appendChild(a));
 
                     });

@@ -2,7 +2,8 @@
 
 namespace App\DataTables;
 
-use App\Models\Student;
+use App\Models\Turn;
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -11,6 +12,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Database\Eloquent\Builder;
 
 class EntrantsDataTable extends DataTable
 {
@@ -27,10 +29,10 @@ class EntrantsDataTable extends DataTable
             ->addColumn('action', 'entrants.action')
             ->addColumn('action', function ($row) {
                 return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
-                    $row->id . '\',\'' .
-                    $row->user->name . '\',\'' .
-                    $row->user->surname . '\',\'' .
-                    $row->user->numdoc .
+                    $row->student->id . '\',\'' .
+                    $row->student->user->name . '\',\'' .
+                    $row->student->user->surname . '\',\'' .
+                    $row->student->user->numdoc .
                     '\')"><i class="bi bi-check-circle-fill"></i></button>';
             });
     }
@@ -41,9 +43,21 @@ class EntrantsDataTable extends DataTable
      * @param \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Student $model)
+    public function query(Turn $model)
     {
-        return $model->with(['user'])->select('students.*')->where('completePreinscription', '=', 0)->newQuery();
+        return $model->newQuery()
+            ->with([
+                'student',
+                'student.user',
+                'student.careers'
+            ])->select('turns.*')
+            ->where('student_id', '<>', null)
+            ->whereHas('student', function (Builder $query) {
+                $query->where('completePreinscription', '=', 0);
+            })
+            ->whereHas('student.careers', function (Builder $query) {
+                $query->where('year', '=', Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs);
+            });
     }
 
     /**
@@ -75,11 +89,12 @@ class EntrantsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('user.name')->title('Nombre')->data('user.name'),
-            Column::make('user.surname')->title('Apellido')->data('user.surname'),
-            Column::make('user.typedoc')->title('Tipo documento')->data('user.typedoc'),
-            Column::make('user.numdoc')->title('Documento')->data('user.numdoc'),
-            Column::make('user.email')->title('Email')->data('user.email'),
+            Column::make('student.user.name')->title('Nombre')->data('student.user.name'),
+            Column::make('student.user.surname')->title('Apellido')->data('student.user.surname'),
+            Column::make('student.user.typedoc')->title('Tipo documento')->data('student.user.typedoc'),
+            Column::make('student.user.numdoc')->title('Documento')->data('student.user.numdoc'),
+            Column::make('student.user.email')->title('Email')->data('student.user.email'),
+            Column::make('date')->title('Fecha')->data('date'),
             Column::make('action')->title('Insc. completa')
         ];
     }
