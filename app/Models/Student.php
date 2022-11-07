@@ -13,7 +13,7 @@ class Student extends Model
     protected $fillable = [
         'year',
         'user_id',
-        'completePreinscription'
+        'preinscription_completed'
     ];
     protected $guarded = [
         'id'

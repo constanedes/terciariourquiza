@@ -19,8 +19,8 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'typedoc' => 'required',
-            'numdoc' => 'required|numeric',
+            'type_doc' => 'required',
+            'num_doc' => 'required|numeric',
             'name' => 'required|string',
             'surname' => 'required|string',
             'email' => 'required|email',
@@ -32,8 +32,8 @@ class UsersController extends Controller
 
         DB::transaction(function () use ($request) {
             User::create([
-                'typedoc' => $request['typedoc'],
-                'numdoc' => $request['numdoc'],
+                'type_doc' => $request['typedoc'],
+                'num_doc' => $request['numdoc'],
                 'name' => $request['name'],
                 'surname' => $request['surname'],
                 'email' => $request['email'],
@@ -45,7 +45,7 @@ class UsersController extends Controller
                 'locality' => $request['locality'],
                 'birthday' => $request['birthday'],
                 'title' => $request['title'],
-                'yearofgraduation' => $request['yearofgraduation'],
+                'year_of_graduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
             ]);
         });
