@@ -85,38 +85,38 @@ function dump_debug($input, $collapse = false)
         $type_length = null;
 
         switch ($type) {
-            case "String":
-                $type_color = "green";
-                $type_length = strlen($data);
-                $type_data = "\"" . htmlentities($data) . "\"";
-                break;
+        case "String":
+            $type_color = "green";
+            $type_length = strlen($data);
+            $type_data = "\"" . htmlentities($data) . "\"";
+            break;
 
-            case "Double":
-            case "Float":
-                $type = "Float";
-                $type_color = "#0099c5";
-                $type_length = strlen($data);
-                $type_data = htmlentities($data);
-                break;
+        case "Double":
+        case "Float":
+            $type = "Float";
+            $type_color = "#0099c5";
+            $type_length = strlen($data);
+            $type_data = htmlentities($data);
+            break;
 
-            case "Integer":
-                $type_color = "red";
-                $type_length = strlen($data);
-                $type_data = htmlentities($data);
-                break;
+        case "Integer":
+            $type_color = "red";
+            $type_length = strlen($data);
+            $type_data = htmlentities($data);
+            break;
 
-            case "Boolean":
-                $type_color = "#92008d";
-                $type_length = strlen($data);
-                $type_data = $data ? "TRUE" : "FALSE";
-                break;
+        case "Boolean":
+            $type_color = "#92008d";
+            $type_length = strlen($data);
+            $type_data = $data ? "TRUE" : "FALSE";
+            break;
 
-            case "NULL":
-                $type_length = 0;
-                break;
+        case "NULL":
+            $type_length = 0;
+            break;
 
-            case "Array":
-                $type_length = count($data);
+        case "Array":
+            $type_length = count($data);
         }
 
         if (in_array($type, array("Object", "Array"))) {

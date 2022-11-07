@@ -1,11 +1,11 @@
 <?php
 /* INCLUDES */
-include('includes/head.php');
-include('includes/nav.php');
+require 'includes/head.php';
+require 'includes/nav.php';
 
 /* FUNCIONES IMPORTANTES */
-require('db/db.php');
-require('functions.php');
+require 'db/db.php';
+require 'functions.php';
 ?>
 
 
@@ -57,8 +57,8 @@ require('functions.php');
 
 <?php 
 for($i = 1; $i <= 3; $i++){
-  echo "<section>";
-  impTabla($conn, "desarrollo_software", $i);
-  echo "</section>";
+    echo "<section>";
+    impTabla($conn, "desarrollo_software", $i);
+    echo "</section>";
 }
 ?>

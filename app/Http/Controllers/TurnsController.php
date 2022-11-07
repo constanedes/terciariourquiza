@@ -36,9 +36,11 @@ class TurnsController extends Controller
                 }
             }
         }
-        DB::transaction(function () use ($arrayHorariosTurnos) {
-            Turn::insert($arrayHorariosTurnos);
-        });
+        DB::transaction(
+            function () use ($arrayHorariosTurnos) {
+                Turn::insert($arrayHorariosTurnos);
+            }
+        );
         return redirect('administracion/turnos');
     }
 

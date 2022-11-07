@@ -16,12 +16,16 @@ class SettingsController extends Controller
 
     public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
-            Setting::create([
-                'name' => $request->name,
-                'value' => $request->value == 'on' ? 1 : 0
-            ]);
-        });
+        DB::transaction(
+            function () use ($request) {
+                Setting::create(
+                    [
+                        'name' => $request->name,
+                        'value' => $request->value == 'on' ? 1 : 0
+                    ]
+                );
+            }
+        );
     }
     public function getSettingValueByName(Request $request)
     {

@@ -1,5 +1,5 @@
-<?php include("includes/head.php") ?>
-<?php include("includes/nav.php") ?>
+<?php require "includes/head.php" ?>
+<?php require "includes/nav.php" ?>
 
 
 
@@ -42,6 +42,6 @@
         </div>
     </div>
 
-<?php include('includes/footer.php')?>
+<?php require 'includes/footer.php'?>
 </body>
 </html>

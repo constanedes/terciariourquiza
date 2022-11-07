@@ -26,41 +26,45 @@ class DatabaseSeeder extends Seeder
 
         $role->givePermissionTo('editar alumnos');
 
-        $user = User::create([
-            'typedoc' => 'DNI',
-            'numdoc' => 40404040,
-            'email' => 'prueba@gmail.com',
-            'password' => bcrypt('testing'),
-            'name' => 'Matias',
-            'surname' => 'Gomez',
-            'nationality' => 'Argentina',
-            'phone' => '3413333333',
-            'address' => 'Montevideo',
-            'postalcode' => 2000,
-            'locality' => 'Rosario',
-            'birthday' => '1997-09-30',
-            'title' => 'Titulo secundario',
-            'yearofgraduation' => '1997',
-            'institution' => 'Urquiza',
-        ]);
+        $user = User::create(
+            [
+                'typedoc' => 'DNI',
+                'numdoc' => 40404040,
+                'email' => 'prueba@gmail.com',
+                'password' => bcrypt('testing'),
+                'name' => 'Matias',
+                'surname' => 'Gomez',
+                'nationality' => 'Argentina',
+                'phone' => '3413333333',
+                'address' => 'Montevideo',
+                'postalcode' => 2000,
+                'locality' => 'Rosario',
+                'birthday' => '1997-09-30',
+                'title' => 'Titulo secundario',
+                'yearofgraduation' => '1997',
+                'institution' => 'Urquiza',
+            ]
+        );
         $user->assignRole('Super Admin');
-        $estudiante = User::create([
-            'typedoc' => 'DNI',
-            'numdoc' => 50404040,
-            'email' => 'estudiante@gmail.com',
-            'password' => bcrypt('testing'),
-            'name' => 'Mauro',
-            'surname' => 'Fernandez',
-            'nationality' => 'Argentina',
-            'phone' => '3413333332',
-            'address' => 'Montevideo',
-            'postalcode' => 2000,
-            'locality' => 'Rosario',
-            'birthday' => '1997-09-30',
-            'title' => 'Titulo secundario',
-            'yearofgraduation' => '1997',
-            'institution' => 'Urquiza',
-        ]);
+        $estudiante = User::create(
+            [
+                'typedoc' => 'DNI',
+                'numdoc' => 50404040,
+                'email' => 'estudiante@gmail.com',
+                'password' => bcrypt('testing'),
+                'name' => 'Mauro',
+                'surname' => 'Fernandez',
+                'nationality' => 'Argentina',
+                'phone' => '3413333332',
+                'address' => 'Montevideo',
+                'postalcode' => 2000,
+                'locality' => 'Rosario',
+                'birthday' => '1997-09-30',
+                'title' => 'Titulo secundario',
+                'yearofgraduation' => '1997',
+                'institution' => 'Urquiza',
+            ]
+        );
         $estudiante->assignRole('student');
     }
 }

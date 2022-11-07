@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('career_student', function (Blueprint $table) {
-            $table->foreignId('career_id')->constrained();
-            $table->foreignId('student_id')->constrained();
-            $table->integer('year');
-            $table->boolean('onOld')->default(false);
-            $table->primary(['career_id', 'student_id'], 'careers_students');
-        });
+        Schema::create(
+            'career_student', function (Blueprint $table) {
+                $table->foreignId('career_id')->constrained();
+                $table->foreignId('student_id')->constrained();
+                $table->integer('year');
+                $table->boolean('onOld')->default(false);
+                $table->primary(['career_id', 'student_id'], 'careers_students');
+            }
+        );
     }
 
     /**

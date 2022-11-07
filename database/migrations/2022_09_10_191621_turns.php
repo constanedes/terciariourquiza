@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('turns', function (Blueprint $table) {
-            $table->id();
-            $table->date('date');
-            $table->time('time');
-            $table->foreignId('student_id')
-                ->nullable()
-                ->references('id')
-                ->on('students')
-                ->onDelete('cascade');
-            $table->timestamps();
-        });
+        Schema::create(
+            'turns', function (Blueprint $table) {
+                $table->id();
+                $table->date('date');
+                $table->time('time');
+                $table->foreignId('student_id')
+                    ->nullable()
+                    ->references('id')
+                    ->on('students')
+                    ->onDelete('cascade');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

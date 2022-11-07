@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('value')->default(true);
-            $table->timestamps();
-        });
+        Schema::create(
+            'settings', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->boolean('value')->default(true);
+                $table->timestamps();
+            }
+        );
     }
 
     /**

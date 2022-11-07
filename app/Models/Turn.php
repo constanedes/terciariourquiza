@@ -21,15 +21,15 @@ class Turn extends Model
 
     public function student()
     {
-        return $this->belongsTo(Student::class)->withDefault([
-            'id' => null,
-            'user' => [
+        return $this->belongsTo(Student::class)->withDefault(
+            [
                 'id' => null,
-                'name' => null,
-                'surname' => null,
+                'user' => [
+                    'id' => null,
+                    'name' => null,
+                    'surname' => null,
+                ]
             ]
-
-
-        ]);
+        );
     }
 }

@@ -14,23 +14,25 @@ class SettingsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function ($row) {
-                return '<button class="btn btn-primary">
+            ->addColumn(
+                'action', function ($row) {
+                    return '<button class="btn btn-primary">
                     <i class="bi bi-check-circle-fill"></i></button>';
-            });
+                }
+            );
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\entrant $model
+     * @param  \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Setting $model)

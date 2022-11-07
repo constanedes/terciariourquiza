@@ -8,7 +8,7 @@ if(empty($user) || empty($password)){
 */
 
 
-require("db/db.php");
+require "db/db.php";
 $consulta = 'SELECT `id` FROM `desarrollo_software`';
 $query = mysqli_query($conn, $consulta);
 

@@ -17,7 +17,7 @@ class TurnsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -38,27 +38,31 @@ class TurnsDataTable extends DataTable
                     return null;
                 }
             })*/
-            ->addColumn('action', function ($row) {
-                return '<a class="btn btn-warning" href="/administracion/turnos/editar/' . $row->id . '">
+            ->addColumn(
+                'action', function ($row) {
+                    return '<a class="btn btn-warning" href="/administracion/turnos/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
                         </a><a class="btn btn-danger" href="/administracion/turnos/eliminar/' . $row->id . '">
                             <i class="bi bi-trash-fill"></i></a>';
-            });
+                }
+            );
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\entrant $model
+     * @param  \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
 
     public function query(Turn $model)
     {
-        return $model->newQuery()->with([
+        return $model->newQuery()->with(
+            [
             'student',
             'student.user'
-        ])->select('turns.*');
+            ]
+        )->select('turns.*');
     }
 
     /**

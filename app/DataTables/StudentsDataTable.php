@@ -17,7 +17,7 @@ class StudentsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -30,14 +30,16 @@ class StudentsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Student $model
+     * @param  \App\Models\Student $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Student $model)
     {
-        return $model->with([
+        return $model->with(
+            [
             'user'
-        ])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
+            ]
+        )->select('students.*')->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**

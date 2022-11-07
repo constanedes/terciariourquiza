@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->boolean('completePreinscription')->default(false);
-            $table->timestamps();
-        });
+        Schema::create(
+            'students', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
+                $table->boolean('completePreinscription')->default(false);
+                $table->timestamps();
+            }
+        );
     }
 
     /**

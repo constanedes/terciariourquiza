@@ -1,6 +1,6 @@
 <?php
-include('includes/head.php');
-include('includes/nav.php');
+require 'includes/head.php';
+require 'includes/nav.php';
 ?>
 
 <p>El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar, mantener,
@@ -286,5 +286,5 @@ include('includes/nav.php');
 
 
 <?php
-include('includes/footer.php');
+require 'includes/footer.php';
 ?>

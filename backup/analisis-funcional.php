@@ -1,6 +1,6 @@
 <?php
-include('includes/head.php');
-include('includes/nav.php');
+require 'includes/head.php';
+require 'includes/nav.php';
 ?>
 
 <p>El Técnico Superior en Análisis Funcional de Sistemas Informáticos estará capacitado para comprender e interpretar

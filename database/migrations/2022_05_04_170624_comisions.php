@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comisions', function (Blueprint $table) {
-            $table->id();
-            $table->string('comision');
-            $table->integer('year');
-            $table->timestamps();
-        });
+        Schema::create(
+            'comisions', function (Blueprint $table) {
+                $table->id();
+                $table->string('comision');
+                $table->integer('year');
+                $table->timestamps();
+            }
+        );
     }
 
     /**

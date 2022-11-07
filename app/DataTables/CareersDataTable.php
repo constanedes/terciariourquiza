@@ -17,25 +17,27 @@ class CareersDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function ($row) {
-                return '<a class="btn btn-warning" href="/administracion/carreras/editar/' . $row->id . '">
+            ->addColumn(
+                'action', function ($row) {
+                    return '<a class="btn btn-warning" href="/administracion/carreras/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
                         </a><a class="btn btn-danger" href="/administracion/carreras/eliminar/' . $row->id . '">
                             <i class="bi bi-trash-fill"></i></a>';
-            });
+                }
+            );
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\entrant $model
+     * @param  \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Career $model)

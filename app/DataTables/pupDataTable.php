@@ -17,7 +17,7 @@ class pupDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param  QueryBuilder $query Results from query() method.
      * @return \Yajra\DataTables\EloquentDataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
@@ -30,7 +30,7 @@ class pupDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\pup $model
+     * @param  \App\Models\pup $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(pup $model): QueryBuilder
@@ -46,19 +46,21 @@ class pupDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('pup-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
+            ->setTableId('pup-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons(
+                [
                         Button::make('create'),
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload')
-                    ]);
+                        ]
+            );
     }
 
     /**
@@ -70,10 +72,10 @@ class pupDataTable extends DataTable
     {
         return [
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
             Column::make('id'),
             Column::make('add your columns'),
             Column::make('created_at'),

@@ -45,10 +45,12 @@ class CareersController extends Controller
         ];
         $carreras = Career::all();
         return view('pages.carreras')
-            ->with('vars', [
-                'carreras' => $carreras,
-                'entrant' => $entrant
-            ]);
+            ->with(
+                    'vars', [
+                    'carreras' => $carreras,
+                    'entrant' => $entrant
+                ]
+            );
     }
 
     public function getCareers(Request $request)
@@ -65,25 +67,31 @@ class CareersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'career' => 'required|string',
             'desc' => 'required|string'
-        ]);
+            ]
+        );
 
 
 
-        DB::transaction(function () use ($request) {
-            if ($request->file('image')) {
-                $file = $request->file('image');
-                $filename = date('YmdHi') . $file->getClientOriginalName();
-                $file->move(public_path('public/Image'), $filename);
+        DB::transaction(
+            function () use ($request) {
+                if ($request->file('image')) {
+                    $file = $request->file('image');
+                    $filename = date('YmdHi') . $file->getClientOriginalName();
+                    $file->move(public_path('public/Image'), $filename);
+                }
+                Career::create(
+                    [
+                        'career' => $request['career'],
+                        'desc' => $request['desc'],
+                        'image' => $filename
+                    ]
+                );
             }
-            Career::create([
-                'career' => $request['career'],
-                'desc' => $request['desc'],
-                'image' => $filename
-            ]);
-        });
+        );
 
         return redirect()->route('pages.administracion.carreras.index')->with('success', 'Data saved!');
     }

@@ -17,7 +17,7 @@ class EntrantsDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -25,20 +25,22 @@ class EntrantsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', 'entrants.action')
-            ->addColumn('action', function ($row) {
-                return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
+            ->addColumn(
+                'action', function ($row) {
+                    return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
                     $row->id . '\',\'' .
                     $row->user->name . '\',\'' .
                     $row->user->surname . '\',\'' .
                     $row->user->numdoc .
                     '\')"><i class="bi bi-check-circle-fill"></i></button>';
-            });
+                }
+            );
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\entrant $model
+     * @param  \App\Models\entrant $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Student $model)
