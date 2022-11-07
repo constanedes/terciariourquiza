@@ -2,7 +2,9 @@
 @include('pages.administracion.ingresantes.confirmModal')
 @extends('pages.administracion.administracion')
 @section('page')
-{{$dataTable->table()}}
+<div class="row py-5">
+    {{$dataTable->table()}}
+</div>
 @stop
 @push('scripts')
 {{$dataTable->scripts()}}

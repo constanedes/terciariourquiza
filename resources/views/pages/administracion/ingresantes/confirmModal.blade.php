@@ -1,12 +1,4 @@
 @section('confirmModal')
-<h1 class="bg-warnig">se ve</h1>
-
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-warning justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button> -->
-
-<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="false" data-bs-keyboard="true" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

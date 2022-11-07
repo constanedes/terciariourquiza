@@ -3,6 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\Student;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -32,7 +35,9 @@ class StudentsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with(['user'])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
+        return $model->with([
+            'user'
+        ])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**
@@ -65,8 +70,8 @@ class StudentsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('user.name')->title('Nombres'),
-            Column::make('user.surname')->title('Apellidos'),
+            Column::make('user.name')->title('Nombres')->data('user.name'),
+            Column::make('user.surname')->title('Apellidos')->data('user.surname'),
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
@@ -83,7 +88,7 @@ class StudentsDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename(): string
     {
         return 'Students_' . date('YmdHis');
     }
