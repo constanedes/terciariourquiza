@@ -5,8 +5,8 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TurnsController;
 use App\Http\Controllers\CareersController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,7 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
