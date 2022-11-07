@@ -34,9 +34,6 @@
                         @endhasanyrole
                     </ul>
                 </div>
-                @php
-                echo $inscription
-                @endphp
                 @hasanyrole('bedelia|Super Admin|student')
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -48,10 +45,10 @@
                     {{ csrf_field() }}
                 </form>
                 @else
-                @if($inscription)
+                @if($inscription->value == 1)
                 <a href="/preinscripcion">
                     <button type="button" class="btn btn-warning m-3" data-bs-toggle="modal">
-                        Inscripcion @php echo(date("Y")+1) @endphp
+                        Inscripcion {{$inscription->obs}}
                     </button>
                 </a>
                 @endif

@@ -8,12 +8,45 @@ use App\Models\User;
 use App\DataTables\UsersDataTable;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
     public function index(UsersDataTable $dataTable)
     {
         return $dataTable->render('pages.administracion.users.index');
+    }
+
+    public function newUserView(Request $request)
+    {
+        $roles = $this->getRoles();
+        return view('pages.administracion.users.create.create')
+            ->with('roles', $roles);
+    }
+
+    public function editUserView(Request $request)
+    {
+        $user = User::select([
+            'id',
+            'name',
+            'surname',
+            'email',
+            'phone',
+            'typedoc',
+            'numdoc',
+            'password',
+            'birthday',
+            'address',
+            'postalcode',
+            'nationality',
+            'title',
+            'institution',
+            'yearofgraduation'
+        ])->where('id', '=', $request['id'])->first();
+        return view('pages.administracion.users.editar.editar')->with([
+            'user' => $user,
+            'roles' => $this->getRoles()
+        ]);
     }
 
     public function store(Request $request)
@@ -31,7 +64,7 @@ class UsersController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
-            User::create([
+            $user = User::create([
                 'typedoc' => $request['typedoc'],
                 'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
@@ -48,7 +81,14 @@ class UsersController extends Controller
                 'yearofgraduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
             ]);
+            $user->assignRole($request['rol']);
         });
-        return View::make('pages.administracion.users.index')->with('success', 'Data saved!');
+
+        return redirect()->route('pages.administracion.users.index')->with('success', 'Data saved!');
+    }
+
+    public function getRoles()
+    {
+        return Role::select('name')->where('name', '<>', 'student')->get();
     }
 }

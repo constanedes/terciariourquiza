@@ -7,7 +7,7 @@
     <div class="row">
         <div class="form-group col-4 pl-5 pr-5">
             <label for="career">Carrera</label>
-            <input class="form-control" id="career" name="career" type="text" />
+            <input class="form-control" id="career" name="career" type="text" required />
         </div>
         <div class="form-group col-4 pl-5 pr-5">
             <label for="image">Imagen</label>
@@ -15,9 +15,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-4">
+        <div class="form-group col-12">
             <label for="desc">Descripcion</label>
-            <textarea id="desc" name="desc" class="form-control"></textarea>
+            <textarea class="ckeditor" name="desc" id="desc" rows="10" cols="80" required></textarea>
         </div>
     </div>
     <div class="row">

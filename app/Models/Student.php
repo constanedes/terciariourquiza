@@ -19,18 +19,20 @@ class Student extends Model
         'id'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class)->withDefault(['id' => null]);
-    }
-
     public function careers()
     {
         return $this->belongsToMany(Career::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault([
+            'id' => null
+        ]);
+    }
+
     public function turns()
     {
-        return $this->hasMany(Turn::class);
+        return $this->hasMany(Turn::class, 'student_id', 'id');
     }
 }

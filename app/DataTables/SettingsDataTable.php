@@ -22,8 +22,8 @@ class SettingsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($row) {
-                return '<button class="btn btn-primary">
-                    <i class="bi bi-check-circle-fill"></i></button>';
+                return '<a class="btn btn-primary" href="/administracion/configuraciones/editar/' . $row->id . '">
+                    <i class="bi bi-pencil-fill"></i></a>';
             });
     }
 
@@ -70,6 +70,7 @@ class SettingsDataTable extends DataTable
         return [
             Column::make('name')->title('Nombre'),
             Column::make('value')->title('Valor'),
+            Column::make('obs')->title('Observaciones'),
             Column::make('action')->title('Accion')
         ];
     }
@@ -79,7 +80,7 @@ class SettingsDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename(): string
     {
         return 'entrants_' . date('YmdHis');
     }
