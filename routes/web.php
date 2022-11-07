@@ -6,8 +6,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TurnsController;
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\SettingsController;
-use Datatables;
-use App\Models\Turn;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,18 +71,7 @@ Route::middleware(['auth'])->group(function () {
                 return view('pages.administracion.carreras.create.create');
             });
             Route::post('/carreras/nuevo', [CareersController::class, 'store']);
-            //Route::get('/turnos', [TurnsController::class, 'index']);
-            Route::get('/turnos', function () {
-                $model = Turn::with(['student']);
-
-                return Datatables::eloquent($model)
-                    ->addColumn('', function (Turn $turn) {
-                        return $turn->student->map(function ($student) {
-                            return \Illuminate\Support\Str::limit($student->title, 30, '...');
-                        })->implode('<br>');
-                    })
-                    ->toJson();
-            });
+            Route::get('/turnos', [TurnsController::class, 'index']);
             Route::get('/turnos/create', function () {
                 return view('pages.administracion.turnos.create.create');
             });

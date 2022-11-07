@@ -3,6 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\Turn;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -21,12 +24,12 @@ class TurnsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('name', function ($row) {
+            /*->addColumn('name', function ($row) {
                 if ($row->student) {
                     return $row->student->user ? $row->student->user->name : '';
                 }
                 return '';
-            }, true)
+            }, true)*/
             /*
             ->addColumn('doc', function ($row) {
                 if ($row->student && $row->student->user) {
@@ -52,7 +55,10 @@ class TurnsDataTable extends DataTable
 
     public function query(Turn $model)
     {
-        return $model->with(['student', 'student.user'])->select('turns.*')->newQuery();
+        return $model->newQuery()->with([
+            'student',
+            'student.user'
+        ])->select('turns.*');
     }
 
     /**
@@ -85,8 +91,8 @@ class TurnsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('student', 'name'),
-            //Column::make('doc')->title('Documento'),
+            Column::make('student.user.name')->title('Nombre')->data('student.user.name'),
+            Column::make('student.user.surname')->title('Apellido')->data('student.user.surname'),
             Column::make('date'),
             Column::make('time'),
             Column::make('action')
@@ -102,7 +108,7 @@ class TurnsDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename(): string
     {
         return 'entrants_' . date('YmdHis');
     }

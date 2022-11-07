@@ -3,6 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\Student;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -73,11 +76,11 @@ class EntrantsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('user.name')->title('Nombre'),
-            Column::make('user.surname')->title('Apellido'),
-            Column::make('user.typedoc')->title('Tipo documento'),
-            Column::make('user.numdoc')->title('Documento'),
-            Column::make('user.email')->title('Email'),
+            Column::make('user.name')->title('Nombre')->data('user.name'),
+            Column::make('user.surname')->title('Apellido')->data('user.surname'),
+            Column::make('user.typedoc')->title('Tipo documento')->data('user.typedoc'),
+            Column::make('user.numdoc')->title('Documento')->data('user.numdoc'),
+            Column::make('user.email')->title('Email')->data('user.email'),
             Column::make('action')->title('Insc. completa')
         ];
     }
@@ -87,7 +90,7 @@ class EntrantsDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename(): string
     {
         return 'entrants_' . date('YmdHis');
     }
