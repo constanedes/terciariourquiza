@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/carreras/create', function () {
                 return view('pages.administracion.carreras.create.create');
             });
+            Route::get('/carreras/editar/{id}', [CareersController::class, 'editView']);
             Route::post('/carreras/nuevo', [CareersController::class, 'store']);
 
             /* CONFIGURACIONES */

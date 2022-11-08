@@ -15,6 +15,17 @@ class CareersController extends Controller
         return $dataTable->render('pages.administracion.carreras.index');
     }
 
+    public function editView(Request $request)
+    {
+        $carrera = Career::select([
+            'id',
+            'desc_corta',
+            'image',
+            'desc',
+            'career'
+        ])->where('id', '=', $request['id'])->first();
+        return view('pages.administracion.carreras.editar.editar')->with('carrera', $carrera);
+    }
     public function careerPage(Request $request)
     {
         $career = Career::select('career', 'desc', 'image')->where('id', '=', $request->route('id'))->first();
