@@ -12,11 +12,11 @@ class Turn extends Model
     protected $table = 'turns';
     protected $fillable = [
         'date',
-        'time'
+        'time',
+        'student_id'
     ];
     protected $guarded = [
-        'id',
-        'student_id',
+        'id'
     ];
 
     public function student()

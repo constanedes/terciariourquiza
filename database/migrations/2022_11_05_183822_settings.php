@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('value')->default(true);
+            $table->string('obs')->nullable();
             $table->timestamps();
         });
     }

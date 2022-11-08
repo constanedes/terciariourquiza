@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use App\Models\Setting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -62,5 +63,11 @@ class DatabaseSeeder extends Seeder
             'institution' => 'Urquiza',
         ]);
         $estudiante->assignRole('student');
+
+        Setting::create([
+            'name' => 'inscripcion',
+            'value' => 0,
+            'obs' => 2023
+        ]);
     }
 }

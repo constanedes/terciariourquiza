@@ -24,7 +24,15 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'users.action');
+            ->addColumn('roles', function ($row) {
+                return $row->roles[0]->name;
+            })
+            ->addColumn('action', function ($row) {
+                return '<a class="btn btn-warning" href="/administracion/users/editar/' . $row->id . '">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a><a class="btn btn-danger" href="/administracion/users/eliminar/' . $row->id . '">
+                            <i class="bi bi-trash-fill"></i></a>';
+            });
     }
 
     /**
@@ -35,7 +43,14 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()
+            ->with([
+                'roles'
+            ])
+            ->select('users.*')
+            ->whereHas('roles', function ($q) {
+                $q->where('name', "<>", 'student');
+            });
     }
 
     /**

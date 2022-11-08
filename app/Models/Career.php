@@ -13,6 +13,7 @@ class Career extends Model
     protected $fillable = [
         'career',
         'desc',
+        'desc_corta',
         'image'
     ];
     protected $guarded = [

@@ -13,6 +13,7 @@ use App\Models\Career;
 use App\Models\Student;
 use App\Models\Turn;
 use App\Models\User;
+use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 
 class StudentsController extends Controller
@@ -82,7 +83,7 @@ class StudentsController extends Controller
             $student->careers()->attach(
                 Career::find($request['career']),
                 [
-                    'year' => date("Y"),
+                    'year' => Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs,
                     'onOld' => $onOld
                 ]
             );

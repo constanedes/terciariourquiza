@@ -67,7 +67,8 @@ class CareersController extends Controller
     {
         $request->validate([
             'career' => 'required|string',
-            'desc' => 'required|string'
+            'desc' => 'required|string',
+            'desc_corta' => 'string'
         ]);
 
 
@@ -81,6 +82,7 @@ class CareersController extends Controller
             Career::create([
                 'career' => $request['career'],
                 'desc' => $request['desc'],
+                'desc_corta' => $request['desc_corta'],
                 'image' => $filename
             ]);
         });
