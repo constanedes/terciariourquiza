@@ -20,7 +20,7 @@ class StudentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-            'completePreinscription' => $this->faker->randomElement([true, false])
+            'preinscription_completed' => $this->faker->randomElement([true, false])
         ];
     }
 }

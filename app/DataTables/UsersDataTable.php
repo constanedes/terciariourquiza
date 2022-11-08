@@ -85,9 +85,10 @@ class UsersDataTable extends DataTable
         return [
             Column::make('name'),
             Column::make('surname'),
-            Column::make('typedoc')->title('Tipo documento'),
-            Column::make('numdoc')->title('Documento'),
-            Column::make('roles')->title('Rol'),
+            Column::make('type_doc')->title('Tipo documento'),
+            Column::make('num_doc')->title('Documento'),
+            //Column::make('created_at'),
+            //Column::make('updated_at'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -24,8 +24,8 @@ class CareersController extends Controller
     public function careersSelect(Request $request)
     {
         $entrant = [
-            'typedoc' => $request->typedoc,
-            'numdoc' => $request->numdoc,
+            'type_doc' => $request->typedoc,
+            'num_doc' => $request->numdoc,
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
@@ -38,7 +38,7 @@ class CareersController extends Controller
             'locality' => $request->locality,
             'nationality' => $request->nationality,
             'title' => $request->title,
-            'yearofgraduation' => $request->yearofgraduation,
+            'year_of_graduation' => $request->yearofgraduation,
             'institution' => $request->institution,
             'turn' => $request->turn_submit,
             'time' => $request->time
