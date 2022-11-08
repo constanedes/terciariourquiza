@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <input type="hidden" name="id" value="{{$setting->id}}">
-        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-warning" type="submit">
     </div>
 </form>
 @stop

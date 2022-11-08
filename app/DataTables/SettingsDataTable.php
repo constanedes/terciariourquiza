@@ -22,7 +22,7 @@ class SettingsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($row) {
-                return '<a class="btn btn-primary" href="/administracion/configuraciones/editar/' . $row->id . '">
+                return '<a class="btn btn-warning" href="/administracion/configuraciones/editar/' . $row->id . '">
                     <i class="bi bi-pencil-fill"></i></a>';
             });
     }

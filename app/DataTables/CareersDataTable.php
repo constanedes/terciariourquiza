@@ -27,7 +27,7 @@ class CareersDataTable extends DataTable
             ->addColumn('action', function ($row) {
                 return '<a class="btn btn-warning" href="/administracion/carreras/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
-                        </a><a class="btn btn-danger" href="/administracion/carreras/eliminar/' . $row->id . '">
+                        </a><a class="btn btn-danger" onclick="eliminar(\''.$row->id.'\',\''.$row->career.'\')">
                             <i class="bi bi-trash-fill"></i></a>';
             });
     }
