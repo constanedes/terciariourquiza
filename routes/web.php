@@ -19,7 +19,7 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
