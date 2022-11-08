@@ -90,7 +90,7 @@ class StudentsController extends Controller
             Turn::where('id', '=', $request->time)
                 ->update(['student_id' => $student->id]);
         });
-        return View::make('index')->with('success', 'Data saved!');
+        return redirect()->route('index')->with('success', 'Data saved!');
     }
 
     public function getStudentById($id)
