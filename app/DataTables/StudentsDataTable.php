@@ -24,9 +24,12 @@ class StudentsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function ($row) {
-                return $row;
-            });
+            ->addColumn('action', 'action')
+            ->filter(function ($query) {
+                if (request()->has('careers.career')) {
+                    $query->where('career', 'like', "%" . request('career') . "%");
+                }
+            }, true);
     }
 
     /**
@@ -37,10 +40,9 @@ class StudentsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with([
+        return $model->leftJoinRelationship('careers')->with([
             'user',
-            'careers'
-        ])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
+        ])->select(['students.*', 'careers.*', 'career_student.year'])->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**
@@ -78,7 +80,8 @@ class StudentsDataTable extends DataTable
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
-            Column::make('user.careers.career')->data('user.careers.career'),
+            Column::make('careers.career')->title('Carrera')->data('career'),
+            Column::make('career_student.year')->title('Año')->data('year'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
