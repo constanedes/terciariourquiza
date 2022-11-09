@@ -119,4 +119,13 @@ class CareersController extends Controller
 
         return redirect()->route('pages.administracion.carreras.index')->with('success', 'Data saved!');
     }
+
+    public function updateCupo(Request $request)
+    {
+        Career::where('id', '=', $request->id)
+            ->update([
+                'quota' => $request->cupo
+            ]);
+        return $request->id;
+    }
 }
