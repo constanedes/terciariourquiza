@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('quota')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

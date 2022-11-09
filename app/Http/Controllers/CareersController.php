@@ -7,6 +7,7 @@ use App\Models\Career;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\CareersDataTable;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 class CareersController extends Controller
 {
@@ -35,8 +36,8 @@ class CareersController extends Controller
     public function careersSelect(Request $request)
     {
         $entrant = [
-            'type_doc' => $request->typedoc,
-            'num_doc' => $request->numdoc,
+            'typedoc' => $request->typedoc,
+            'numdoc' => $request->numdoc,
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
@@ -49,7 +50,7 @@ class CareersController extends Controller
             'locality' => $request->locality,
             'nationality' => $request->nationality,
             'title' => $request->title,
-            'year_of_graduation' => $request->yearofgraduation,
+            'yearofgraduation' => $request->yearofgraduation,
             'institution' => $request->institution,
             'turn' => $request->turn_submit,
             'time' => $request->time
@@ -72,6 +73,24 @@ class CareersController extends Controller
     {
         $carrera = Career::find($request->route('id'));
         return view('pages.preinscripcion.index')->with('carrera', $carrera);
+    }
+
+    public function delete(Request $request)
+    {
+        Career::find($request->id)->delete();
+        return $request->id;
+    }
+
+    public function edit(Request $request)
+    {
+        DB::transaction(function () use ($request) {
+            Career::where('id', '=', $request->id)->update([
+                'career' => $request->career,
+                'desc' => $request->desc,
+                'desc_corta' => $request->desc_corta
+            ]);
+        });
+        return redirect()->route('pages.administracion.carreras.index');
     }
 
     public function store(Request $request)

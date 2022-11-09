@@ -2,7 +2,7 @@
 @include('pages.administracion.carreras.delete.modalDelete')
 @extends('pages.administracion.administracion')
 @section('page')
-<div class="row">
+<div class="row py-5">
     {{$dataTable->table()}}
 </div>
 @stop

@@ -24,7 +24,9 @@ class StudentsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'estudiantes.action');
+            ->addColumn('action', function ($row) {
+                return $row;
+            });
     }
 
     /**
@@ -36,7 +38,8 @@ class StudentsDataTable extends DataTable
     public function query(Student $model)
     {
         return $model->with([
-            'user'
+            'user',
+            'careers'
         ])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
     }
 
@@ -75,6 +78,7 @@ class StudentsDataTable extends DataTable
             Column::make('user.typedoc')->title('Tipo documento'),
             Column::make('user.numdoc')->title('Documento'),
             Column::make('user.email')->title('Email'),
+            Column::make('user.careers.career')->data('user.careers.career'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

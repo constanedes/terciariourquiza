@@ -31,7 +31,7 @@ class StudentsController extends Controller
     public function confirm(Request $request)
     {
         Student::where('id', '=', $request['id'])
-            ->update(['preinscription_completed' => 1]);
+            ->update(['completePreinscription' => 1]);
         return $request['id'];
     }
 
@@ -59,8 +59,8 @@ class StudentsController extends Controller
             }
 
             $user = User::create([
-                'type_doc' => $request['typedoc'],
-                'num_doc' => $request['numdoc'],
+                'typedoc' => $request['typedoc'],
+                'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
                 'surname' => $request['surname'],
                 'email' => $request['email'],
@@ -72,7 +72,7 @@ class StudentsController extends Controller
                 'locality' => $request['locality'],
                 'birthday' => $request['birthday'],
                 'title' => $request['title'],
-                'year_of_graduation' => $request['yearofgraduation'],
+                'yearofgraduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
             ]);
             $student = Student::create([

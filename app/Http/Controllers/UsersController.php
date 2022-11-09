@@ -52,8 +52,8 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type_doc' => 'required',
-            'num_doc' => 'required|numeric',
+            'typedoc' => 'required',
+            'numdoc' => 'required|numeric',
             'name' => 'required|string',
             'surname' => 'required|string',
             'email' => 'required|email',
@@ -65,8 +65,8 @@ class UsersController extends Controller
 
         DB::transaction(function () use ($request) {
             User::create([
-                'type_doc' => $request['typedoc'],
-                'num_doc' => $request['numdoc'],
+                'typedoc' => $request['typedoc'],
+                'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
                 'surname' => $request['surname'],
                 'email' => $request['email'],
@@ -78,7 +78,7 @@ class UsersController extends Controller
                 'locality' => $request['locality'],
                 'birthday' => $request['birthday'],
                 'title' => $request['title'],
-                'year_of_graduation' => $request['yearofgraduation'],
+                'yearofgraduation' => $request['yearofgraduation'],
                 'institution' => $request['institution']
             ]);
             $user->assignRole($request['rol']);
