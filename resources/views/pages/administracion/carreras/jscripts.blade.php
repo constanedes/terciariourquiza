@@ -1,6 +1,5 @@
 @section('jscripts')
 <script>
-
     function eliminar(id, carrera) {
         document.getElementById('carrera').textContent = carrera
         document.getElementById('send').onclick = () => send(id)
@@ -56,8 +55,26 @@
                     id: document.getElementById('id').value,
                     cupo: document.getElementById('cupo').value
                 })
-            });
-            const content = await rawResponse.json();
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Fallo al realizar la carga", {
+                            cause: response
+                        });
+                    } else {
+                        response.json()
+                    }
+                })
+                .then((data) => {
+                    toastr.success('Carga exitosa!', null, {
+                        positionClass: 'toast-bottom-right'
+                    })
+                }).catch((error) => {
+                    toastr.error(error, null, {
+                        positionClass: 'toast-bottom-right'
+                    })
+                })
+            const content = await rawResponse;
 
             document.querySelector('[title="Reload"]').click()
             $('#cupoModal').modal('toggle');
