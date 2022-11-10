@@ -51,12 +51,10 @@ class CareersController extends Controller
             'nationality' => $request->nationality,
             'title' => $request->title,
             'yearofgraduation' => $request->yearofgraduation,
-            'institution' => $request->institution,
-            'turn' => $request->turn_submit,
-            'time' => $request->time
+            'institution' => $request->institution
         ];
         $carreras = Career::all();
-        return view('pages.carreras')
+        return view('pages.preinscripcion.carreras.carreras')
             ->with('vars', [
                 'carreras' => $carreras,
                 'entrant' => $entrant
