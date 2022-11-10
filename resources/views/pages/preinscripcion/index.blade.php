@@ -162,7 +162,7 @@
 
             <!-- Año egreso -->
             <div class="col-md-6 pl-5 pr-5">
-                <label for="validationCustom03" class="form-label">Año de egreso secundaria</label>
+                <label for="validationCustom03" class="form-label">Año de egreso nivel secundario</label>
                 <input type="number" class="form-control" id="validationCustom03" name="yearofgraduation"
                     value="{{old('yearofgraduation')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>

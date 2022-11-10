@@ -33,15 +33,8 @@
                         Nuestra Historia
                     </h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Illo, maiores architecto? Nobis obcaecati fugit tenetur
-                        blanditiis numquam sequi voluptatum, doloremque quidem
-                        a, officia ipsum in provident excepturi reprehenderit
-                        modi dignissimos. Voluptatem iure dicta cumque quaerat
-                        et quo quas nobis ad. Exercitationem aliquam, explicabo
-                        laboriosam cum, quidem dolore doloremque, distinctio
-                        earum accusantium architecto neque! Sint beatae eaque
-                        molestiae hic inventore enim?
+                        La Carrera de Analista de Sistemas de Computación de Nivel Terciario fue creada en la Escuela de Comercio Nº 49 "Cap. Gral J.J.de Urquiza", en el año 1986, dependiendo de la Dirección Nacional de Educación Superior, del Ministerio de Educación y Justicia de la Nación.
+                        Su creación permitió elevar el establecimiento a la categoría de Escuela Superior, y contó con dos divisiones de primer año en su inicio.
                     </p>
                 </div>
             </div>
@@ -52,20 +45,11 @@
         <div class="row rouned">
             
             <div class="col-8">
-                <div class="text-white">
-                    <h3 class="text-warning font-monospace">
-                        Nuestra Historia
-                    </h3>
+                <div class="text-white">                    
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Illo, maiores architecto? Nobis obcaecati fugit tenetur
-                        blanditiis numquam sequi voluptatum, doloremque quidem
-                        a, officia ipsum in provident excepturi reprehenderit
-                        modi dignissimos. Voluptatem iure dicta cumque quaerat
-                        et quo quas nobis ad. Exercitationem aliquam, explicabo
-                        laboriosam cum, quidem dolore doloremque, distinctio
-                        earum accusantium architecto neque! Sint beatae eaque
-                        molestiae hic inventore enim?
+                        Los contenidos de la Carrera estaban determinados por el plan RM Nº 1823/83, el cual establecía una duración de tres años para obtener el título de Analista de Sistemas de Computación, con un título intermedio de Analista Programador, al aprobar segundo año.
+                        La carga horaria del Plan Nº 1823/83, era de 62hs distribuidas en veinte para primer año veinte para segundo y veintidós para tercero.
+                        En el año 1989, se elevó a la Dirección Nacional un proyecto para actualizar los contenidos de la Carrera. Este mantiene la duración, pero cambia la distribución horaria incrementando el total a 69 horas e introduce cambios necesarios para ajustar las materias a las necesidades de una permanente actualización. El proyecto fue aprobado por la Resolución Ministerial 1066/90. El primero de abril del año 1994 la escuela fue transferida, junto con otros establecimientos, a la jurisdicción provincial. Hasta la fecha no se ha modificado su estructura curricular ni su sistema de promoción.
                     </p>
                 </div>
             </div>
@@ -92,15 +76,10 @@
             <div class="col-8">
                 <div class="text-white">                    
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Illo, maiores architecto? Nobis obcaecati fugit tenetur
-                        blanditiis numquam sequi voluptatum, doloremque quidem
-                        a, officia ipsum in provident excepturi reprehenderit
-                        modi dignissimos. Voluptatem iure dicta cumque quaerat
-                        et quo quas nobis ad. Exercitationem aliquam, explicabo
-                        laboriosam cum, quidem dolore doloremque, distinctio
-                        earum accusantium architecto neque! Sint beatae eaque
-                        molestiae hic inventore enim?
+                        Estas carreras tendrán a partir del 2106 marcos de referencias aprobados por el Consejo Federal de Educación, cambiando su denominación a: Analista Programador como Desarrollador de Software y la carrera Informática y Redes de Datos como Soporte de Infraestructura de Tecnologías de Información.
+                        Ambas carreras nuevas se dictarán dentro del Área Tecnológica de Rosario, donde se ubican las principales empresas de TI conformando el Polo Tecnológico de Rosario. El lugar físico de dictado de ambas carreras se encuentran en construcción y representarán un edificio nuevo dentro del espacio ocupado por el ex Batallón 121.
+
+                        Este nuevo desafío representa un estímulo para nuestra institución cuya trayectoria exitosa viene marcando un indudable lugar en el mercado laboral regional.
                     </p>
                 </div>
             </div>
