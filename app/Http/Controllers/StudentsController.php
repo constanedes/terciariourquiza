@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
 use App\DataTables\EntrantsDataTable;
+use App\Mail\ConfirmInscription;
 use App\Models\Career;
 use App\Models\Student;
 use App\Models\Turn;
 use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Mail;
 
 class StudentsController extends Controller
 {
@@ -31,13 +33,12 @@ class StudentsController extends Controller
     public function confirm(Request $request)
     {
         Student::where('id', '=', $request['id'])
-            ->update(['preinscription_completed' => 1]);
+            ->update(['completePreinscription' => 1]);
         return $request['id'];
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',
@@ -57,28 +58,35 @@ class StudentsController extends Controller
             } else {
                 Career::where('id', '=', $request->career)->decrement('quota', 1);
             }
-
-            $user = User::create([
-                'type_doc' => $request['typedoc'],
-                'num_doc' => $request['numdoc'],
-                'name' => $request['name'],
-                'surname' => $request['surname'],
-                'email' => $request['email'],
-                'password' => bcrypt($request['password']),
-                'nationality' => $request['nationality'],
-                'phone' => $request['phone'],
-                'address' => $request['address'],
-                'postalcode' => $request['postalcode'],
-                'locality' => $request['locality'],
-                'birthday' => $request['birthday'],
-                'title' => $request['title'],
-                'year_of_graduation' => $request['yearofgraduation'],
-                'institution' => $request['institution']
-            ]);
-            $student = Student::create([
-                'user_id' => $user->id,
-                'inscription' => $request->inscription
-            ]);
+            $user = User::firstOrcreate(
+                [
+                    'numdoc' => $request['numdoc']
+                ],
+                [
+                    'typedoc' => $request['typedoc'],
+                    'name' => $request['name'],
+                    'surname' => $request['surname'],
+                    'email' => $request['email'],
+                    'password' => bcrypt($request['password']),
+                    'nationality' => $request['nationality'],
+                    'phone' => $request['phone'],
+                    'address' => $request['address'],
+                    'postalcode' => $request['postalcode'],
+                    'locality' => $request['locality'],
+                    'birthday' => $request['birthday'],
+                    'title' => $request['title'],
+                    'yearofgraduation' => $request['yearofgraduation'],
+                    'institution' => $request['institution']
+                ]
+            );
+            $student = Student::firstOrCreate(
+                [
+                    'user_id' => $user->id
+                ],
+                [
+                    'inscription' => $request->inscription
+                ]
+            );
 
             $student->careers()->attach(
                 Career::find($request['career']),
@@ -89,6 +97,16 @@ class StudentsController extends Controller
             );
             Turn::where('id', '=', $request->time)
                 ->update(['student_id' => $student->id]);
+            $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
+
+            Mail::to($user->email)->send(new ConfirmInscription(
+                $user->name,
+                $user->surname,
+                $user->numdoc,
+                Career::select('career')->where('id', '=', $request->career)->first()->career,
+                $turn->date,
+                $turn->time
+            ));
         });
         return redirect()->route('index')->with('success', 'Data saved!');
     }

@@ -9,7 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "barryvdh/laravel-snappy": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
+        "h4cc/wkhtmltoimage-amd64": "0.12.x",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "kirschbaum-development/eloquent-power-joins": "^2.6",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",

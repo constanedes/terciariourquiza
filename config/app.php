@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
 
         //DATATABLES
         Yajra\DataTables\ButtonsServiceProvider::class,
@@ -197,6 +198,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // ...
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class
     ])->toArray(),
 
 ];

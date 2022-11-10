@@ -1,6 +1,6 @@
 @extends('pages.administracion.administracion')
 @section('page')
-<form action="/administracion/carreras/nuevo" class="row g-3 needs-validation m-3 p-5" method="post"
+<form action="/administracion/carreras/edit" class="row g-3 needs-validation m-3 p-5" method="post"
     enctype="multipart/form-data">
     @csrf
     <div class="row">
@@ -31,6 +31,7 @@
         </div>
     </div>
     <div class="row">
+        <input name="id" type="hidden" value="{{$carrera->id}}" />
         <input class="btn btn-primary" type="submit">
     </div>
 </form>

@@ -1,9 +1,7 @@
 @section('jscripts')
 <script>
+
     function eliminar(id, carrera) {
-        console.log(id + carrera);
-        
-        
         document.getElementById('carrera').textContent = carrera
         document.getElementById('send').onclick = () => send(id)
         $('#staticBackdrop').modal('toggle');
@@ -16,7 +14,7 @@
     function send(id) {
         (async () => {
             const csrf = $('meta[name="csrf-token"]').attr('content');
-            const rawResponse = await fetch('/administracion/carrera/eliminar', {
+            const rawResponse = await fetch('/administracion/carreras/eliminar', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -31,5 +29,52 @@
             $('#staticBackdrop').modal('toggle');
         })();
     }
+    function openCupoModal(id, carrera, cupo) {
+        $('#cupoModal').modal('toggle');
+        document.getElementById('carreraCupo').textContent = carrera
+        document.getElementById('cupo').value = cupo
+        document.getElementById('id').value = id
+        //document.getElementById('sendCupo').onclick = () => sendCupo(id, cupo)
+    }
+    function closeCupoModal() {
+        $('#cupoModal').modal('toggle');
+        document.getElementById('carreraCupo').textContent = ''
+        document.getElementById('sendCupo').removeAttribute('onclick')
+    }
+
+    function sendCupo() {
+        (async () => {
+            const csrf = $('meta[name="csrf-token"]').attr('content');
+            const rawResponse = await fetch('/administracion/carreras/cupo', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf
+                },
+                body: JSON.stringify({
+                    id: document.getElementById('id').value,
+                    cupo: document.getElementById('cupo').value
+                })
+            });
+            const content = await rawResponse.json();
+
+            document.querySelector('[title="Reload"]').click()
+            $('#cupoModal').modal('toggle');
+        })();
+    }
+
+
+    (function (window, document, undefined) {
+        window.addEventListener('DOMContentLoaded', function () {
+
+            const form = document.getElementById('myForm')
+            form.addEventListener('submit', (event) => {
+                event.preventDefault()
+                sendCupo()
+            })
+
+        })
+    })(window, document, undefined);
 </script>
 @endsection
