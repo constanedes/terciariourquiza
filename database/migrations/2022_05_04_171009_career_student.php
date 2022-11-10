@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained();
             $table->integer('year');
             $table->boolean('onOld')->default(false);
-            $table->primary(['career_id', 'student_id'], 'careers_students');
+            $table->primary(['career_id', 'student_id', 'year'], 'careers_students');
         });
     }
 

@@ -57,24 +57,27 @@ class StudentsController extends Controller
             } else {
                 Career::where('id', '=', $request->career)->decrement('quota', 1);
             }
-
-            $user = User::create([
-                'typedoc' => $request['typedoc'],
-                'numdoc' => $request['numdoc'],
-                'name' => $request['name'],
-                'surname' => $request['surname'],
-                'email' => $request['email'],
-                'password' => bcrypt($request['password']),
-                'nationality' => $request['nationality'],
-                'phone' => $request['phone'],
-                'address' => $request['address'],
-                'postalcode' => $request['postalcode'],
-                'locality' => $request['locality'],
-                'birthday' => $request['birthday'],
-                'title' => $request['title'],
-                'yearofgraduation' => $request['yearofgraduation'],
-                'institution' => $request['institution']
-            ]);
+            $user = User::firstOrcreate(
+                [
+                    'numdoc' => $request['numdoc']
+                ],
+                [
+                    'typedoc' => $request['typedoc'],
+                    'name' => $request['name'],
+                    'surname' => $request['surname'],
+                    'email' => $request['email'],
+                    'password' => bcrypt($request['password']),
+                    'nationality' => $request['nationality'],
+                    'phone' => $request['phone'],
+                    'address' => $request['address'],
+                    'postalcode' => $request['postalcode'],
+                    'locality' => $request['locality'],
+                    'birthday' => $request['birthday'],
+                    'title' => $request['title'],
+                    'yearofgraduation' => $request['yearofgraduation'],
+                    'institution' => $request['institution']
+                ]
+            );
             $student = Student::create([
                 'user_id' => $user->id,
                 'inscription' => $request->inscription

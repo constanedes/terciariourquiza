@@ -27,8 +27,10 @@ class CareersDataTable extends DataTable
             ->addColumn('action', function ($row) {
                 return '<a class="btn btn-warning" href="/administracion/carreras/editar/' . $row->id . '">
                             <i class="bi bi-pencil-fill"></i>
-                        </a><a class="btn btn-danger" onclick="eliminar(\''.$row->id.'\',\''.$row->career.'\')">
-                            <i class="bi bi-trash-fill"></i></a>';
+                        </a><a class="btn btn-danger" onclick="eliminar(\'' . $row->id . '\',\'' . $row->career . '\')">
+                            <i class="bi bi-trash-fill"></i></a>
+                        <a class="btn btn-success" onclick="openCupoModal(\'' . $row->id . '\',\'' . $row->career . '\',\'' . $row->quota . '\')">
+                            <i class="bi bi-clipboard2-plus-fill"></i></a>';
             });
     }
 
@@ -76,6 +78,8 @@ class CareersDataTable extends DataTable
         return [
             Column::make('career')->title('Carrera'),
             Column::make('desc')->title('Descripcion'),
+            Column::make('desc_corta')->title('Desc. corta'),
+            Column::make('quota')->title('Cupo'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

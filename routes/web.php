@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/carreras/nuevo', [CareersController::class, 'store']);
             Route::post('/carreras/eliminar', [CareersController::class, 'delete']);
             Route::post('/carreras/edit', [CareersController::class, 'edit']);
+            Route::post('/carreras/cupo', [CareersController::class, 'updateCupo']);
 
             /* CONFIGURACIONES */
             Route::get('/configuraciones', [SettingsController::class, 'index'])

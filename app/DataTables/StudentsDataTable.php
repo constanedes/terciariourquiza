@@ -24,9 +24,12 @@ class StudentsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function ($row) {
-                return $row;
-            });
+            ->addColumn('action', 'action')
+            ->filter(function ($query) {
+                if (request()->has('careers.career')) {
+                    $query->where('career', 'like', "%" . request('career') . "%");
+                }
+            }, true);
     }
 
     /**
@@ -37,10 +40,19 @@ class StudentsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->with([
-            'user',
-            'careers'
-        ])->select('students.*')->where('completePreinscription', '=', true)->newQuery();
+        return $model
+            ->leftJoinRelationship('careers')
+            ->joinRelationship('user')
+            ->select([
+                'students.*',
+                'careers.career',
+                'users.name',
+                'users.surname',
+                'users.email',
+                'users.typedoc',
+                'users.numdoc',
+                'career_student.year'
+            ])->where('completePreinscription', '=', true)->newQuery();
     }
 
     /**
@@ -73,12 +85,13 @@ class StudentsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('user.name')->title('Nombres')->data('user.name'),
-            Column::make('user.surname')->title('Apellidos')->data('user.surname'),
-            Column::make('user.typedoc')->title('Tipo documento'),
-            Column::make('user.numdoc')->title('Documento'),
-            Column::make('user.email')->title('Email'),
-            Column::make('user.careers.career')->data('user.careers.career'),
+            Column::make('users.name')->title('Nombres')->data('name'),
+            Column::make('users.surname')->title('Apellidos')->data('surname'),
+            Column::make('users.typedoc')->title('Tipo documento')->data('typedoc'),
+            Column::make('users.numdoc')->title('Documento')->data('numdoc'),
+            Column::make('users.email')->title('Email')->data('email'),
+            Column::make('careers.career')->title('Carrera')->data('career'),
+            Column::make('career_student.year')->title('Año')->data('year'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
