@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
 use App\DataTables\EntrantsDataTable;
+use App\Mail\ConfirmInscription;
 use App\Models\Career;
 use App\Models\Student;
 use App\Models\Turn;
 use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Mail;
 
 class StudentsController extends Controller
 {
@@ -37,7 +39,6 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'typedoc' => 'required',
             'numdoc' => 'required|numeric',
@@ -92,6 +93,16 @@ class StudentsController extends Controller
             );
             Turn::where('id', '=', $request->time)
                 ->update(['student_id' => $student->id]);
+            $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
+
+            Mail::to($user->email)->send(new ConfirmInscription(
+                $user->name,
+                $user->surname,
+                $user->numdoc,
+                Career::select('career')->where('id', '=', $request->career)->first()->career,
+                $turn->date,
+                $turn->time
+            ));
         });
         return redirect()->route('index')->with('success', 'Data saved!');
     }
