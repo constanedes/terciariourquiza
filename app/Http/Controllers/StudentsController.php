@@ -79,10 +79,14 @@ class StudentsController extends Controller
                     'institution' => $request['institution']
                 ]
             );
-            $student = Student::create([
-                'user_id' => $user->id,
-                'inscription' => $request->inscription
-            ]);
+            $student = Student::firstOrCreate(
+                [
+                    'user_id' => $user->id
+                ],
+                [
+                    'inscription' => $request->inscription
+                ]
+            );
 
             $student->careers()->attach(
                 Career::find($request['career']),
