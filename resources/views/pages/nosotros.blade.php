@@ -151,16 +151,17 @@
                 <p>Horarios bedelia: Lunes a Viernes de 20 a 22 hs</p>
             </div>
             <div class="col-6">
-                <form>
+                <form method="post" action="/contact">
                     <div class="form-group mt-2">
                       <label for="formGroupExampleInput">Email:</label>
-                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                      <input type="text" name="email" required="required" class="form-control"  placeholder="Email">
                     </div>
                     <div class="form-group mt-2">
                       <label for="formGroupExampleInput2">Consulta:</label>
-                      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                      <input type="text" name="consulta" required="required" class="form-control"  placeholder="Consulta">
                     </div>
                     <div class="d-flex align-items-end flex-column mt-3 ">
+                        @csrf
                         <button type="submit" class="btn btn-outline-secondary btn-md ">Enviar</button>
                     </div>                    
                   </form>

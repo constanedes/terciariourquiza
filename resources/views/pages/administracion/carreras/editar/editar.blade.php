@@ -13,8 +13,8 @@
             <input class="form-control" id="image" name="image" type="file" />
         </div>
     </div>
-    <div class="row">
-        <img src="{{asset('public/image/'.  $carrera->image) }}">
+    <div class="row my-3">
+        <img class="img-fluid " style="width:40% ;" src="{{asset('public/image/'.  $carrera->image) }}">
     </div>
     <div class="row">
         <div class="form-group col-12">

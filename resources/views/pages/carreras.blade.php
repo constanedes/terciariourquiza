@@ -4,7 +4,7 @@
     <form method="post" action="/preinscripcion/enviar">
         <div class="container espacio" id="carreras">
             <div class="row bg-secondary text-white text-center rounded-top">
-                <h1>Nuestras carreras</h1>
+                <h1>Seleccionar carrera deseada</h1>
             </div>
             <div class="row justify-content-evenly text-center">
                 @foreach($vars['carreras'] as $carrera)
