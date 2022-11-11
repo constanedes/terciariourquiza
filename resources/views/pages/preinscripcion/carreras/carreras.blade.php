@@ -1,21 +1,23 @@
+@include('pages.preinscripcion.carreras.jscripts')
 @extends('layouts.main')
 @section('content')
 <main>
     <form method="post" action="/preinscripcion/enviar">
         <div class="container espacio" id="carreras">
-            <div class="row bg-secondary text-white text-center rounded-top">
-                <h1>Nuestras carreras</h1>
+            <div class="row text-center bg-secondary rounded-top">
+                <h1 class="text-white bg-warning fw-bold">Seleccionar carrera</h1>
             </div>
-            <div class="row justify-content-evenly text-center">
+            <div class="row justify-content-evenly text-center bg-secondary">
                 @foreach($vars['carreras'] as $carrera)
-                <div class="col justify-content-center">
-                    <div class="card h-100" style="width: 14rem;">
-                        <img src="{{asset('public/image/'.  $carrera->image) }}" class="card-img-top"
+                <div class="col d-flex justify-content-around ">
+                    <div class="card h-100 border border-dark shadow-lg" style="width: 14rem;">
+                        <img src="{{asset('public/image/'.  $carrera->image) }}" class="card-img-top "
                             alt="{{$carrera->career}} ">
                         <div class="card-body">
                             <div class="row">
-                                <input id="{{$carrera->id}}" type="radio" class="btn-check" name="career"
-                                    value="{{$carrera->id}}" required>
+                                <input carcup="{{$carrera->quota}}" id="{{$carrera->id}}" type="radio" class="btn-check"
+                                    name="career" value="{{$carrera->id}}"
+                                    onchange="{{'showTurns('.$carrera->quota.')'}}" required>
                                 <label class="btn btn-secondary" for="{{$carrera->id}}">
                                     @if($carrera->quota > 0)
                                     Inscripcion
@@ -45,16 +47,29 @@
             <input type="hidden" name="title" value="{{$vars['entrant']['title']}}" />
             <input type="hidden" name="yearofgraduation" value="{{$vars['entrant']['yearofgraduation']}}" />
             <input type="hidden" name="institution" value="{{$vars['entrant']['institution']}}" />
-            <input type="hidden" name="turn" value="{{$vars['entrant']['turn']}}" />
-            <input type="hidden" name="time" value="{{$vars['entrant']['time']}}" />
             @csrf
+            <!-- Fecha turno -->
+            <div class="row py-5 bg-secondary" id="turns">
+                <div class="form-date col-md-6 pl-5 pr-5 ">
+                    <label class="form-label" for="input-date">Turno</label>
+                    <input class="form-control" id="datepicker" name="turn" onchange="loadHours(this.value)" />
+                </div>
+
+                <div class="col-md-6 pl-5 pr-5 pt-3">
+                    <label for="validationCustom04" class="form-label">Horarios</label>
+                    <select class="form-select" id="time" name="time" required>
+                    </select>
+                    <div class="invalid-feedback">Please select a valid state.</div>
+                </div>
+            </div>
+            <div class="row text-center bg-warning rounded ">
+                <input class="btn btn-warning " type="submit" name="Enviar!" />
+                              
+                
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <input class="btn btn-warning" type="submit" name="Enviar!" />
-        </div>
+        
+        
     </form>
 </main>
-<script>
-
-</script>
 @stop

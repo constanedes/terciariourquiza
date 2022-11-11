@@ -14,11 +14,13 @@
         <li>Apellido: {{$surname}}</li>
         <li>DNI: {{$numdoc}}</li>
     </ul>
+    @if($date && $time)
     <p>Turno solicitado:</p>
     <ul>
         <li>Fecha: {{$date}}</li>
         <li>Hora: {{$time}}</li>
     </ul>
+    @endif
 </body>
 
 </html>

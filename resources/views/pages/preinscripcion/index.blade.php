@@ -2,7 +2,7 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
-    <div class="container-fluid mt-5 mb-2 p-5 pt-1 border border-secondary rounded">
+    <div class="container-fluid p-5 pt-1 border border-secondary rounded">
         <form class="row g-3 needs-validation m-3 p-5" id="preinscription-form" method="POST" action="/carreras">
             @csrf
             @if ($errors->any())
@@ -14,11 +14,37 @@
                 </ul>
             </div>
             @endif
-            <div class="col-md-12 text-center">
-                <h2>
-                    Formulario de inscripcion
-                </h2>
+            <div class="row py-3 mb-3 bg-warning rounded rounded-pill opacity-75 text-center shadow-lg border border-dark border-top-0">                
+                <div class="col-md text-dark ">                
+                    <h2>
+                        Requisitos:
+                    </h2>                    
+                    <p>Estudios Secundarios completos</p> 
+                </div>
+                               
             </div>
+            <div class="row py-3 mt-1 bg-warning rounded rounded-pill opacity-75 text-center shadow-lg border border-dark border-top-0">                
+                
+                <div class="col-md text-dark ">
+                    <h2>
+                        Documentación solicitada:
+                    </h2>
+                    <p>Completar el trámite de pre-inscripción online</p>
+                    <p>Fotocopia DNI anverso y reverso</p>
+                    <p>Partida de Nacimiento Legalizada</p>
+                    <p>Certificada de buena salud</p>
+                    <p>Título legalizado de estudios secundarios. En su defecto, constancia de título en trámite.</p> 
+                </div>                
+            </div>
+            
+            <div class="row mt-3 border-top">
+                <div class="col-md-12 text-center mt-3">
+                    <h2>
+                        Formulario de inscripcion
+                    </h2>
+                </div>
+            </div>
+            
 
             <!-- Tipo de Doc -->
             <div class="col-md-6">
@@ -77,14 +103,14 @@
             </div>
 
             <!-- Celular -->
-            <div class="col-md-6 pl-5 pr-5">
+            <div class="col-md-6 mt-4">
                 <label for="validationCustom03" class="form-label">Tel / Celular</label>
                 <input type="number" class="form-control" name="phone" value="{{old('phone')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
             </div>
 
             <!-- Fecha Nac -->
-            <div class="col-md-db form-label form-date">
+            <div class="col-md-6 form-label form-date mt-1">
                 <label class="form-label form-date__label" for="input-date">Fecha Nacimiento</label>
                 <input class="form-control form-date__input" type="date" id="input-date" name="birthday" required />
             </div>
@@ -137,7 +163,7 @@
 
             <!-- Año egreso -->
             <div class="col-md-6 pl-5 pr-5">
-                <label for="validationCustom03" class="form-label">Año de Egreso</label>
+                <label for="validationCustom03" class="form-label">Año de egreso nivel secundario</label>
                 <input type="number" class="form-control" id="validationCustom03" name="yearofgraduation"
                     value="{{old('yearofgraduation')}}" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
@@ -145,22 +171,8 @@
 
             <!-- Institucion -->
             <div class="col-md-6 pl-5 pr-5">
-                <label for="validationCustom04" class="form-label">Institucion</label>
+                <label for="validationCustom04" class="form-label">Institución</label>
                 <input class="form-control" type="text" id="institution" name="institution" required />
-                <div class="invalid-feedback">Please select a valid state.</div>
-            </div>
-
-            <!-- Fecha turno -->
-            
-            <div class="form-date col-md-6 pl-5 pr-5 ">
-                <label class="form-label" for="input-date">Turno</label>
-                <input class="form-control" id="datepicker" name="turn" onchange="loadHours(this.value)" />
-            </div>
-
-            <div class="col-md-6 pl-5 pr-5 pt-3">
-                <label for="validationCustom04" class="form-label">Horarios</label>
-                <select class="form-select" id="time" name="time" required>
-                </select>
                 <div class="invalid-feedback">Please select a valid state.</div>
             </div>
 

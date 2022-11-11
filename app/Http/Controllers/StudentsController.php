@@ -52,6 +52,7 @@ class StudentsController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
+            $turn = null;
             $onOld = 0;
             if (Career::select('quota')->where('id', '=', intVal($request->career))->first()->quota == 0) {
                 $onOld = 1;
@@ -79,10 +80,14 @@ class StudentsController extends Controller
                     'institution' => $request['institution']
                 ]
             );
-            $student = Student::create([
-                'user_id' => $user->id,
-                'inscription' => $request->inscription
-            ]);
+            $student = Student::firstOrCreate(
+                [
+                    'user_id' => $user->id
+                ],
+                [
+                    'inscription' => $request->inscription
+                ]
+            );
 
             $student->careers()->attach(
                 Career::find($request['career']),
@@ -91,17 +96,20 @@ class StudentsController extends Controller
                     'onOld' => $onOld
                 ]
             );
-            Turn::where('id', '=', $request->time)
-                ->update(['student_id' => $student->id]);
-            $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
+            if ($onOld == 1) {
+                Turn::where('id', '=', $request->time)
+                    ->update(['student_id' => $student->id]);
+                $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
+            }
+
 
             Mail::to($user->email)->send(new ConfirmInscription(
                 $user->name,
                 $user->surname,
                 $user->numdoc,
                 Career::select('career')->where('id', '=', $request->career)->first()->career,
-                $turn->date,
-                $turn->time
+                $turn ? $turn->date : null,
+                $turn ? $turn->time : null
             ));
         });
         return redirect()->route('index')->with('success', 'Data saved!');
