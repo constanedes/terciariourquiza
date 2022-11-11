@@ -5,11 +5,15 @@
 @section('page')
 <div class="row py-5">
     {{$dataTable->table()}}
+    @isset($success)
+    {{$success}}
+    @endisset
 </div>
 @stop
 @push('scripts')
 {{$dataTable->scripts()}}
 @endpush
+
 @yield('modalDelete')
 @yield('modalCupo')
 @yield('jscripts')
