@@ -8,7 +8,11 @@
                     let select = document.getElementById('prov')
                     let provs = response.provincias.sort((a, b) => a.nombre.localeCompare(b.nombre))
                     provs.forEach(el => {
+                        
                         let op = document.createElement('OPTION');
+                        if (el.nombre == "Santa Fe"){
+                            op.setAttribute('selected','selected')
+                        }
                         op.innerHTML = el.nombre;
                         op.value = el.nombre;
                         select.options.add(op)
@@ -36,7 +40,8 @@
                 })
                 .catch(err => {
                     console.log('error:', err)
-                })
+                });
+                
         })
     })(window, document, undefined);
 
