@@ -28,6 +28,7 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "@sweetalert2/theme-dark": "^5.0.14",
         "bootstrap-icons": "^1.9.1",
         "datatables.net": "^1.11.5",
         "datatables.net-bs4": "^1.11.5",
@@ -38,6 +39,8 @@
         "datatables.net-select-bs5": "^1.4.0",
         "jquery": "^3.6.0",
         "jquery-min": "^0.0.2",
-        "picker": "^0.1.4"
+        "picker": "^0.1.4",
+        "sweetalert2": "^11.6.8",
+        "toastr": "^2.1.4"
     }
 }
