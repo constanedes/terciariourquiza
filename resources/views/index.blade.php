@@ -89,8 +89,9 @@
         <div class="row text-light text-center rounded">
             <h1>Nuestras carreras</h1>
         </div>
+
         <div class="bg-secondary">
-            @foreach($careers as $career)
+            @foreach($provider['careers'] as $career)
             <div class="row border border-secondary rounded  bg-light mb-3 shadow">
                 <div class="col-md-4">
                     <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid">
@@ -101,5 +102,13 @@
                     <a href="{{'/nuestrascarreras/'.$career->id}}" class="btn btn-warning">Más Informacion</a>
                 </div>
             </div>
-            @endforeach
-@stop
+        </div>
+    </div>
+</main>
+@endforeach
+@if(isset(Session::get('error')))
+<script>
+    { { Session:: get('error') } }
+</script>
+@endif
+@endsection

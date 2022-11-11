@@ -19,9 +19,12 @@ use App\Http\Controllers\SettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/contact',[HomeController::class,'sendContact']);
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::post('/contact', [HomeController::class, 'sendContact']);
+
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
 Route::get('/nosotros', function () {
     return view('pages.nosotros');

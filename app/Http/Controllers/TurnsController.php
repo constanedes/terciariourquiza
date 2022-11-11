@@ -44,7 +44,10 @@ class TurnsController extends Controller
 
     public function getDays(Request $request)
     {
-        return Turn::select('date')->where('student_id', '=', null)->groupBy('date')->get();
+        return Turn::select('date')
+            ->where('student_id', '=', null)
+            ->whereDate('date', '>', date('Y-m-d'))
+            ->groupBy('date')->get();
     }
 
     public function getHours(Request $request)

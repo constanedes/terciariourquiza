@@ -51,7 +51,11 @@ class StudentsController extends Controller
             'address' => 'required'
         ]);
 
-        DB::transaction(function () use ($request) {
+        //DB::transaction(function () use ($request) {
+        DB::beginTransaction();
+        try {
+
+
             $turn = null;
             $onOld = 0;
             if (Career::select('quota')->where('id', '=', intVal($request->career))->first()->quota == 0) {
@@ -101,18 +105,26 @@ class StudentsController extends Controller
                     ->update(['student_id' => $student->id]);
                 $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
             }
+            DB::commit();
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollback();
+            return
+                redirect()->route('index')->with(
+                    'error',
+                    'Usted ya se encuentra preinscripto en este ciclo lectivo a esta carrera!'
+                );
+        }
 
+        Mail::to($user->email)->send(new ConfirmInscription(
+            $user->name,
+            $user->surname,
+            $user->numdoc,
+            Career::select('career')->where('id', '=', $request->career)->first()->career,
+            $turn ? $turn->date : null,
+            $turn ? $turn->time : null
+        ));
 
-            Mail::to($user->email)->send(new ConfirmInscription(
-                $user->name,
-                $user->surname,
-                $user->numdoc,
-                Career::select('career')->where('id', '=', $request->career)->first()->career,
-                $turn ? $turn->date : null,
-                $turn ? $turn->time : null
-            ));
-        });
-        return redirect()->route('index')->with('success', 'Data saved!');
+        return redirect()->route('index');
     }
 
     public function getStudentById($id)
