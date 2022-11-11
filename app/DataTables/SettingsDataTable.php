@@ -52,8 +52,8 @@ class SettingsDataTable extends DataTable
             ->dom('Bfrtip')
             ->orderBy(1)
             ->buttons(
-                Button::make('create'),
-                Button::make('export'),
+                Button::make(['extend' => 'create', 'text' => 'Crear']),
+                Button::make(['extend' => 'excel', 'text' => 'Excel']),
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')

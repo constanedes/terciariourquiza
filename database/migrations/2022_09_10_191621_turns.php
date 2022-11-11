@@ -22,7 +22,9 @@ return new class extends Migration
                 ->references('id')
                 ->on('students')
                 ->onDelete('cascade');
+            $table->unique(['date', 'time']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

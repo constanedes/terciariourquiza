@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('value')->default(true);
             $table->string('obs')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -89,8 +89,9 @@
         <div class="row text-light text-center rounded">
             <h1>Nuestras carreras</h1>
         </div>
+
         <div class="bg-secondary">
-            @foreach($careers as $career)
+            @foreach($provider['careers'] as $career)
             <div class="row border border-secondary rounded  bg-light mb-3 shadow">
                 <div class="col-md-4">
                     <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid">
@@ -101,5 +102,28 @@
                     <a href="{{'/nuestrascarreras/'.$career->id}}" class="btn btn-warning">Más Informacion</a>
                 </div>
             </div>
-            @endforeach
-@stop
+        </div>
+    </div>
+</main>
+@endforeach
+@if(Session::get('error') != null)
+<script>
+    Swal.fire({
+        title: 'Error!',
+        text: '{{Session::get('error')}}',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    })
+</script>
+@endif
+@if(Session::get('registroCompleto') != null)
+<script>
+    Swal.fire({
+        title: 'Registro completo',
+        text: '{{Session::get('registroCompleto')}}',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    })
+</script>
+@endif
+@endsection
