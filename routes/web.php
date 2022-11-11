@@ -86,6 +86,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/turnos/create', function () {
                 return view('pages.administracion.turnos.create.create');
             });
+            Route::post('/turnos/eliminar', [TurnsController::class, 'delete']);
 
             /* USERS */
             Route::get('/users', [UsersController::class, 'index'])

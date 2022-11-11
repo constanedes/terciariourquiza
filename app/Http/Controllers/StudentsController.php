@@ -60,6 +60,7 @@ class StudentsController extends Controller
             $onOld = 0;
             if (Career::select('quota')->where('id', '=', intVal($request->career))->first()->quota == 0) {
                 $onOld = 1;
+                return $onOld . 'onold';
             } else {
                 Career::where('id', '=', $request->career)->decrement('quota', 1);
             }
@@ -100,7 +101,7 @@ class StudentsController extends Controller
                     'onOld' => $onOld
                 ]
             );
-            if ($onOld == 1) {
+            if ($onOld == 0) {
                 Turn::where('id', '=', $request->time)
                     ->update(['student_id' => $student->id]);
                 $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
@@ -114,17 +115,21 @@ class StudentsController extends Controller
                     'Usted ya se encuentra preinscripto en este ciclo lectivo a esta carrera!'
                 );
         }
+        if (getenv('MAIL_USERNAME')) {
+            Mail::to($user->email)->send(new ConfirmInscription(
+                $user->name,
+                $user->surname,
+                $user->numdoc,
+                Career::select('career')->where('id', '=', $request->career)->first()->career,
+                $turn ? $turn->date : null,
+                $turn ? $turn->time : null
+            ));
+        }
 
-        Mail::to($user->email)->send(new ConfirmInscription(
-            $user->name,
-            $user->surname,
-            $user->numdoc,
-            Career::select('career')->where('id', '=', $request->career)->first()->career,
-            $turn ? $turn->date : null,
-            $turn ? $turn->time : null
-        ));
-
-        return redirect()->route('index');
+        return redirect()->route('index')->with(
+            'registroCompleto',
+            'Usted se registro exitosamente, recuerde concurrir al turno para completar el proceso de inscripción.'
+        );;
     }
 
     public function getStudentById($id)

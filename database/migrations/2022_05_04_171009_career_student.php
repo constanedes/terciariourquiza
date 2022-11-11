@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('year');
             $table->boolean('onOld')->default(false);
             $table->primary(['career_id', 'student_id', 'year'], 'careers_students');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

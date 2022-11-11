@@ -106,9 +106,24 @@
     </div>
 </main>
 @endforeach
-@if(isset(Session::get('error')))
+@if(Session::get('error') != null)
 <script>
-    { { Session:: get('error') } }
+    Swal.fire({
+        title: 'Error!',
+        text: '{{Session::get('error')}}',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    })
+</script>
+@endif
+@if(Session::get('registroCompleto') != null)
+<script>
+    Swal.fire({
+        title: 'Registro completo',
+        text: '{{Session::get('registroCompleto')}}',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    })
 </script>
 @endif
 @endsection

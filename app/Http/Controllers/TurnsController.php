@@ -57,4 +57,10 @@ class TurnsController extends Controller
             ->where('student_id', '=', null)
             ->get();
     }
+
+    public function delete(Request $request)
+    {
+        Turn::find($request->id)->delete();
+        return $request->id;
+    }
 }
