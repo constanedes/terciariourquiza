@@ -30,8 +30,9 @@
                         Documentación solicitada:
                     </h2>
                     <p>Completar el trámite de pre-inscripción online</p>
-                    <p>DNI (1º y 2º hoja, más cambio de domicilio)</p>
-                    <p>Partida de Nacimiento</p>
+                    <p>Fotocopia DNI anverso y reverso</p>
+                    <p>Partida de Nacimiento Legalizada</p>
+                    <p>Certificada de buena salud</p>
                     <p>Título legalizado de estudios secundarios. En su defecto, constancia de título en trámite.</p> 
                 </div>                
             </div>

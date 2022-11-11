@@ -3,11 +3,11 @@
 <header>
     @yield('login')
     <div>
-        <div class="container-fluid mb-3">
+        <div class="container-fluid mb-3 ">
             <div class="row">
                 <div class="col-md">
                     <nav
-                class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary fixed-top"
+                        class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary fixed-top"
             >
                 <a class="navbar-brand" href="/">
                     <img
@@ -49,7 +49,7 @@
                             <ul id="carrerasUl" class="dropdown-menu"></ul>
                             <a
                                 id="iniciar-sesion2"
-                                class="nav-link text-nowrap"
+                                class="nav-link text-nowrap "
                                 href="/login"
                                 >Iniciar Sesión</a
                             >
