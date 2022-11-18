@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\CanResetPassword;
+use App\Notifications\VerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
 {
     use SoftDeletes;
     use HasApiTokens, HasFactory, HasRoles, Notifiable;
@@ -65,5 +67,15 @@ class User extends Authenticatable
     public function student()
     {
         return $this->hasOne(Student::class);
+    }
+
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmail); // my notification
     }
 }

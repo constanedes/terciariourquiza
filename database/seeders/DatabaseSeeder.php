@@ -18,51 +18,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $super = Role::create(['name' => 'Super Admin']);
-        $role = Role::create(['name' => 'bedelia']);
-
+        Role::create(['name' => 'Super Admin']);
         Role::create(['name' => 'student']);
-
-        Permission::create(['name' => 'editar alumnos']);
-
-        $role->givePermissionTo('editar alumnos');
+        Role::create(['name' => 'bedelia']);
 
         $user = User::create([
             'typedoc' => 'DNI',
-            'numdoc' => 40404040,
-            'email' => 'prueba@gmail.com',
-            'password' => bcrypt('testing'),
-            'name' => 'Matias',
-            'surname' => 'Gomez',
+            'numdoc' => 34752137,
+            'email' => 'nico.cristalli@gmail.com',
+            'password' => bcrypt('Urquiza.49'),
+            'name' => 'Nicolas',
+            'surname' => 'Cristalli',
             'nationality' => 'Argentina',
-            'phone' => '3413333333',
-            'address' => 'Montevideo',
-            'postalcode' => 2000,
-            'locality' => 'Rosario',
-            'birthday' => '1997-09-30',
-            'title' => 'Titulo secundario',
-            'yearofgraduation' => '1997',
-            'institution' => 'Urquiza',
+            'phone' => '3413444192',
+            'address' => 'Falucho 277',
+            'postalcode' => 2156,
+            'locality' => 'Fray Luis Beltran',
+            'birthday' => '1990-04-22',
+            'title' => 'AUS',
+            'yearofgraduation' => '2015',
+            'institution' => 'UTN',
+            'email_verified_at' => '2022-11-18 00:00:00'
         ]);
         $user->assignRole('Super Admin');
-        $estudiante = User::create([
-            'typedoc' => 'DNI',
-            'numdoc' => 50404040,
-            'email' => 'estudiante@gmail.com',
-            'password' => bcrypt('testing'),
-            'name' => 'Mauro',
-            'surname' => 'Fernandez',
-            'nationality' => 'Argentina',
-            'phone' => '3413333332',
-            'address' => 'Montevideo',
-            'postalcode' => 2000,
-            'locality' => 'Rosario',
-            'birthday' => '1997-09-30',
-            'title' => 'Titulo secundario',
-            'yearofgraduation' => '1997',
-            'institution' => 'Urquiza',
-        ]);
-        $estudiante->assignRole('student');
 
         Setting::create([
             'name' => 'inscripcion',
