@@ -11,7 +11,7 @@
                 @foreach($vars['carreras'] as $carrera)
                 <div class="col d-flex justify-content-around ">
                     <div class="card h-100 border border-dark shadow-lg" style="width: 14rem;">
-                        <img src="{{asset('public/image/'.  $carrera->image) }}" class="card-img-top "
+                        <img src="{{asset('image/'.  $carrera->image) }}" class="card-img-top "
                             alt="{{$carrera->career}} ">
                         <div class="card-body">
                             <div class="row">
@@ -64,12 +64,12 @@
             </div>
             <div class="row text-center bg-warning rounded ">
                 <input class="btn btn-warning " type="submit" name="Enviar!" />
-                              
-                
+
+
             </div>
         </div>
-        
-        
+
+
     </form>
     <div class="container bg-reddark text-center text-white p-3 rounded shadow-lg">
         <h4 class="fw-bold">La inscripción a 1° año será valida solo si recibe el mail de confirmación</h4>
