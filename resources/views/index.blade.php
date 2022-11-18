@@ -93,10 +93,7 @@
             @foreach($provider['careers'] as $career)
             <div class="row border border-secondary rounded  bg-light mb-3 shadow">
                 <div class="col-md-4">
-                    <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid" data-aos="fade-zoom-in"
-                    data-aos-easing="ease-in-back"
-                    data-aos-delay="300"
-                    data-aos-offset="0">
+                    <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
                     <h2 class="card-title mt-3 text-success fw-bolder">{{$career->career}}</h2>
