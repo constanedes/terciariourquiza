@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\CareersDataTable;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class CareersController extends Controller
 {
@@ -81,13 +83,37 @@ class CareersController extends Controller
 
     public function edit(Request $request)
     {
-        DB::transaction(function () use ($request) {
-            Career::where('id', '=', $request->id)->update([
+        DB::beginTransaction();
+        try {
+            $filename = "";
+            if ($request->file('image')) {
+                $file = $request->file('image');
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('image'), $filename);
+            }
+
+            $career = Career::find($request->id);
+            $career->update([
                 'career' => $request->career,
                 'desc' => $request->desc,
                 'desc_corta' => $request->desc_corta
             ]);
-        });
+
+            if ($filename != "") {
+                File::delete('image/' . $career->image);
+                $career->update([
+                    'image' => $filename
+                ]);
+            }
+
+            DB::commit();
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollback();
+            return redirect()->route('index')->with(
+                'error',
+                'Error!'
+            );
+        }
         return redirect()->route('pages.administracion.carreras.index');
     }
 
@@ -105,7 +131,7 @@ class CareersController extends Controller
             if ($request->file('image')) {
                 $file = $request->file('image');
                 $filename = date('YmdHi') . $file->getClientOriginalName();
-                $file->move(public_path('public/image'), $filename);
+                $file->move(public_path('image'), $filename);
             }
             Career::create([
                 'career' => $request['career'],
