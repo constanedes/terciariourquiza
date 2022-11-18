@@ -1,8 +1,4 @@
 @section('footer')
-
-<!-- Remove the container if you want to extend the Footer to full width. -->
-
-
 <!-- Footer -->
 
 
@@ -20,7 +16,7 @@
                 <!-- Content -->
                 <a href="/">
                     <img src="{{ asset('img/Logo_Terciario_Urquiza_Full_blanco.png') }} " class="img-fluid"
-                        width="200rem" alt="logo urquiza">
+                        width="200rem" alt="logo urquiza" data-aos="flip-down">
                 </a>
             </div>
             <!-- Grid column -->
@@ -70,7 +66,7 @@
 <!-- Copyright -->
 <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
     © 2022 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">EQUIPO DS31 </a>
+    <a class="text-white" href="https://github.com/constanedes/terciariourquiza">EQUIPO DS31 </a>
 </div>
 <!-- Copyright -->
 
