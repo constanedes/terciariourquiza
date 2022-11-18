@@ -24,12 +24,12 @@
             <div class="col position-relative">
                 <img
                     src="{{ asset('img/front_school.jpg') }} "
-                    class="img-fluid shadow"
+                    class="img-fluid shadow carousel-bg"
                     width="100%"
                     alt="logo urquiza"
                 />
                 <div class="position-absolute top-50 start-0 text-white p-5">
-                    <h3 class="shadow text-warning font-monospace">
+                    <h3 class="font-monospace">
                         Nuestra Historia
                     </h3>
                     <p>
@@ -56,6 +56,7 @@
             <div class="col-4 d-flex justify-content-end">
                 <div class="">
                     <img
+                    class="carousel-bg"
                     src="{{ asset('img/front_school_2.jpg') }} " alt="logo urquiza" width="100%"
                 />
                 </div> 
@@ -68,6 +69,7 @@
             <div class="col-4 d-flex justify-content-end">
                 <div class="">
                     <img
+                    class="carousel-bg"
                     src="{{ asset('img/front_school_2.jpg') }} " alt="logo urquiza" width="100%"
                 />
                 </div> 
