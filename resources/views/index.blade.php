@@ -34,10 +34,10 @@
                         <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100 carousel-bg" alt="...">
                         <div class="carousel-caption d-none d-md-block position-absolute button-0 start-5 text-light text-start" >
                             <div>
-                                <h5 
+                                <h3 
                                 class="col-5 fw-bolder text-warning" >
                                 Tecnico Superior en Desarrollo Software
-                                </h5>
+                                </h3>
                         </div>
                             
                             <p class="">El Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que tienen por objeto producir artefactos de software (programas, módulos, objetos).</p>

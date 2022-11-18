@@ -31,6 +31,7 @@
                                         Nuestras carreras
                                     </a>
                                     <ul id="carrerasUl" class="dropdown-menu"></ul>
+                                    
                                     <a id="iniciar-sesion2" class="nav-link text-nowrap " href="/login">Iniciar
                                         Sesión</a>
                                 </li>
@@ -58,7 +59,7 @@
                             </button>
                         </a>
                         @endif
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-warning " data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Iniciar Sesión
                         </button>

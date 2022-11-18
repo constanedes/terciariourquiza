@@ -45,3 +45,7 @@ $position-values: (
 .carousel-bg{
   filter: brightness(50%);
 }
+
+.navbar-default .navbar-nav>.open>a.dropdown-toggle{
+  background-color: $warning !important;
+}
