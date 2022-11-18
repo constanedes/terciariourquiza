@@ -30,6 +30,15 @@ class StudentsController extends Controller
         return $dataTable->render('pages.administracion.ingresantes.index');
     }
 
+    public function preinscriptionPage(Request $request)
+    {
+        if (Setting::select('value')->where('name', '=', 'inscripcion')->first()->value == 1) {
+            return view('pages.preinscripcion.index');
+        } else {
+            return redirect()->route('index');
+        }
+    }
+
     public function confirm(Request $request)
     {
         Student::where('id', '=', $request['id'])
