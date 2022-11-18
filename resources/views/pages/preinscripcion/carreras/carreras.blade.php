@@ -71,5 +71,8 @@
         
         
     </form>
+    <div class="container bg-reddark text-center text-white p-3 rounded shadow-lg">
+        <h4 class="fw-bold">La inscripción a 1° año será valida solo si recibe el mail de confirmación</h4>
+    </div>
 </main>
 @stop
