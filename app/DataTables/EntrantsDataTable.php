@@ -112,12 +112,12 @@ class EntrantsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('users.name')->title('Nombre')->data('users.name'),
-            Column::make('users.surname')->title('Apellido')->data('users.surname'),
-            Column::make('users.typedoc')->title('Tipo documento')->data('users.typedoc'),
-            Column::make('users.numdoc')->title('Documento')->data('users.numdoc'),
-            Column::make('users.email')->title('Email')->data('users.email'),
-            Column::make('careers.career')->title('Carrera')->data('careers.career'),
+            Column::make('users.name')->title('Nombre')->data('name'),
+            Column::make('users.surname')->title('Apellido')->data('surname'),
+            Column::make('users.typedoc')->title('Tipo documento')->data('typedoc'),
+            Column::make('users.numdoc')->title('Documento')->data('numdoc'),
+            Column::make('users.email')->title('Email')->data('email'),
+            Column::make('careers.career')->title('Carrera')->data('career'),
             Column::make('date')->title('Fecha')->data('date'),
             Column::make('action')->title('Insc. completa')
         ];
