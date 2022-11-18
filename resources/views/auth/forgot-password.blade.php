@@ -7,8 +7,9 @@
     <div class="mb-4 text-sm text-dark pt-3 text-center fw-bold col-8 ">
         <h3>
             {{ __(
-            'Olvidaste tu contraseña? No hay problema. Solo dinos tu email y te enviaremos un link para que puedaselegiruna
-            nueva'
+            'Olvidaste tu contraseña? No hay problema. '.
+            'Solo dinos tu email y te enviaremos un link '.
+            'para que puedas elegir una nueva'
             ) }}
         </h3>
     </div>
@@ -31,9 +32,9 @@
     <!-- Email Address -->
     <div class="container d-flex align-items-center flex-column mb-3">
         <div class="row ">
-            <x-label  for="email" :value="__('Email')" />
-    
-            <x-input  id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+            <x-label for="email" :value="__('Email')" />
+
+            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
                 autofocus />
         </div>
         <div class="row mt-3 mb-3">
@@ -42,7 +43,7 @@
             </button>
         </div>
     </div>
-    
-    
+
+
 </form>
 @endsection
