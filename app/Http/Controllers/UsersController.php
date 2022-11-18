@@ -9,6 +9,7 @@ use App\DataTables\UsersDataTable;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Auth\Events\Registered;
 
 class UsersController extends Controller
 {
@@ -82,6 +83,7 @@ class UsersController extends Controller
                 'institution' => $request['institution']
             ]);
             $user->assignRole($request['rol']);
+            event(new Registered($user));
         });
 
         return redirect()->route('pages.administracion.users.index')->with('success', 'Data saved!');

@@ -17,6 +17,7 @@ use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
 
 class StudentsController extends Controller
 {
@@ -116,6 +117,9 @@ class StudentsController extends Controller
                 $turn = Turn::select('date', 'time')->where('id', '=', $request->time)->first();
             }
             DB::commit();
+            if ($student->email_verified_at == null) {
+                event(new Registered($user));
+            }
         } catch (\Illuminate\Database\QueryException $e) {
             DB::rollback();
             return

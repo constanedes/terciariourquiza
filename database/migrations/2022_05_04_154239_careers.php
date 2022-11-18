@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('desc')->nullable();
             $table->text('desc_corta')->nullable();
             $table->string('image')->nullable();
-            $table->integer('quota')->nullable();
+            $table->integer('quota')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
