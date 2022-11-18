@@ -105,7 +105,7 @@ class CareersController extends Controller
             if ($request->file('image')) {
                 $file = $request->file('image');
                 $filename = date('YmdHi') . $file->getClientOriginalName();
-                $file->move(public_path('public/Image'), $filename);
+                $file->move(public_path('public/image'), $filename);
             }
             Career::create([
                 'career' => $request['career'],
@@ -115,7 +115,7 @@ class CareersController extends Controller
             ]);
         });
 
-        return redirect()->route('pages.administracion.carreras.index')->with('success', 'Data saved!');
+        return redirect()->route('pages.administracion.carreras.index')->with('success', 'ok');
     }
 
     public function updateCupo(Request $request)
@@ -124,6 +124,8 @@ class CareersController extends Controller
             ->update([
                 'quota' => $request->cupo
             ]);
-        return $request->id;
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 }

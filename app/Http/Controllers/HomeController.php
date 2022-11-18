@@ -7,14 +7,9 @@ use App\Models\Career;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function sendContact(Request $request)
     {
-        $careers = Career::select(['id', 'career', 'desc_corta', 'image'])->get();
-        return view('index')->with('careers', $careers);
-    }
-
-    public function sendContact(Request $request){
-        $mensaje ="";
+        $mensaje = "";
         $header = 'From: ' . $request->email . " \r\n";
         $header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
         $header .= "Mime-Version: 1.0 \r\n";
@@ -28,7 +23,7 @@ class HomeController extends Controller
         $asunto = 'Consulta';
 
         mail($para, $asunto, utf8_decode($mensaje), $header);
-        
+
         return view('index');
     }
 }

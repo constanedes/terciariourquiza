@@ -11,6 +11,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Database\Eloquent\Builder;
 
 class TurnsDataTable extends DataTable
 {
@@ -39,10 +40,10 @@ class TurnsDataTable extends DataTable
                 }
             })*/
             ->addColumn('action', function ($row) {
-                return '<a class="btn btn-warning" href="/administracion/turnos/editar/' . $row->id . '">
-                            <i class="bi bi-pencil-fill"></i>
-                        </a><a class="btn btn-danger" href="/administracion/turnos/eliminar/' . $row->id . '">
+                if ($row->name == null) {
+                    return '<a class="btn btn-danger" onclick="eliminar(\'' . $row->id . '\',\'' . $row->date . '\',\'' . $row->time . '\')">
                             <i class="bi bi-trash-fill"></i></a>';
+                }
             });
     }
 
@@ -55,10 +56,25 @@ class TurnsDataTable extends DataTable
 
     public function query(Turn $model)
     {
+        /*
         return $model->newQuery()->with([
             'student',
             'student.user'
-        ])->select('turns.*');
+        ])->select('turns.*');*/
+        return $model
+            ->leftJoinRelationship('student', function ($join) {
+                $join->where('completePreinscription', '=', false);
+            })
+            ->leftJoinRelationship('student.careers')
+            ->leftJoinRelationship('student.user')
+            ->select([
+                'turns.*',
+                'users.name',
+                'users.surname',
+                'users.email',
+                'careers.career'
+            ])
+            ->newQuery();
     }
 
     /**
@@ -76,7 +92,7 @@ class TurnsDataTable extends DataTable
             ->orderBy(1)
             ->buttons(
                 Button::make(['extend' => 'create', 'text' => 'Crear']),
-                Button::make(['extend' => 'export', 'text' => 'Exportar']),
+                Button::make(['extend' => 'excel', 'text' => 'Excel']),
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
@@ -91,8 +107,10 @@ class TurnsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('student.user.name')->title('Nombre')->data('student.user.name'),
-            Column::make('student.user.surname')->title('Apellido')->data('student.user.surname'),
+            Column::make('users.name')->title('Nombre')->data('name'),
+            Column::make('users.surname')->title('Apellido')->data('surname'),
+            Column::make('users.email')->title('Email')->data('email'),
+            Column::make('careers.career')->title('Carrera')->data('career'),
             Column::make('date'),
             Column::make('time'),
             Column::make('action')

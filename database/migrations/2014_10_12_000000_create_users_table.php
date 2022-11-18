@@ -33,6 +33,7 @@ return new class extends Migration
             $table->integer('yearofgraduation');
             $table->string('institution');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

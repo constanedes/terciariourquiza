@@ -19,20 +19,24 @@ use App\Http\Controllers\SettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/contact',[HomeController::class,'sendContact']);
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::post('/contact', [HomeController::class, 'sendContact']);
+
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
 Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
 
-Route::get('nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
-Route::get('preinscripcion', function () {
+Route::get('/nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
+
+Route::get('/preinscripcion', function () {
     return view('pages.preinscripcion.index');
 });
 
-Route::get('getcarreras', [CareersController::class, 'getCareers']);
+Route::get('/getcarreras', [CareersController::class, 'getCareers']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
@@ -83,6 +87,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/turnos/create', function () {
                 return view('pages.administracion.turnos.create.create');
             });
+            Route::post('/turnos/eliminar', [TurnsController::class, 'delete']);
 
             /* USERS */
             Route::get('/users', [UsersController::class, 'index'])

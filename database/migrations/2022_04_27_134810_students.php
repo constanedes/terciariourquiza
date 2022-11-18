@@ -21,6 +21,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->boolean('completePreinscription')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
