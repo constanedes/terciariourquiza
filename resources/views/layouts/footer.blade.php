@@ -41,10 +41,11 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold">Tramites</h6>
-
+                @if($provider['inscription']->value == 1)
                 <p>
                     <a href="/preinscripcion" class="text-white">Inscripción</a>
                 </p>
+                @endif
             </div>
             <!-- Grid column -->
 

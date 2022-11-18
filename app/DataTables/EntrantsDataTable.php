@@ -46,7 +46,30 @@ class EntrantsDataTable extends DataTable
     public function query(Turn $model)
     {
         return $model->newQuery()
-            ->with([
+            ->leftJoinRelationship('student', function ($join) {
+                $join->where('completePreinscription', '=', false);
+            })
+            ->leftJoinRelationship('student.careers')
+            ->joinRelationship('student.user')
+            ->select([
+                'turns.date',
+                'turns.time',
+                'users.name',
+                'users.surname',
+                'users.typedoc',
+                'users.numdoc',
+                'users.email',
+                'careers.career'
+            ])
+            /*->where('student_id', '<>', null)
+            ->whereHas('student', function (Builder $query) {
+                $query->where('completePreinscription', '=', 0);
+            })
+            ->whereHas('student.careers', function (Builder $query) {
+                $query->where('year', '=', Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs);
+            })*/;
+
+        /*->with([
                 'student',
                 'student.user',
                 'student.careers'
@@ -57,7 +80,7 @@ class EntrantsDataTable extends DataTable
             })
             ->whereHas('student.careers', function (Builder $query) {
                 $query->where('year', '=', Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs);
-            });
+            });*/
     }
 
     /**
@@ -89,11 +112,12 @@ class EntrantsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('student.user.name')->title('Nombre')->data('student.user.name'),
-            Column::make('student.user.surname')->title('Apellido')->data('student.user.surname'),
-            Column::make('student.user.typedoc')->title('Tipo documento')->data('student.user.typedoc'),
-            Column::make('student.user.numdoc')->title('Documento')->data('student.user.numdoc'),
-            Column::make('student.user.email')->title('Email')->data('student.user.email'),
+            Column::make('users.name')->title('Nombre')->data('users.name'),
+            Column::make('users.surname')->title('Apellido')->data('users.surname'),
+            Column::make('users.typedoc')->title('Tipo documento')->data('users.typedoc'),
+            Column::make('users.numdoc')->title('Documento')->data('users.numdoc'),
+            Column::make('users.email')->title('Email')->data('users.email'),
+            Column::make('careers.career')->title('Carrera')->data('careers.career'),
             Column::make('date')->title('Fecha')->data('date'),
             Column::make('action')->title('Insc. completa')
         ];

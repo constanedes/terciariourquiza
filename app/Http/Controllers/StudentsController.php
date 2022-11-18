@@ -129,7 +129,7 @@ class StudentsController extends Controller
         return redirect()->route('index')->with(
             'registroCompleto',
             'Usted se registro exitosamente, recuerde concurrir al turno para completar el proceso de inscripción.'
-        );;
+        );
     }
 
     public function getStudentById($id)

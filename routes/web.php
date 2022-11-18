@@ -30,12 +30,13 @@ Route::get('/nosotros', function () {
     return view('pages.nosotros');
 });
 
-Route::get('nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
-Route::get('preinscripcion', function () {
+Route::get('/nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
+
+Route::get('/preinscripcion', function () {
     return view('pages.preinscripcion.index');
 });
 
-Route::get('getcarreras', [CareersController::class, 'getCareers']);
+Route::get('/getcarreras', [CareersController::class, 'getCareers']);
 
 
 Route::post('/preinscripcion/enviar', [StudentsController::class, 'store']);
