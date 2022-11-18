@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row my-3">
-        <img class="img-fluid " style="width:40% ;" src="{{asset('public/image/'.  $carrera->image) }}">
+        <img class="img-fluid " style="width:40% ;" src="{{asset('image/'.  $carrera->image) }}">
     </div>
     <div class="row">
         <div class="form-group col-12">
