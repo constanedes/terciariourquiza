@@ -3,7 +3,7 @@
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }} "  >
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
@@ -21,8 +21,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-warning">
-                    <a href="{{ route('password.request') }}">Olvidaste tu contraseña?</a>
+                    <input type="submit" class="btn btn-warning">                    
+                </div>
+                <div class="d-flex mb-3">
+                    <a class="btn btn-warning btn-sm ms-auto p-2 mx-3" href="{{ route('password.request') }}">Olvidaste tu contraseña?</a>
                 </div>
             </form>
         </div>
