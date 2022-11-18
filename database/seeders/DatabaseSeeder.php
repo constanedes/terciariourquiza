@@ -37,7 +37,8 @@ class DatabaseSeeder extends Seeder
             'birthday' => '1990-04-22',
             'title' => 'AUS',
             'yearofgraduation' => '2015',
-            'institution' => 'UTN'
+            'institution' => 'UTN',
+            'email_verified_at' => '2022-11-18 00:00:00'
         ]);
         $user->assignRole('Super Admin');
 
