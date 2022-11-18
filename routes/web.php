@@ -32,9 +32,8 @@ Route::get('/nosotros', function () {
 
 Route::get('/nuestrascarreras/{id}', [CareersController::class, 'careerPage']);
 
-Route::get('/preinscripcion', function () {
-    return view('pages.preinscripcion.index');
-});
+Route::get('/preinscripcion', [StudentsController::class, 'preinscriptionPage'])
+    ->name('preinscription');
 
 Route::get('/getcarreras', [CareersController::class, 'getCareers']);
 
