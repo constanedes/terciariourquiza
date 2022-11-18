@@ -9,6 +9,7 @@
                     class="img-fluid"
                     width="200rem"
                     alt="logo urquiza"
+                    
                 />
             </div>
             <div class="col-8 text-start">

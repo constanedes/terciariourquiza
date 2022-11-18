@@ -11,6 +11,9 @@
     <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
         @yield('footer')
     </footer>
+    <script>
+        AOS.init();
+    </script>
 
     @stack('scripts')
 </body>

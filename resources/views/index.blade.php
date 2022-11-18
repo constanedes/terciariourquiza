@@ -6,7 +6,8 @@
         <div class="row align-items-center ">
             <div class="col-4">
                 <img src="{{ asset('img/Logo_Terciario_Urquiza_Full.png') }} " class="img-fluid" width="200rem"
-                    alt="logo urquiza">
+                    alt="logo urquiza" 
+                    >
             </div>
             <div class="col-8 text-start">
                 <h1>Escuela Superior Nº 49</h1>
@@ -92,7 +93,10 @@
             @foreach($provider['careers'] as $career)
             <div class="row border border-secondary rounded  bg-light mb-3 shadow">
                 <div class="col-md-4">
-                    <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid">
+                    <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid" data-aos="fade-zoom-in"
+                    data-aos-easing="ease-in-back"
+                    data-aos-delay="300"
+                    data-aos-offset="0">
                 </div>
                 <div class="col-md-8">
                     <h2 class="card-title mt-3 text-success fw-bolder">{{$career->career}}</h2>

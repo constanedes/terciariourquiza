@@ -9,7 +9,7 @@
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary fixed-top">
                         <a class="navbar-brand" href="/">
                             <img src="{{ asset('img/Logo_Terciario_Urquiza.png') }}" alt="Escuela Urquiza" width="60"
-                                height="60" />
+                                height="60" data-aos="fade-up" data-aos-anchor-placement="bottom-center" />
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#menuNavegacion">
