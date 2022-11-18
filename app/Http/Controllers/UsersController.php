@@ -64,7 +64,7 @@ class UsersController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
-            User::create([
+            $user = User::create([
                 'typedoc' => $request['typedoc'],
                 'numdoc' => $request['numdoc'],
                 'name' => $request['name'],
