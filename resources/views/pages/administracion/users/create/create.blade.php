@@ -144,7 +144,7 @@
         <div class="container text-center">
             <div class="row align-items-end">
                 <div class="col">
-                    <button class="btn btn-outline-secondary  btn-lg" type="submit">
+                    <button class="btn btn-outline-warning btn-lg" type="submit">
                         Enviar
                     </button>
                 </div>

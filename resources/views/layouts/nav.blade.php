@@ -9,7 +9,7 @@
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary fixed-top">
                         <a class="navbar-brand" href="/">
                             <img src="{{ asset('img/Logo_Terciario_Urquiza.png') }}" alt="Escuela Urquiza" width="60"
-                                height="60" />
+                                height="60" data-aos="fade-up" data-aos-anchor-placement="bottom-center" />
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#menuNavegacion">
@@ -31,6 +31,7 @@
                                         Nuestras carreras
                                     </a>
                                     <ul id="carrerasUl" class="dropdown-menu"></ul>
+                                    
                                     <a id="iniciar-sesion2" class="nav-link text-nowrap " href="/login">Iniciar
                                         Sesión</a>
                                 </li>
@@ -58,7 +59,7 @@
                             </button>
                         </a>
                         @endif
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-warning " data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Iniciar Sesión
                         </button>

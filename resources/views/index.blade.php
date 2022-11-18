@@ -6,7 +6,8 @@
         <div class="row align-items-center ">
             <div class="col-4">
                 <img src="{{ asset('img/Logo_Terciario_Urquiza_Full.png') }} " class="img-fluid" width="200rem"
-                    alt="logo urquiza">
+                    alt="logo urquiza" 
+                    >
             </div>
             <div class="col-8 text-start">
                 <h1>Escuela Superior Nº 49</h1>
@@ -33,10 +34,10 @@
                         <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100 carousel-bg" alt="...">
                         <div class="carousel-caption d-none d-md-block position-absolute button-0 start-5 text-light text-start" >
                             <div>
-                                <h5 
+                                <h3 
                                 class="col-5 fw-bolder text-warning" >
                                 Tecnico Superior en Desarrollo Software
-                                </h5>
+                                </h3>
                         </div>
                             
                             <p class="">El Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que tienen por objeto producir artefactos de software (programas, módulos, objetos).</p>
@@ -92,7 +93,7 @@
             @foreach($provider['careers'] as $career)
             <div class="row border border-secondary rounded  bg-light mb-3 shadow">
                 <div class="col-md-4">
-                    <img src="{{asset('image/'.  $career->image) }}" alt="" class="img-fluid">
+                    <img src="{{asset('public/image/'.  $career->image) }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
                     <h2 class="card-title mt-3 text-success fw-bolder">{{$career->career}}</h2>
