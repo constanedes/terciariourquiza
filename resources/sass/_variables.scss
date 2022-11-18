@@ -12,6 +12,7 @@ $success : #2A7E29;
 $primary : #3323A8;
 $danger : #F31414;
 $secondary: #8f8e8e;
+$reddark : #5c0010;
 
 
 
@@ -22,11 +23,13 @@ $theme-colors: (
     "primary" : $primary,
     "danger" : $danger,
     "secondary" : $secondary,
+    "reddark" : $reddark,
 
 );
 
 $position-values: (
   0: 0,
+  5: 5,
   10: 10%,
   20: 20%,
   50: 50%,
@@ -36,4 +39,9 @@ $position-values: (
 .text-secondary {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+    color: aliceblue;
+}
+
+.carousel-bg{
+  filter: brightness(50%);
 }

@@ -28,43 +28,41 @@
             </div>
             <div class="carousel-inner">
                 <!-- image DS  -->
-                <div class="carousel-item active">
+                <div class="carousel-item active position-relative ">
                     <a href="/desarrollo-software">
-                        <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-white bg-secondary rounded shadow">Tecnico Superior en Desarrollo Software
-                            </h5>
-                            <p class="text-warning bg-secondary rounded shadow">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eum voluptatibus beatae id, quasi possimus quae perspiciatis minus sit
-                                reprehenderit dolorem in reiciendis ab! Quia iure assumenda magnam repellendus natus
-                                ullam.</p>
+                        <img src="{{ asset('img/developer_carousel.png') }}" class="d-block w-100 carousel-bg" alt="...">
+                        <div class="carousel-caption d-none d-md-block position-absolute button-0 start-5 text-light text-start" >
+                            <div>
+                                <h5 
+                                class="col-5 fw-bolder text-warning" >
+                                Tecnico Superior en Desarrollo Software
+                                </h5>
+                        </div>
+                            
+                            <p class="">El Técnico Superior en Desarrollo de Software participa en proyectos de desarrollo de software desempeñando roles que tienen por objeto producir artefactos de software (programas, módulos, objetos).</p>
                         </div>
                     </a>
                 </div>
                 <!-- image AF -->
-                <div class="carousel-item">
+                <div class="carousel-item position-relative">
                     <a href="/analisis-funcional">
-                        <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block ">
-                            <h5 class="text-white bg-secondary rounded shadow">Analista Funcional de Sistemas
+                        <img src="{{ asset('img/analista_carousel.png') }}" class="d-block w-100 carousel-bg" alt="...">
+                        <div class="carousel-caption d-none d-md-block position-absolute button-0 start-5 text-light text-start">
+                            <h5 class="col-5 fw-bolder text-warning">Analista Funcional de Sistemas
                                 Informaticos</h5>
-                            <p class="text-warning bg-secondary rounded shadow">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Ipsam dolore voluptates velit maxime culpa. Autem recusandae dolore
-                                laboriosam reiciendis itaque expedita, iusto labore excepturi officiis explicabo fugiat
-                                repellat, temporibus ab.</p>
+                            <p >El Técnico Superior en Análisis Funcional de Sistemas Informáticos estará capacitado para comprender e interpretar fines, negocios o actividades de una organización, analizar los procesos que se llevan a cabo, averiguar las necesidades de información, proponer mejoras, especificar requisitos de software, redactar manuales y procedimientos, y apoyar la puesta en marcha de sistemas, actuando de nexo entre usuarios de la organización y el grupo de proyecto, desarrollando las actividades descriptas en el perfil profesional y cumpliendo con los criterios de realización establecidos para las mismas</p>
                         </div>
                     </a>
 
                 </div>
                 <!-- image ITI -->
-                <div class="carousel-item">
+                <div class="carousel-item position-relative">
                     <a href="/infraestructura-ti">
-                        <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="text-white bg-secondary rounded shadow">Soporte de Infraestructura de Tecnologia
+                        <img src="{{ asset('img/iti_carousel.png') }}" class="d-block w-100 carousel-bg" alt="...">
+                        <div class="carousel-caption d-none d-md-block position-absolute button-0 start-5 text-light text-start">
+                            <h5 class="col-6 fw-bolder text-warning">Soporte de Infraestructura de Tecnologia
                                 de la Informacion</h5>
-                            <p class="text-warning bg-secondary rounded shadow">Some representative placeholder content
-                                for the third slide.</p>
+                            <p >El Técnico Superior en Infraestructura de Tecnología de la Información estará capacitado para implementar, mantener, actualizar, analizar inconvenientes y resolver problemas derivados de la operación de productos de tecnología de la información que cumplen funciones de sistema operativo, administración de almacenamiento, comunicaciones y redes, seguridad, bases de datos, y otros subsistemas, para garantizar la máxima disponibilidad del ambiente operativo de las aplicaciones informáticas de las organizaciones desarrollando las funciones descriptas en el perfil profesional y cumpliendo con los criterios de realización establecidos para las mismas, para lo cual coordinará o complementará su trabajo con especialistas de la misma organización o externos.</p>
                         </div>
                     </a>
 

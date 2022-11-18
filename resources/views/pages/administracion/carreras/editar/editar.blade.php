@@ -32,7 +32,7 @@
     </div>
     <div class="row">
         <input name="id" type="hidden" value="{{$carrera->id}}" />
-        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-warning" type="submit">
     </div>
 </form>
 @stop
