@@ -29,10 +29,10 @@ class EntrantsDataTable extends DataTable
             ->addColumn('action', 'entrants.action')
             ->addColumn('action', function ($row) {
                 return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
-                    $row->student->id . '\',\'' .
-                    $row->student->user->name . '\',\'' .
-                    $row->student->user->surname . '\',\'' .
-                    $row->student->user->numdoc .
+                    $row->id . '\',\'' .
+                    $row->name . '\',\'' .
+                    $row->surname . '\',\'' .
+                    $row->numdoc .
                     '\')"><i class="bi bi-check-circle-fill"></i></button>';
             });
     }
@@ -52,6 +52,7 @@ class EntrantsDataTable extends DataTable
             ->leftJoinRelationship('student.careers')
             ->joinRelationship('student.user')
             ->select([
+                'students.id',
                 'turns.date',
                 'turns.time',
                 'users.name',
