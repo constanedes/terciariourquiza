@@ -64,13 +64,10 @@ class StudentsController extends Controller
         //DB::transaction(function () use ($request) {
         DB::beginTransaction();
         try {
-
-
             $turn = null;
             $onOld = 0;
             if (Career::select('quota')->where('id', '=', intVal($request->career))->first()->quota == 0) {
                 $onOld = 1;
-                return $onOld . 'onold';
             } else {
                 Career::where('id', '=', $request->career)->decrement('quota', 1);
             }
