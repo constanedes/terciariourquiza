@@ -114,10 +114,10 @@
                     <a href="{{'/nuestrascarreras/'.$career->id}}" class="btn btn-warning">Más Informacion</a>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </main>
-@endforeach
 @if(Session::get('error') != null)
 <script>
     Swal.fire({
