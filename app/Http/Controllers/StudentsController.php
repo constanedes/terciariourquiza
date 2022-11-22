@@ -151,22 +151,4 @@ class StudentsController extends Controller
     {
         return Student::first()->where('id', '=', $id);
     }
-
-    public function assignAux(Request $request)
-    {
-        $idMax = User::latest()->first()->id + 1;
-
-        for ($i = 1; $i <= $idMax; $i++) {
-            $user = User::where('id', '=', $i)->first();
-            if ($user != null) {
-                if ($user->hasAnyRole(['Super Admin', 'student', 'bedelia'])) {
-                    echo 'nada';
-                } else {
-                    $user->assignRole('student');
-                }
-            }
-            $user = null;
-        }
-        return 'finished';
-    }
 }
