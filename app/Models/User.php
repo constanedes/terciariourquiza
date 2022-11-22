@@ -37,7 +37,8 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
         'birthday',
         'title',
         'yearofgraduation',
-        'institution'
+        'institution',
+        'province'
     ];
 
     protected $guarded = [
@@ -77,5 +78,59 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
     public function sendEmailVerificationNotification()
     {
         $this->notify(new VerifyEmail); // my notification
+    }
+
+    public function __get($key)
+    {
+        if (is_string($this->getAttribute($key)) && $key != 'email' && $key != 'password') {
+            return strtoupper($this->getAttribute($key));
+        } else {
+            return $this->getAttribute($key);
+        }
+    }
+
+    public function setTypedocAttribute($value)
+    {
+        $this->attributes['typedoc'] = strtoupper($value);
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtoupper($value);
+    }
+
+    public function setSurnameAttribute($value)
+    {
+        $this->attributes['surname'] = strtoupper($value);
+    }
+
+    public function setNationalityAttribute($value)
+    {
+        $this->attributes['nationality'] = strtoupper($value);
+    }
+
+    public function setAddressAttribute($value)
+    {
+        $this->attributes['address'] = strtoupper($value);
+    }
+
+    public function setProvinceAttribute($value)
+    {
+        $this->attributes['province'] = strtoupper($value);
+    }
+
+    public function setLocalityAttribute($value)
+    {
+        $this->attributes['locality'] = strtoupper($value);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = strtoupper($value);
+    }
+
+    public function setInstitutionAttribute($value)
+    {
+        $this->attributes['institution'] = strtoupper($value);
     }
 }

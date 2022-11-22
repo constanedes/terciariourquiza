@@ -58,7 +58,8 @@ class StudentsController extends Controller
             'password' => 'required|min:8|string',
             'nationality' => 'required|string',
             'phone' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'province' => 'required'
         ]);
 
         //DB::transaction(function () use ($request) {
@@ -89,7 +90,8 @@ class StudentsController extends Controller
                     'birthday' => $request['birthday'],
                     'title' => $request['title'],
                     'yearofgraduation' => $request['yearofgraduation'],
-                    'institution' => $request['institution']
+                    'institution' => $request['institution'],
+                    'province' => $request['province']
                 ]
             );
             $student = Student::firstOrCreate(

@@ -61,7 +61,8 @@ class UsersController extends Controller
             'password' => 'required|min:8|string',
             'nationality' => 'required|string',
             'phone' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'province' => 'required'
         ]);
 
         DB::transaction(function () use ($request) {
@@ -80,7 +81,8 @@ class UsersController extends Controller
                 'birthday' => $request['birthday'],
                 'title' => $request['title'],
                 'yearofgraduation' => $request['yearofgraduation'],
-                'institution' => $request['institution']
+                'institution' => $request['institution'],
+                'province' => $request['province']
             ]);
             $user->assignRole($request['rol']);
             event(new Registered($user));
