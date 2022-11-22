@@ -28,7 +28,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 Route::post('/contact', [HomeController::class, 'sendContact']);
-Route::get('/aux', [StudentsController::class, 'assignAux']);
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
