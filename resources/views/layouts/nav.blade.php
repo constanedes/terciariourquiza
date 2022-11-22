@@ -31,7 +31,7 @@
                                         Nuestras carreras
                                     </a>
                                     <ul id="carrerasUl" class="dropdown-menu"></ul>
-                                    
+
                                     <a id="iniciar-sesion2" class="nav-link text-nowrap " href="/login">Iniciar
                                         Sesión</a>
                                 </li>
@@ -43,6 +43,8 @@
                             </ul>
                         </div>
                         @hasanyrole('bedelia|Super Admin|student')
+                        @hasrole('student')
+                        @endhasrole
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <button type="button" class="btn btn-warning">
