@@ -60,28 +60,10 @@ class EntrantsDataTable extends DataTable
                 'users.typedoc',
                 'users.numdoc',
                 'users.email',
-                'careers.career'
+                'careers.career',
+                'career_student.onOld'
             ])
-            /*->where('student_id', '<>', null)
-            ->whereHas('student', function (Builder $query) {
-                $query->where('completePreinscription', '=', 0);
-            })
-            ->whereHas('student.careers', function (Builder $query) {
-                $query->where('year', '=', Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs);
-            })*/;
-
-        /*->with([
-                'student',
-                'student.user',
-                'student.careers'
-            ])->select('turns.*')
-            ->where('student_id', '<>', null)
-            ->whereHas('student', function (Builder $query) {
-                $query->where('completePreinscription', '=', 0);
-            })
-            ->whereHas('student.careers', function (Builder $query) {
-                $query->where('year', '=', Setting::select('obs')->where('name', '=', 'inscripcion')->first()->obs);
-            });*/
+            ->where('career_student.onOld', '=', 0);
     }
 
     /**
@@ -115,11 +97,12 @@ class EntrantsDataTable extends DataTable
         return [
             Column::make('users.name')->title('Nombre')->data('name'),
             Column::make('users.surname')->title('Apellido')->data('surname'),
-            Column::make('users.typedoc')->title('Tipo documento')->data('typedoc'),
+            Column::make('users.typedoc')->title('Tipo doc.')->data('typedoc'),
             Column::make('users.numdoc')->title('Documento')->data('numdoc'),
             Column::make('users.email')->title('Email')->data('email'),
             Column::make('careers.career')->title('Carrera')->data('career'),
             Column::make('date')->title('Fecha')->data('date'),
+            Column::make('time')->title('Horario')->data('time'),
             Column::make('action')->title('Insc. completa')
         ];
     }
