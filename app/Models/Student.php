@@ -16,7 +16,9 @@ class Student extends Model
     use HasFactory;
 
     protected $table = 'students';
-    protected $appends = ['position'];
+    protected $appends = [
+        'position'
+    ];
     protected $fillable = [
         'year',
         'user_id',

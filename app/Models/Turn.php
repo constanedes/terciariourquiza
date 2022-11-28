@@ -20,6 +20,9 @@ class Turn extends Model
         'student_id',
         'created_at'
     ];
+    protected $appends = [
+        'careers_concat'
+    ];
     protected $guarded = [
         'id'
     ];
@@ -36,5 +39,17 @@ class Turn extends Model
 
 
         ]);
+    }
+
+    public function getCareersConcatAttribute()
+    {
+        if ($this->student_id) {
+            return implode(', ', Student::leftJoinRelationship('careers')
+                ->select('careers.career')
+                ->where('career_student.student_id', $this->student_id)
+                ->where('career_student.onOld', 0)
+                ->pluck('career')
+                ->toArray());
+        }
     }
 }

@@ -49,9 +49,6 @@ class EntrantsDataTable extends DataTable
             ->leftJoinRelationship('careers')
             ->joinRelationship('user')
             ->select([
-                'students.id',
-                //'turns.date',
-                //'turns.time',
                 'users.name',
                 'users.surname',
                 'users.typedoc',
