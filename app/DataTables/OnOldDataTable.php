@@ -13,8 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
-class EntrantsDataTable extends DataTable
+class OnOldDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -25,16 +26,16 @@ class EntrantsDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
-            ->addColumn('action', 'entrants.action')
-            ->addColumn('action', function ($row) {
+            ->eloquent($query);
+        //->addColumn('action', 'entrants.action')
+        /*->addColumn('action', function ($row) {
                 return '<button class="btn btn-warning" data-bs-target="#staticBackdrop" onclick="complete(\'' .
                     $row->id . '\',\'' .
                     $row->name . '\',\'' .
                     $row->surname . '\',\'' .
                     $row->numdoc .
                     '\')"><i class="bi bi-check-circle-fill"></i></button>';
-            });
+            });*/
     }
 
     /**
@@ -45,22 +46,28 @@ class EntrantsDataTable extends DataTable
      */
     public function query(Student $model)
     {
-        return $model->newQuery()
+        return $model
+
+            ->newQuery()
+            //->makeVisible(['position'])
             ->leftJoinRelationship('careers')
             ->joinRelationship('user')
             ->select([
                 'students.id',
-                //'turns.date',
-                //'turns.time',
                 'users.name',
                 'users.surname',
                 'users.typedoc',
                 'users.numdoc',
                 'users.email',
                 'careers.career',
-                'career_student.onOld'
+                'career_student.onOld',
+                'career_student.career_id',
+                'career_student.year',
+                'career_student.created_at'
             ])
-            ->where('career_student.onOld', '=', 0);
+
+            ->where('career_student.onOld', '=', 1)
+            ->orderBy('career_student.created_at');
     }
 
     /**
@@ -92,13 +99,15 @@ class EntrantsDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('position')->title('Posición')->sortable(false)->searchable(false),
             Column::make('users.name')->title('Nombre')->data('name'),
             Column::make('users.surname')->title('Apellido')->data('surname'),
-            Column::make('users.typedoc')->title('Tipo doc.')->data('typedoc'),
+            //Column::make('users.typedoc')->title('Tipo doc.')->data('typedoc'),
             Column::make('users.numdoc')->title('Documento')->data('numdoc'),
-            Column::make('users.email')->title('Email')->data('email'),
+            //Column::make('users.email')->title('Email')->data('email'),
+            //Column::make('careers.career')->title('Carrera')->data('career'),
             Column::make('careers.career')->title('Carrera')->data('career'),
-            Column::make('action')->title('Insc. completa')
+            //Column::make('action')->title('Insc. completa')
         ];
     }
 

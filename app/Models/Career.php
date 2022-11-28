@@ -26,6 +26,6 @@ class Career extends Model
 
     public function users()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class)->withTimestamps();
     }
 }

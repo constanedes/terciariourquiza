@@ -17,7 +17,8 @@ class Turn extends Model
     protected $fillable = [
         'date',
         'time',
-        'student_id'
+        'student_id',
+        'created_at'
     ];
     protected $guarded = [
         'id'

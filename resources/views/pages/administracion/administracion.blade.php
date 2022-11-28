@@ -20,6 +20,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/administracion/listaespera" class="nav-link text-white">
+                        Lista de espera
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/administracion/turnos" class="nav-link text-white">
                         Turnos
                     </a>
