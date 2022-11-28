@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\DataTables\StudentsDataTable;
 use App\DataTables\EntrantsDataTable;
+use App\DataTables\OnOldDataTable;
 use App\Mail\ConfirmInscription;
 use App\Models\Career;
 use App\Models\Student;
@@ -29,6 +30,11 @@ class StudentsController extends Controller
     public function ingresantesIndex(EntrantsDataTable $dataTable)
     {
         return $dataTable->render('pages.administracion.ingresantes.index');
+    }
+
+    public function listaEsperaIndex(OnOldDataTable $dataTable)
+    {
+        return $dataTable->render('pages.administracion.listaespera.listaespera');
     }
 
     public function preinscriptionPage(Request $request)

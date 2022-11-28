@@ -147,6 +147,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ->name('pages.administracion.ingresantes.index');
             Route::post('/ingresantes/confirmar', [StudentsController::class, 'confirm']);
 
+            /* LISTA DE ESPERA */
+            Route::get('/listaespera', [StudentsController::class, 'listaEsperaIndex'])
+                ->name('listaespera');
+
             /* TURNOS */
             Route::post('/turnos/crear', [TurnsController::class, 'generateTurns']);
             Route::get('/turnos', [TurnsController::class, 'index']);

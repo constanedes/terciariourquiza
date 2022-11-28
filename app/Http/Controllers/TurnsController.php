@@ -31,14 +31,22 @@ class TurnsController extends Controller
                 $horariosTurnos = date('H:i:s', mktime(intVal($fechaInicio[0]), intVal($fechaInicio[1]), 0));
                 // incrementar $horariosTurnos en 20 minutos hasta llegar a las 23:00:00
                 while ($horariosTurnos < $request['hora_fin'] . ':00') {
-                    array_push($arrayHorariosTurnos, ['date' => $dt->format('Y-m-d'), 'time' => $horariosTurnos]);
+                    array_push($arrayHorariosTurnos, [
+                        'date' => $dt->format('Y-m-d'),
+                        'time' => $horariosTurnos,
+                        'created_at' => now()
+                    ]);
                     $horariosTurnos = date('H:i:s', strtotime($horariosTurnos) + $request['duration'] * 60);
                 }
             }
         }
-        DB::transaction(function () use ($arrayHorariosTurnos) {
+        DB::beginTransaction();
+        try {
             Turn::insert($arrayHorariosTurnos);
-        });
+            DB::commit();
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollback();
+        }
         return redirect('administracion/turnos');
     }
 
