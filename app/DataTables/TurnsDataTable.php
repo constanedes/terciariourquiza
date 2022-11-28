@@ -65,14 +65,12 @@ class TurnsDataTable extends DataTable
             ->leftJoinRelationship('student', function ($join) {
                 $join->where('completePreinscription', '=', false);
             })
-            ->leftJoinRelationship('student.careers')
             ->leftJoinRelationship('student.user')
             ->select([
                 'turns.*',
                 'users.name',
                 'users.surname',
-                'users.email',
-                'careers.career'
+                'users.email'
             ])
             ->newQuery();
     }
@@ -110,9 +108,8 @@ class TurnsDataTable extends DataTable
             Column::make('users.name')->title('Nombre')->data('name'),
             Column::make('users.surname')->title('Apellido')->data('surname'),
             Column::make('users.email')->title('Email')->data('email'),
-            Column::make('careers.career')->title('Carrera')->data('career'),
-            Column::make('date'),
-            Column::make('time'),
+            Column::make('date')->title('Fecha'),
+            Column::make('time')->title('Hora'),
             Column::make('action')
                 ->exportable(false)
                 ->printable(false)
